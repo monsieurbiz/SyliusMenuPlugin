@@ -1,0 +1,44 @@
+{
+    "doctrine/doctrine-cache-bundle": {
+        "version": "1.4.0"
+    },
+    "fzaninotto/faker": {
+        "version": "v1.9.2"
+    },
+    "jdorn/sql-formatter": {
+        "version": "v1.2.17"
+    },
+    "jms/parser-lib": {
+        "version": "1.0.0"
+    },
+    "phpcollection/phpcollection": {
+        "version": "0.5.0"
+    },
+    "phpoption/phpoption": {
+        "version": "1.7.5"
+    },
+    "phpstan/phpstan": {
+        "version": "0.12.29"
+    },
+    "symfony/flex": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "c0eeb50665f0f77226616b6038a9b06c03752d8e"
+        },
+        "files": [
+            ".env"
+        ]
+    },
+    "symfony/inflector": {
+        "version": "v5.2.6"
+    },
+    "white-october/pagerfanta-bundle": {
+        "version": "v1.3.2"
+    },
+    "zendframework/zend-hydrator": {
+        "version": "2.4.2"
+    }
+}
