@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusMenuPlugin\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TranslatableInterface;
 
@@ -47,9 +48,9 @@ interface MenuItemInterface extends ResourceInterface, TranslatableInterface
     public function setPosition(?int $position): void;
 
     /**
-     * @return array|null
+     * @return Collection|null
      */
-    public function getItems(): ?array;
+    public function getItems(): ?Collection;
 
     /**
      * @param MenuItemInterface $item

@@ -12,9 +12,10 @@ declare(strict_types=1);
 namespace MonsieurBiz\SyliusMenuPlugin\Entity;
 
 use DateTimeInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Sylius\Component\Resource\Model\TimestampableTrait;
 use Sylius\Component\Resource\Model\TranslatableTrait;
-
 
 /**
  * @method MenuItemTranslationInterface getTranslation(?string $locale = null)
@@ -47,9 +48,9 @@ class MenuItem implements MenuItemInterface
     private ?MenuInterface $menu = null;
 
     /**
-     * @var array|null
+     * @var Collection|null
      */
-    private ?array $items = null;
+    private ?Collection $items = null;
 
     /**
      * @var MenuItemInterface|null
@@ -137,7 +138,7 @@ class MenuItem implements MenuItemInterface
     /**
      * {@inheritdoc}
      */
-    public function getItems(): ?array
+    public function getItems(): ?Collection
     {
         return $this->items;
     }
