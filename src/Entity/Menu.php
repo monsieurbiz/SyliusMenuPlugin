@@ -12,6 +12,8 @@ declare(strict_types=1);
 namespace MonsieurBiz\SyliusMenuPlugin\Entity;
 
 use DateTimeInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Sylius\Component\Resource\Model\TimestampableTrait;
 
 class Menu implements MenuInterface
@@ -39,9 +41,9 @@ class Menu implements MenuInterface
     private ?string $code = null;
 
     /**
-     * @var array|null
+     * @var Collection|null
      */
-    private ?array $items;
+    private ?Collection $items;
 
     /**
      * @var bool|null
@@ -51,10 +53,10 @@ class Menu implements MenuInterface
     /**
      * Menu constructor.
      */
-//    public function __construct()
-//    {
-//        $this->items = new ArrayCollection();
-//    }
+    public function __construct()
+    {
+        $this->items = new ArrayCollection();
+    }
 
     /**
      * {@inheritdoc}
@@ -83,7 +85,7 @@ class Menu implements MenuInterface
     /**
      * {@inheritdoc}
      */
-    public function getItems(): ?array
+    public function getItems(): ?Collection
     {
         return $this->items;
     }

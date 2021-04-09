@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusMenuPlugin\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TimestampableInterface;
 
@@ -32,9 +33,9 @@ interface MenuInterface extends ResourceInterface, TimestampableInterface
     public function setCode(?string $code): void;
 
     /**
-     * @return array|null
+     * @return Collection|null
      */
-    public function getItems(): ?array;
+    public function getItems(): ?Collection;
 
     /**
      * @return array
