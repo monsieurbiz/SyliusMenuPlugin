@@ -19,12 +19,12 @@ use Doctrine\Migrations\AbstractMigration;
  */
 final class Version20210407172059 extends AbstractMigration
 {
-    public function getDescription() : string
+    public function getDescription(): string
     {
         return '';
     }
 
-    public function up(Schema $schema) : void
+    public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE TABLE monsieurbiz_menu_item_menu (id INT AUTO_INCREMENT NOT NULL, menu_id INT DEFAULT NULL, parent_id INT DEFAULT NULL, created_at DATETIME NOT NULL COMMENT \'(DC2Type:datetime_immutable)\', updated_at DATETIME NOT NULL COMMENT \'(DC2Type:datetime_immutable)\', position INT NOT NULL, highlighted TINYINT(1) DEFAULT NULL, INDEX IDX_C95D00BECCD7E912 (menu_id), INDEX IDX_C95D00BE727ACA70 (parent_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
@@ -34,7 +34,7 @@ final class Version20210407172059 extends AbstractMigration
         $this->addSql('ALTER TABLE monsieurbiz_menu_item_menu ADD CONSTRAINT FK_C95D00BE727ACA70 FOREIGN KEY (parent_id) REFERENCES monsieurbiz_menu_item_menu (id) ON DELETE CASCADE');
     }
 
-    public function down(Schema $schema) : void
+    public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE monsieurbiz_menu_item_menu DROP FOREIGN KEY FK_C95D00BE727ACA70');
