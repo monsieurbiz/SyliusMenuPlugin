@@ -1,4 +1,4 @@
-app:
+monsieurbiz_menu:
     ui:
         menus: 'Menus'
         new_menu: 'Nouveau menu'

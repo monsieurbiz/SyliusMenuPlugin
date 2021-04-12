@@ -2,14 +2,14 @@ monsieurbiz_sylius_menu:
     resource: |
         alias: monsieurbiz_menu.menu
         section: admin
-        templates: "/Admin/Menu"
+        templates: "@MonsieurBizSyliusMenuPlugin/Admin/Menu"
         except: ['show', 'bulkDelete']
         redirect: index
         grid: monsieurbiz_menu_menu
         vars:
             all:
                 templates:
-                    form: "/Admin/Menu/_form.html.twig"
+                    form: "@MonsieurBizSyliusMenuPlugin/Admin/Menu/_form.html.twig"
             index:
                 icon: 'sitemap'
     type: sylius.resource
