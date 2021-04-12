@@ -1,0 +1,19 @@
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.js-move-link').forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                event.stopPropagation();
+                let xhr = new XMLHttpRequest();
+                xhr.addEventListener( 'load', function (event) {
+                    if (this.status === 200) {
+                        window.location.reload();
+                    }
+                });
+                xhr.open(event.target.dataset.method, event.target.dataset.url);
+                xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+                xhr.send();
+                return false;
+            }, false);
+        });
+    }, false);
+</script>
