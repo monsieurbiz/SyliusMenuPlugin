@@ -1,0 +1,54 @@
+{% set menu_items = menu_first_level('main') %}
+{% if menu_items is not empty %}
+    <div class="navigation" data-component="navigation">
+        <button
+            class="navigation__toggle"
+            id="navigation-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="#navigation-list"
+            data-component="state"
+            data-target="#navigation-toggle, #navigation-wrapper, body"
+            data-behaviour="toggle, toggle, toggle"
+            data-state="--active, --open, --fixed"
+        >
+            {{ 'app.ui.menu'|trans }}
+        </button>
+        <nav
+            class="navigation__wrapper"
+            id="navigation-wrapper"
+            role="navigation"
+        >
+            <ul class="navigation__list">
+                {% for first_level_item in menu_items %}
+                    {% set sub_items = first_level_item.items %}
+                    <li class="navigation__item {% if first_level_item.highlighted %}--highlight{% endif %}">
+                        <a href="{% if first_level_item.url is empty %}#{% else %}{{ first_level_item.url }}{% endif %}" class="navigation__link {% if sub_items is not empty %}--children{% endif %}">{# Current page: `--current` class to add #}
+                            <span class="navigation__label">
+                        {{ first_level_item.label }}
+                    </span>
+                        </a>
+                        {% if sub_items is not empty %}
+                            <ul class="navigation__sublist">
+                                {% for sub_item in sub_items %}
+                                    <li class="navigation__subitem">
+                                        <a href="{{ sub_item.url }}" class="navigation__sublink">
+                            <span class="navigation__sublabel">
+                                {{ sub_item.label }}
+                            </span>
+                                            {% if sub_item.headline %}
+                                                <span class="navigation__subinfo">
+                                {{ sub_item.headline }}
+                            </span>
+                                            {% endif %}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+{% endif %}
