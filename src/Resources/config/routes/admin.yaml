@@ -14,7 +14,7 @@ monsieurbiz_sylius_menu:
                 icon: 'sitemap'
     type: sylius.resource
 
-monsieurbiz_sylius_menu_item_create_for_menu:
+monsieurbiz_menu_admin_menu_item_create_for_menu:
     path: /menus/{menuId}/new-item
     methods: [GET, POST]
     defaults:
@@ -22,40 +22,40 @@ monsieurbiz_sylius_menu_item_create_for_menu:
         _sylius:
             section: admin
             permission: true
-            template: '/Admin/MenuItem/create.html.twig'
+            template: '@MonsieurBizSyliusMenuPlugin/Admin/MenuItem/create.html.twig'
             redirect: &sylius_redirect
-                route: app_admin_menu_update
+                route: monsieurbiz_menu_admin_menu_update
                 parameters:
                     id: 'expr:$menuId'
             factory:
                 method: createForMenu
-                arguments: ['expr:notFoundOnNull(service("app.repository.menu").find($menuId))']
+                arguments: ['expr:notFoundOnNull(service("monsieurbiz_menu.repository.menu").find($menuId))']
             vars:
                 route:
-                    name: 'app_menu_item_create_for_menu'
+                    name: 'monsieurbiz_menu_admin_menu_item_create_for_menu'
                     parameters:
                         menuId: 'expr:$menuId'
                 index: &sylius_vars_index
                     route:
-                        name: 'app_admin_menu_update'
+                        name: 'monsieurbiz_menu_admin_menu_update'
                         parameters:
                             id: 'expr:$menuId'
                 templates: &sylius_vars_templates
-                    form: '/Admin/MenuItem/_form.html.twig'
+                    form: '@MonsieurBizSyliusMenuPlugin/Admin/MenuItem/_form.html.twig'
 
 app_admin_menu_item_create_for_parent:
     path: /menus/{menuId}/item/{parentId}/new-item
     methods: [GET, POST]
     defaults:
-        _controller: app.controller.menu_item:createAction
+        _controller: monsieurbiz_menu.controller.menu_item:createAction
         _sylius:
             section: admin
             permission: true
-            template: '/Admin/MenuItem/create.html.twig'
+            template: '@MonsieurBizSyliusMenuPlugin/Admin/MenuItem/create.html.twig'
             redirect: *sylius_redirect
             factory:
                 method: createForParent
-                arguments: ['expr:notFoundOnNull(service("app.repository.menu_item").find($parentId))']
+                arguments: ['expr:notFoundOnNull(service("monsieurbiz_menu.repository.menu_item").find($parentId))']
             vars:
                 route:
                     name: 'app_admin_menu_item_create_for_parent'
@@ -69,11 +69,11 @@ app_admin_menu_item_update:
     path: /menus/{menuId}/update-item/{id}
     methods: [GET, PUT, POST]
     defaults:
-        _controller: app.controller.menu_item:updateAction
+        _controller: monsieurbiz_menu.controller.menu_item:updateAction
         _sylius:
             section: admin
             permission: true
-            template: '/Admin/MenuItem/update.html.twig'
+            template: '@MonsieurBizSyliusMenuPlugin/Admin/MenuItem/update.html.twig'
             redirect: *sylius_redirect
             vars:
                 route:
@@ -88,7 +88,7 @@ app_admin_menu_item_delete:
     path: /menus/{menuId}/delete-item/{id}
     methods: [DELETE]
     defaults:
-        _controller: app.controller.menu_item:deleteAction
+        _controller: monsieurbiz_menu.controller.menu_item:deleteAction
         _sylius:
             section: admin
             permission: true
@@ -98,7 +98,7 @@ app_admin_menu_item_move_up:
     path: /menus/{menuId}/move-item/{id}/up
     methods: [PUT]
     defaults:
-        _controller: app.controller.menu_item:moveUpAction
+        _controller: monsieurbiz_menu.controller.menu_item:moveUpAction
         _sylius: &move_sylius
             section: admin
             permission: true
@@ -108,5 +108,5 @@ app_admin_menu_item_move_down:
     path: /menus/{menuId}/move-item/{id}/down
     methods: [PUT]
     defaults:
-        _controller: app.controller.menu_item:moveDownAction
+        _controller: monsieurbiz_menu.controller.menu_item:moveDownAction
         _sylius: *move_sylius
