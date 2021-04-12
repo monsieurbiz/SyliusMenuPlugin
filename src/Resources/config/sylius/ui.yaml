@@ -1,0 +1,31 @@
+sylius_ui:
+    events:
+        app.admin.menu.update.items_tree:
+            blocks:
+                items_tree:
+                    template: '@MonsieurBizSyliusMenuPlugin/Admin/Menu/_treeWithButtons.html.twig'
+        app.admin.menu_item.create.items_tree:
+            blocks:
+                items_tree:
+                    template: '@MonsieurBizSyliusMenuPlugin/Admin/Menu/_treeWithButtons.html.twig'
+        app.admin.menu_item.update.items_tree:
+            blocks:
+                items_tree:
+                    template: '@MonsieurBizSyliusMenuPlugin/Admin/Menu/_treeWithButtons.html.twig'
+        app.admin.menu.update.after_content:
+            blocks:
+                menu_js:
+                    template: '@MonsieurBizSyliusMenuPlugin/Admin/Menu/_js.html.twig'
+        app.admin.menu_item.update.after_content:
+            blocks:
+                menu_js:
+                    template: '@MonsieurBizSyliusMenuPlugin/Admin/Menu/_js.html.twig'
+        app.admin.menu_item.create.after_content:
+            blocks:
+                menu_js:
+                    template: '@MonsieurBizSyliusMenuPlugin/Admin/Menu/_js.html.twig'
+
+        sylius.shop.layout.header:
+            blocks:
+                monsieurbiz_menu:
+                    template: '@MonsieurBizSyliusMenuPlugin/Layout/Header/_menu.html.twig'
