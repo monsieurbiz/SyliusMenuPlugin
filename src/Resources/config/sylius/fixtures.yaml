@@ -4,10 +4,13 @@ sylius_fixtures:
             fixtures:
                 monsieurbiz_menu:
                     options:
-                        random: 3
                         custom:
                             -   isSystem: true
                                 createdAt: ~
                                 updatedAt: ~
-                                code: 'salut'
+                                code: 'Who are we?'
+                            -   isSystem: true
+                                createdAt: ~
+                                updatedAt: ~
+                                code: 'About us'
                              
