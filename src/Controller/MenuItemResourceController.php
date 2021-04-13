@@ -14,7 +14,7 @@ namespace MonsieurBiz\SyliusMenuPlugin\Controller;
 use MonsieurBiz\SyliusMenuPlugin\Entity\MenuItemInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Sylius\Bundle\ResourceBundle\Controller\ResourceController;
-use Sylius\Component\Resource\ResourceAction;
+use Sylius\Component\Resource\ResourceActions;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\PreconditionFailedHttpException;
