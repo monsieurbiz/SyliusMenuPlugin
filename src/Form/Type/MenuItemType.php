@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of Monsieur Biz' Menu plugin for Sylius.
+ * This file is part of Monsieur Biz' menu plugin for Sylius.
  * (c) Monsieur Biz <sylius@monsieurbiz.com>
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -11,8 +11,8 @@ declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusMenuPlugin\Form\Type;
 
-use MonsieurBiz\SyliusMenuPlugin\Entity\MenuItem;
 use Doctrine\ORM\EntityRepository;
+use MonsieurBiz\SyliusMenuPlugin\Entity\MenuItem;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;

@@ -1,6 +1,7 @@
 <?php
 
-/* This file is part of Monsieur Biz' Menu plugin for Sylius.
+/*
+ * This file is part of Monsieur Biz' menu plugin for Sylius.
  * (c) Monsieur Biz <sylius@monsieurbiz.com>
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -10,9 +11,9 @@ declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusMenuPlugin\Repository;
 
+use Doctrine\ORM\Query\Expr;
 use MonsieurBiz\SyliusMenuPlugin\Entity\MenuInterface;
 use MonsieurBiz\SyliusMenuPlugin\Entity\MenuItemInterface;
-use Doctrine\ORM\Query\Expr;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
 final class MenuItemRepository extends EntityRepository implements MenuItemRepositoryInterface
