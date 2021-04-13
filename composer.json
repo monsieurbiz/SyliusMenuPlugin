@@ -6,7 +6,8 @@
     "license": "MIT",
     "require": {
         "php": "~7.4",
-        "sylius/sylius": "~1.8.0"
+        "sylius/sylius": "~1.8.0",
+        "sylius/fixtures-bundle": "^1.7"
     },
     "require-dev": {
         "behat/behat": "^3.6.1",
