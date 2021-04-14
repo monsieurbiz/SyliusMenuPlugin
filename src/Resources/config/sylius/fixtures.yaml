@@ -6,11 +6,16 @@ sylius_fixtures:
                     options:
                         custom:
                             -   isSystem: true
-                                createdAt: ~
-                                updatedAt: ~
-                                code: 'Who are we?'
+                                code: 'who-are-we'
+                                items:
+                                    -   highlighted: true
+                                        translations:
+                                            fr_FR:
+                                                label: 'test'
+                                    -   highlighted: false
+                                        translations:
+                                            fr_FR:
+                                                label: 'new item'
                             -   isSystem: true
-                                createdAt: ~
-                                updatedAt: ~
-                                code: 'About us'
+                                code: 'about-us'
                              

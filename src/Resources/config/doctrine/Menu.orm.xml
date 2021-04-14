@@ -15,6 +15,9 @@
             <options name="default">null</options>
         </field>
         <one-to-many field="items" target-entity="MenuItem" mapped-by="menu" fetch="EAGER">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
             <order-by>
                 <order-by-field name="position" direction="ASC"/>
             </order-by>
