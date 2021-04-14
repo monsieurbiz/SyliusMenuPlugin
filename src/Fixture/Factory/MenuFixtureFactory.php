@@ -12,10 +12,8 @@ declare(strict_types=1);
 namespace MonsieurBiz\SyliusMenuPlugin\Fixture\Factory;
 
 use MonsieurBiz\SyliusMenuPlugin\Entity\MenuInterface;
-use MonsieurBiz\SyliusMenuPlugin\Entity\MenuItem;
 use MonsieurBiz\SyliusMenuPlugin\Entity\MenuItemInterface;
 use MonsieurBiz\SyliusMenuPlugin\Entity\MenuItemTranslationInterface;
-use MonsieurBiz\SyliusMenuPlugin\Factory\MenuItemFactory;
 use MonsieurBiz\SyliusMenuPlugin\Repository\MenuItemRepository;
 use Sylius\Bundle\CoreBundle\Fixture\Factory\AbstractExampleFactory;
 use Sylius\Component\Product\Generator\SlugGeneratorInterface;
@@ -25,11 +23,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class MenuFixtureFactory extends AbstractExampleFactory implements MenuFixtureFactoryInterface
 {
-
     private FactoryInterface $menuFactory;
 
     private FactoryInterface $menuItemFactory;
-    
+
     private FactoryInterface $menuItemTranslationFactory;
 
     private OptionsResolver $optionResolver;
@@ -76,13 +73,11 @@ class MenuFixtureFactory extends AbstractExampleFactory implements MenuFixtureFa
             $menuItem->setHighlighted($item['highlighted']);
             $menuItem->setPosition($position++);
 
-            foreach ($item['translations'] as $locale => $translation)
-            {
+            foreach ($item['translations'] as $locale => $translation) {
                 /** @var MenuItemTranslationInterface $menuItemTranslation */
                 $menuItemTranslation = $this->menuItemTranslationFactory->createNew();
                 $menuItemTranslation->setLabel($translation['label']);
                 $menuItemTranslation->setLocale($locale);
-
                 $menuItem->addTranslation($menuItemTranslation);
             }
 
