@@ -65,7 +65,7 @@ app_admin_menu_item_create_for_parent:
                 index: *sylius_vars_index
                 templates: *sylius_vars_templates
 
-app_admin_menu_item_update:
+monsieurbiz_menu_admin_menu_item_update:
     path: /menus/{menuId}/update-item/{id}
     methods: [GET, PUT, POST]
     defaults:
