@@ -6,16 +6,32 @@ sylius_fixtures:
                     options:
                         custom:
                             -   isSystem: true
-                                code: 'who-are-we'
+                                code: 'main'
                                 items:
                                     -   highlighted: true
                                         translations:
+                                            en_EN:
+                                                label: 'Who are we'
                                             fr_FR:
-                                                label: 'test'
+                                                label: 'Qui sommes nous'
                                     -   highlighted: false
                                         translations:
+                                            en_EN:
+                                                label: 'Que faisons nous'
                                             fr_FR:
-                                                label: 'new item'
+                                                label: 'What we do'
                             -   isSystem: true
-                                code: 'about-us'
-                             
+                                code: 'footer_legals'
+                                items:
+                                    -   highlighted: true
+                                        translations:
+                                            en_EN:
+                                                label: 'resources'
+                                            fr_FR:
+                                                label: 'ressources'
+                                    -   highlighted: false
+                                        translations:
+                                            en_EN:
+                                                label: 'careers'
+                                            fr_FR:
+                                                label: 'carrières'
