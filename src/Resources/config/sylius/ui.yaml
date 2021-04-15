@@ -27,5 +27,10 @@ sylius_ui:
 
         sylius.shop.layout.header:
             blocks:
-                monsieurbiz_menu:
+                menu:
                     template: '@MonsieurBizSyliusMenuPlugin/Layout/Header/_menu.html.twig'
+                    
+        sylius.shop.layout.footer:
+            blocks:
+                grid: 
+                    template: '@MonsieurBizSyliusMenuPlugin/Layout/_footer.html.twig'
