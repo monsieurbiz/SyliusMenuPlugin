@@ -1,5 +1,6 @@
 monsieurbiz_menu:
     ui:
+        menu: 'Menu'
         menus: 'Menus'
         new_menu: 'New menu'
         items: 'Elements'
