@@ -18,8 +18,8 @@ final class AdminMenuListener
     public function addAdminMenuItem(MenuBuilderEvent $event): void
     {
         $menu = $event->getMenu();
-        if (null !== $content = $menu->getChild('monsieurbiz-cms')) {
-            $content->addChild('app-menu', ['route' => 'app_admin_menu_index'])
+        if (null !== $content = $menu->getChild('configuration')) {
+            $content->addChild('app-menu', ['route' => 'monsieurbiz_menu_admin_menu_index'])
                 ->setLabel('monsieurbiz_menu.ui.menus')
                 ->setLabelAttribute('icon', 'sitemap')
             ;
