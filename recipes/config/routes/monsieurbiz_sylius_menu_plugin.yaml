@@ -1,0 +1,2 @@
+monsieurbiz_cms_page_admin:
+    resource: "@MonsieurBizSyliusMenuPlugin/Resources/config/routes/admin.yaml"
