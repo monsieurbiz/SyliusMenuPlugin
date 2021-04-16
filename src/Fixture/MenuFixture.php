@@ -38,6 +38,7 @@ final class MenuFixture extends AbstractResourceFixture
                                     ->arrayPrototype()
                                         ->children()
                                             ->scalarNode('label')->cannotBeEmpty()->end()
+                                            ->scalarNode('url')->end()
                                         ->end()
                                     ->end()
                                 ->end()
