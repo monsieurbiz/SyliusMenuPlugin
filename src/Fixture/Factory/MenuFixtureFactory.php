@@ -82,6 +82,7 @@ class MenuFixtureFactory extends AbstractExampleFactory implements MenuFixtureFa
                 /** @var MenuItemTranslationInterface $menuItemTranslation */
                 $menuItemTranslation = $this->menuItemTranslationFactory->createNew();
                 $menuItemTranslation->setLabel($translation['label']);
+                $menuItemTranslation->setUrl($translation['url']);
                 $menuItemTranslation->setLocale($locale);
                 $menuItem->addTranslation($menuItemTranslation);
             }
