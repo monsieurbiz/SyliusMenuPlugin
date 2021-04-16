@@ -14,11 +14,9 @@ namespace MonsieurBiz\SyliusMenuPlugin\Fixture\Factory;
 use MonsieurBiz\SyliusMenuPlugin\Entity\MenuInterface;
 use MonsieurBiz\SyliusMenuPlugin\Entity\MenuItemInterface;
 use MonsieurBiz\SyliusMenuPlugin\Entity\MenuItemTranslationInterface;
-use MonsieurBiz\SyliusMenuPlugin\Repository\MenuItemRepository;
 use Sylius\Bundle\CoreBundle\Fixture\Factory\AbstractExampleFactory;
 use Sylius\Component\Product\Generator\SlugGeneratorInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
-use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class MenuFixtureFactory extends AbstractExampleFactory implements MenuFixtureFactoryInterface
@@ -42,11 +40,14 @@ class MenuFixtureFactory extends AbstractExampleFactory implements MenuFixtureFa
     private $slugGenerator;
 
     /**
-     * @var MenuItemRepository
+     * MenuFixtureFactory constructor.
+     *
+     * @param FactoryInterface $menuFactory
+     * @param FactoryInterface $menuItemFactory
+     * @param FactoryInterface $menuItemTranslationFactory
+     * @param SlugGeneratorInterface $slugGenerator
      */
-    private $menuItemRepository;
-
-    public function __construct(FactoryInterface $menuFactory, FactoryInterface $menuItemFactory, FactoryInterface $menuItemTranslationFactory, SlugGeneratorInterface $slugGenerator, MenuItemRepository $menuItemRepository)
+    public function __construct(FactoryInterface $menuFactory, FactoryInterface $menuItemFactory, FactoryInterface $menuItemTranslationFactory, SlugGeneratorInterface $slugGenerator)
     {
         $this->menuFactory = $menuFactory;
         $this->menuItemFactory = $menuItemFactory;
@@ -55,9 +56,13 @@ class MenuFixtureFactory extends AbstractExampleFactory implements MenuFixtureFa
         $this->optionResolver = new OptionsResolver();
         $this->configureOptions($this->optionResolver);
         $this->faker = \Faker\Factory::create();
-        $this->menuItemRepository = $menuItemRepository;
     }
 
+    /**
+     * @param array $options
+     *
+     * @return MenuInterface
+     */
     public function create(array $options = []): MenuInterface
     {
         $options = $this->optionResolver->resolve($options);
@@ -71,6 +76,7 @@ class MenuFixtureFactory extends AbstractExampleFactory implements MenuFixtureFa
             /** @var MenuItemInterface $menuItem */
             $menuItem = $this->menuItemFactory->createNew();
             $menuItem->setPosition($position++);
+            $menuItem->setMenu($menu);
 
             foreach ($item['translations'] as $locale => $translation) {
                 /** @var MenuItemTranslationInterface $menuItemTranslation */
@@ -86,15 +92,14 @@ class MenuFixtureFactory extends AbstractExampleFactory implements MenuFixtureFa
         return $menu;
     }
 
+    /**
+     * @param OptionsResolver $resolver
+     */
     protected function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
-            ->setDefault('isSystem', function(Options $options): bool {
-                return $this->faker->boolean(80);
-            })
-            ->setDefault('code', function(Options $options): string {
-                return $this->slugGenerator->generate($this->faker->sentence(2, true));
-            })
+            ->setDefault('isSystem', true)
+            ->setDefault('code', null)
             ->setDefault('items', [])
         ;
     }
