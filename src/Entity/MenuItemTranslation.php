@@ -31,11 +31,6 @@ class MenuItemTranslation extends AbstractTranslation implements MenuItemTransla
     private ?string $label = null;
 
     /**
-     * @var string|null
-     */
-    private ?string $headline = null;
-
-    /**
      * {@inheritdoc}
      */
     public function getId(): ?int
@@ -73,21 +68,5 @@ class MenuItemTranslation extends AbstractTranslation implements MenuItemTransla
     public function setLabel(?string $label): void
     {
         $this->label = $label;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getHeadline(): ?string
-    {
-        return $this->headline;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setHeadline(?string $headline): void
-    {
-        $this->headline = $headline;
     }
 }

@@ -189,14 +189,6 @@ class MenuItem implements MenuItemInterface
     /**
      * {@inheritdoc}
      */
-    public function getHeadline(): ?string
-    {
-        return $this->getTranslation()->getHeadline();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     protected function createTranslation(): MenuItemTranslationInterface
     {
         return new MenuItemTranslation();

@@ -78,9 +78,4 @@ interface MenuItemInterface extends ResourceInterface, TranslatableInterface
      * @return string|null
      */
     public function getUrl(): ?string;
-
-    /**
-     * @return string|null
-     */
-    public function getHeadline(): ?string;
 }
