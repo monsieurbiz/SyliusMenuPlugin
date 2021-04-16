@@ -2,10 +2,10 @@ MonsieurBiz\SyliusMenuPlugin\Entity\Menu\MenuItemTranslation:
     properties:
         label:
             -   NotBlank:
-                    groups: [app]
+                    groups: [monsieurbiz_menu]
             -   Length:
                     min: 2
                     max: 255
-                    groups: [app]
+                    groups: [monsieurbiz_menu]
         url:
             -   Valid: ~

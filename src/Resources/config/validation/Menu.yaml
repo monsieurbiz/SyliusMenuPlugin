@@ -2,4 +2,4 @@ MonsieurBiz\SyliusMenuPlugin\Entity\Menu:
     properties:
         code:
             -   NotBlank:
-                    groups: [app]
+                    groups: [monsieurbiz_menu]
