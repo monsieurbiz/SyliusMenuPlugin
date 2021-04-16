@@ -35,14 +35,4 @@ interface MenuItemTranslationInterface extends ResourceInterface, TranslationInt
      * @param string|null $url
      */
     public function setUrl(?string $url): void;
-
-    /**
-     * @return string|null
-     */
-    public function getHeadline(): ?string;
-
-    /**
-     * @param string|null $headline
-     */
-    public function setHeadline(?string $headline): void;
 }

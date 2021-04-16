@@ -31,9 +31,6 @@ final class MenuItemTranslationType extends AbstractResourceType
             ->add('url', UrlType::class, [
                 'required' => false,
             ])
-            ->add('headline', TextType::class, [
-                'required' => false,
-            ])
         ;
     }
 }
