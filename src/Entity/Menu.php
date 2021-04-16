@@ -90,6 +90,9 @@ class Menu implements MenuInterface
         return $this->items;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getFirstLevelItems(): array
     {
         $items = $this->getItems();
