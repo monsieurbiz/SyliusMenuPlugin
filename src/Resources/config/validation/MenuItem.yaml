@@ -1,6 +1,4 @@
 MonsieurBiz\SyliusMenuPlugin\Entity\MenuItem:
     properties:
-        highlighted:
-            -   Valid: ~
         translations:
             -   Valid: ~

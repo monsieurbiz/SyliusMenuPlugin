@@ -70,7 +70,6 @@ class MenuFixtureFactory extends AbstractExampleFactory implements MenuFixtureFa
         foreach ($options['items'] as $item) {
             /** @var MenuItemInterface $menuItem */
             $menuItem = $this->menuItemFactory->createNew();
-            $menuItem->setHighlighted($item['highlighted']);
             $menuItem->setPosition($position++);
 
             foreach ($item['translations'] as $locale => $translation) {

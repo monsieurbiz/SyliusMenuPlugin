@@ -63,11 +63,6 @@ class MenuItem implements MenuItemInterface
     private ?int $position = null;
 
     /**
-     * @var bool|null
-     */
-    private ?bool $highlighted = null;
-
-    /**
      * MenuItem constructor.
      */
     public function __construct()
@@ -197,22 +192,6 @@ class MenuItem implements MenuItemInterface
     public function getHeadline(): ?string
     {
         return $this->getTranslation()->getHeadline();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function isHighlighted(): ?bool
-    {
-        return $this->highlighted;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setHighlighted(?bool $highlighted): void
-    {
-        $this->highlighted = $highlighted;
     }
 
     /**

@@ -11,4 +11,3 @@ monsieurbiz_menu:
         new_menu_item: 'New menu element'
         edit_menu_item: 'Edit the menu element'
         menu_items: 'Menu elements'
-        highlighted: 'Highlighted?'

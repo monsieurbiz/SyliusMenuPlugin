@@ -8,14 +8,12 @@ sylius_fixtures:
                             -   isSystem: true
                                 code: 'main'
                                 items:
-                                    -   highlighted: true
-                                        translations:
+                                    -   translations:
                                             en_EN:
                                                 label: 'Who are we'
                                             fr_FR:
                                                 label: 'Qui sommes nous'
-                                    -   highlighted: false
-                                        translations:
+                                    -   translations:
                                             en_EN:
                                                 label: 'Que faisons nous'
                                             fr_FR:
@@ -23,14 +21,12 @@ sylius_fixtures:
                             -   isSystem: true
                                 code: 'footer_legals'
                                 items:
-                                    -   highlighted: true
-                                        translations:
+                                    -   translations:
                                             en_EN:
                                                 label: 'resources'
                                             fr_FR:
                                                 label: 'ressources'
-                                    -   highlighted: false
-                                        translations:
+                                    -   translations:
                                             en_EN:
                                                 label: 'careers'
                                             fr_FR:

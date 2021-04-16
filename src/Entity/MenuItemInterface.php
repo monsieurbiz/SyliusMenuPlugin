@@ -83,14 +83,4 @@ interface MenuItemInterface extends ResourceInterface, TranslatableInterface
      * @return string|null
      */
     public function getHeadline(): ?string;
-
-    /**
-     * @return bool|null
-     */
-    public function isHighlighted(): ?bool;
-
-    /**
-     * @param bool|null $highlighted
-     */
-    public function setHighlighted(?bool $highlighted): void;
 }
