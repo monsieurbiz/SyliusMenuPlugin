@@ -15,7 +15,7 @@ use MonsieurBiz\SyliusMenuPlugin\Entity\MenuInterface;
 use MonsieurBiz\SyliusMenuPlugin\Entity\MenuItemInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 
-final class MenuItemFactory implements FactoryInterface
+final class MenuItemFactory implements MenuItemFactoryInterface
 {
     /**
      * @var FactoryInterface
