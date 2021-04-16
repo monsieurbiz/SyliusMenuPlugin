@@ -28,8 +28,5 @@
         <field name="position" column="position" type="integer" nullable="false">
             <options name="default">null</options>
         </field>
-        <field name="highlighted" column="highlighted" type="boolean" nullable="true">
-            <options name="default">null</options>
-        </field>
     </entity>
 </doctrine-mapping>

@@ -34,7 +34,6 @@ final class MenuFixture extends AbstractResourceFixture
                     ->defaultValue([])
                         ->arrayPrototype()
                             ->children()
-                                ->booleanNode('highlighted')->end()
                                 ->arrayNode('translations')
                                     ->arrayPrototype()
                                         ->children()

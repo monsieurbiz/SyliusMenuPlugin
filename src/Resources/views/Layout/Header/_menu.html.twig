@@ -3,7 +3,7 @@
 
     <div class="ui dropdown item">
         <a href="{% if menu.url is empty %}#{% else %}{{ menu.url }}{% endif %}">
-            <span class="text" {% if menu.highlighted %} style="font-weight: bold" {% endif %}>{{ menu.label }}</span>
+            <span class="text">{{ menu.label }}</span>
         </a>
         {% if menu.items is not empty %}
             <i class="dropdown icon"></i>

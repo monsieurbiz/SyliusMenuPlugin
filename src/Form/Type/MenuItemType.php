@@ -55,10 +55,6 @@ final class MenuItemType extends AbstractResourceType
                             return $qb;
                         },
                     ])
-                    ->add('highlighted', CheckboxType::class, [
-                        'label' => 'monsieurbiz_menu.ui.highlighted',
-                        'required' => true,
-                    ])
                     ->add('translations', ResourceTranslationsType::class, [
                         'label' => 'sylius.ui.translations',
                         'entry_type' => MenuItemTranslationType::class,
