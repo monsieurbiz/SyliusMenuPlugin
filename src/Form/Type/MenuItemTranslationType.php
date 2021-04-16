@@ -27,9 +27,11 @@ final class MenuItemTranslationType extends AbstractResourceType
     {
         $builder
             ->add('label', TextType::class, [
+                'label' => 'monsieurbiz_menu.ui.label',
             ])
             ->add('url', UrlType::class, [
                 'required' => false,
+                'label' => 'monsieurbiz_menu.ui.url',
             ])
         ;
     }

@@ -11,3 +11,5 @@ monsieurbiz_menu:
         new_menu_item: 'Nouvel élément de menu'
         edit_menu_item: 'Modifier un élément de menu'
         menu_items: 'Éléments de menu'
+        label: 'Label'
+        url: 'URL'
