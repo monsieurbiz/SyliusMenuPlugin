@@ -43,7 +43,7 @@ monsieurbiz_menu_admin_menu_item_create_for_menu:
                 templates: &sylius_vars_templates
                     form: '@MonsieurBizSyliusMenuPlugin/Admin/MenuItem/_form.html.twig'
 
-app_admin_menu_item_create_for_parent:
+monsieurbiz_menu_admin_menu_item_create_for_parent:
     path: /menus/{menuId}/item/{parentId}/new-item
     methods: [GET, POST]
     defaults:
@@ -84,7 +84,7 @@ monsieurbiz_menu_admin_menu_item_update:
                 index: *sylius_vars_index
                 templates: *sylius_vars_templates
 
-app_admin_menu_item_delete:
+monsieurbiz_menu_admin_menu_item_delete:
     path: /menus/{menuId}/delete-item/{id}
     methods: [DELETE]
     defaults:
@@ -94,7 +94,7 @@ app_admin_menu_item_delete:
             permission: true
             redirect: *sylius_redirect
 
-app_admin_menu_item_move_up:
+monsieurbiz_menu_admin_menu_item_move_up:
     path: /menus/{menuId}/move-item/{id}/up
     methods: [PUT]
     defaults:
@@ -104,7 +104,7 @@ app_admin_menu_item_move_up:
             permission: true
             redirect: 'referer'
 
-app_admin_menu_item_move_down:
+monsieurbiz_menu_admin_menu_item_move_down:
     path: /menus/{menuId}/move-item/{id}/down
     methods: [PUT]
     defaults:
