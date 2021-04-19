@@ -10,24 +10,32 @@ sylius_fixtures:
                                 items:
                                     -   translations:
                                             en_EN:
-                                                label: 'Who are we'
+                                                label: 'Dresses'
+                                                url: '/en_US/taxons/category/dresses'
                                             fr_FR:
-                                                label: 'Qui sommes nous'
+                                                label: 'Robes'
+                                                url: '/fr_FR/taxons/category/dresses'
                                     -   translations:
                                             en_EN:
-                                                label: 'Que faisons nous'
+                                                label: 'Jeans'
+                                                url: 'en_US/taxons/category/jeans'
                                             fr_FR:
-                                                label: 'What we do'
+                                                label: 'Jeans'
+                                                url: 'fr_FR/taxons/category/jeans'
                             -   isSystem: true
                                 code: 'footer_legals'
                                 items:
                                     -   translations:
                                             en_EN:
-                                                label: 'resources'
+                                                label: 'About'
+                                                url: '#'
                                             fr_FR:
-                                                label: 'ressources'
+                                                label: 'A propos'
+                                                url: '#'
                                     -   translations:
                                             en_EN:
-                                                label: 'careers'
+                                                label: 'Terms and conditions'
+                                                url: '#'
                                             fr_FR:
-                                                label: 'carrières'
+                                                label: 'Termes et conditions'
+                                                url: '#'
