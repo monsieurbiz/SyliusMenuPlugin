@@ -2,7 +2,7 @@
     {% import _self as macros %}
 
     <div class="ui dropdown item">
-        <a href="{% if menu.url is empty %}#{% else %}{{ menu.url }}{% endif %}">
+        <a href="{% if menu.url is empty %}#{% else %}{{ menu.url }}{% endif %}" style="color: inherit;text-decoration: none;">
             <span class="text">{{ menu.label }}</span>
         </a>
         {% if menu.items is not empty %}
