@@ -9,14 +9,14 @@ sylius_fixtures:
                                 code: 'main'
                                 items:
                                     -   translations:
-                                            en_EN:
+                                            en_US:
                                                 label: 'Dresses'
                                                 url: '/en_US/taxons/category/dresses'
                                             fr_FR:
                                                 label: 'Robes'
                                                 url: '/fr_FR/taxons/category/dresses'
                                     -   translations:
-                                            en_EN:
+                                            en_US:
                                                 label: 'Jeans'
                                                 url: 'en_US/taxons/category/jeans'
                                             fr_FR:
@@ -26,14 +26,14 @@ sylius_fixtures:
                                 code: 'footer_legals'
                                 items:
                                     -   translations:
-                                            en_EN:
+                                            en_US:
                                                 label: 'About'
                                                 url: '#'
                                             fr_FR:
                                                 label: 'A propos'
                                                 url: '#'
                                     -   translations:
-                                            en_EN:
+                                            en_US:
                                                 label: 'Terms and conditions'
                                                 url: '#'
                                             fr_FR:
