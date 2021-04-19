@@ -65,12 +65,6 @@ jobs:
                   composer config extra.symfony.allow-contrib true
                   composer config secure-http false
                   composer config --unset platform.php
-            - name: Install monsieurbiz/sylius-rich-editor-plugin
-              working-directory: ./sylius
-              run: |
-                  composer require monsieurbiz/sylius-rich-editor-plugin="^2.0@RC" --no-scripts
-                  sed -i -e "s/];/MonsieurBiz\\\SyliusRichEditorPlugin\\\MonsieurBizSyliusRichEditorPlugin::class => ['all' => true], ];/g" config/bundles.php
-                  cp -Rv vendor/monsieurbiz/sylius-rich-editor-plugin/recipes/2.0-dev/config/* config/
             - name: Install plugin
               working-directory: ./sylius
               run: |
