@@ -62,6 +62,9 @@ Then run it :
 ```php
 bin/console doctrine:migrations:migrate
 ```
+## Customize your menu
+If you want to customize your menu, do so by overriding the menuItem entity (more info about overriding entities [here](https://docs.sylius.com/en/1.9/customization/model.html) )
+
 ## Menu example
 
 ### Admin form index
