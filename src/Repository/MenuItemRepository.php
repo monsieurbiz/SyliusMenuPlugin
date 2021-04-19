@@ -23,8 +23,8 @@ final class MenuItemRepository extends EntityRepository implements MenuItemRepos
      */
     public function getLastPositionWithinMenu(MenuInterface $menu): int
     {
-        $qb = $this->createQueryBuilder('o');
-        $qb
+        $queryBuilder = $this->createQueryBuilder('o');
+        $queryBuilder
             ->resetDQLPart('select')
             ->select((new Expr())->max('o.position'))
             ->where('o.menu = :menu')
@@ -32,7 +32,7 @@ final class MenuItemRepository extends EntityRepository implements MenuItemRepos
             ->setParameter('menu', $menu)
         ;
 
-        return (int) $qb->getQuery()->getSingleScalarResult();
+        return (int) $queryBuilder->getQuery()->getSingleScalarResult();
     }
 
     /**
@@ -40,14 +40,14 @@ final class MenuItemRepository extends EntityRepository implements MenuItemRepos
      */
     public function getLastPositionWithinMenuItem(MenuItemInterface $menuItem): int
     {
-        $qb = $this->createQueryBuilder('o');
-        $qb
+        $queryBuilder = $this->createQueryBuilder('o');
+        $queryBuilder
             ->resetDQLPart('select')
             ->select((new Expr())->max('o.position'))
             ->where('o.parent = :parent')
             ->setParameter('parent', $menuItem)
         ;
 
-        return (int) $qb->getQuery()->getSingleScalarResult();
+        return (int) $queryBuilder->getQuery()->getSingleScalarResult();
     }
 }
