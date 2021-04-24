@@ -14,7 +14,7 @@
         <field name="code" column="code" type="string" length="255" nullable="true">
             <options name="default">null</options>
         </field>
-        <one-to-many field="items" target-entity="MonsieurBiz\SyliusMenuPlugin\Entity\MenuItem" mapped-by="menu" fetch="EAGER">
+        <one-to-many field="items" target-entity="MonsieurBiz\SyliusMenuPlugin\Entity\MenuItemInterface" mapped-by="menu" fetch="EAGER">
             <cascade>
                 <cascade-persist/>
             </cascade>
