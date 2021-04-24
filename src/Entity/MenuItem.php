@@ -29,27 +29,27 @@ class MenuItem implements MenuItemInterface
     /**
      * @var int|null
      */
-    private ?int $id = null;
+    protected ?int $id = null;
 
     /**
      * @var MenuInterface|null
      */
-    private ?MenuInterface $menu = null;
+    protected ?MenuInterface $menu = null;
 
     /**
      * @var Collection|null
      */
-    private ?Collection $items = null;
+    protected ?Collection $items = null;
 
     /**
      * @var MenuItemInterface|null
      */
-    private ?MenuItemInterface $parent = null;
+    protected ?MenuItemInterface $parent = null;
 
     /**
      * @var int|null
      */
-    private ?int $position = null;
+    protected ?int $position = null;
 
     /**
      * MenuItem constructor.

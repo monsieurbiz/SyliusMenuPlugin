@@ -22,22 +22,22 @@ class Menu implements MenuInterface
     /**
      * @var int|null
      */
-    private ?int $id = null;
+    protected ?int $id = null;
 
     /**
      * @var string|null
      */
-    private ?string $code = null;
+    protected ?string $code = null;
 
     /**
      * @var Collection|null
      */
-    private ?Collection $items;
+    protected ?Collection $items;
 
     /**
      * @var bool|null
      */
-    private ?bool $isSystem = false;
+    protected ?bool $isSystem = false;
 
     /**
      * Menu constructor.

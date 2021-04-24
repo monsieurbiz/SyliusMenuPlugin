@@ -18,17 +18,17 @@ class MenuItemTranslation extends AbstractTranslation implements MenuItemTransla
     /**
      * @var int|null
      */
-    private ?int $id = null;
+    protected ?int $id = null;
 
     /**
      * @var string|null
      */
-    private ?string $url = null;
+    protected ?string $url = null;
 
     /**
      * @var string|null
      */
-    private ?string $label = null;
+    protected ?string $label = null;
 
     /**
      * {@inheritdoc}
