@@ -11,17 +11,17 @@
         <field name="updatedAt" column="updated_at" type="datetime_immutable">
             <gedmo:timestampable on="update"/>
         </field>
-        <many-to-one field="menu" target-entity="Menu" inversed-by="items">
+        <many-to-one field="menu" target-entity="MonsieurBiz\SyliusMenuPlugin\Entity\MenuInterface" inversed-by="items">
             <options name="default">null</options>
             <join-column name="menu_id"/>
         </many-to-one>
-        <one-to-many field="items" target-entity="MenuItem" mapped-by="parent">
+        <one-to-many field="items" target-entity="MonsieurBiz\SyliusMenuPlugin\Entity\MenuItem" mapped-by="parent">
             <order-by>
                 <order-by-field name="position" direction="ASC"/>
             </order-by>
             <options name="default">null</options>
         </one-to-many>
-        <many-to-one field="parent" target-entity="MenuItem" inversed-by="items">
+        <many-to-one field="parent" target-entity="MonsieurBiz\SyliusMenuPlugin\Entity\MenuItem" inversed-by="items">
             <join-column name="parent_id" on-delete="CASCADE"/>
             <options name="default">null</options>
         </many-to-one>
