@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusMenuPlugin\Entity;
 
-use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Sylius\Component\Resource\Model\TimestampableTrait;
@@ -24,16 +23,6 @@ class Menu implements MenuInterface
      * @var int|null
      */
     private ?int $id = null;
-
-    /**
-     * @var DateTimeInterface|null
-     */
-    protected $createdAt;
-
-    /**
-     * @var DateTimeInterface|null
-     */
-    protected $updatedAt;
 
     /**
      * @var string|null
