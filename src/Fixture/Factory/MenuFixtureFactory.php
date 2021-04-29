@@ -47,14 +47,12 @@ class MenuFixtureFactory extends AbstractExampleFactory implements MenuFixtureFa
      * @param FactoryInterface $menuItemTranslationFactory
      * @param SlugGeneratorInterface $slugGenerator
      */
-    public function __construct
-    (
+    public function __construct(
         FactoryInterface $menuFactory,
         FactoryInterface $menuItemFactory,
         FactoryInterface $menuItemTranslationFactory,
         SlugGeneratorInterface $slugGenerator
-    )
-    {
+    ) {
         $this->menuFactory = $menuFactory;
         $this->menuItemFactory = $menuItemFactory;
         $this->slugGenerator = $slugGenerator;
