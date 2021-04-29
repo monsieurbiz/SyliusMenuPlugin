@@ -1,7 +1,7 @@
 parameters:
-    app.form.type.menu.validation_groups: ['app']
-    app.form.type.menu_item.validation_groups: ['app']
-    app.form.type.menu_item_translation.validation_groups: ['app']
+    monsieurbiz_menu.form.type.menu.validation_groups: ['monsieurbiz_menu']
+    monsieurbiz_menu.form.type.menu_item.validation_groups: ['monsieurbiz_menu']
+    monsieurbiz_menu.form.type.menu_item_translation.validation_groups: ['monsieurbiz_menu']
 
 services:
     _defaults:
@@ -17,7 +17,7 @@ services:
 
     MonsieurBiz\SyliusMenuPlugin\:
         resource: '../../*'
-        exclude: '../../{Entity,Migrations,Tests,Kernel.php}'
+        exclude: '../../{Entity,Migrations}'
 
     MonsieurBiz\SyliusMenuPlugin\Controller\:
         resource: '../../Controller'
@@ -25,8 +25,11 @@ services:
 
     MonsieurBiz\SyliusMenuPlugin\EventListener\AdminMenuListener:
         tags:
-            - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addAdminMenuItem, priority: -100 }
-
+            -
+                name: 'kernel.event_listener'
+                event: 'sylius.menu.admin.main'
+                method: 'addAdminMenuItem'
+                priority: -100
 
     MonsieurBiz\SyliusMenuPlugin\EventListener\Doctrine\MenuItemListener:
         tags:
@@ -43,14 +46,14 @@ services:
     MonsieurBiz\SyliusMenuPlugin\Form\Type\MenuType:
         arguments:
             - '%monsieurbiz_menu.model.menu.class%'
-            - '%app.form.type.menu.validation_groups%'
+            - '%monsieurbiz_menu.form.type.menu.validation_groups%'
 
     MonsieurBiz\SyliusMenuPlugin\Form\Type\MenuItemType:
         arguments:
             - '%monsieurbiz_menu.model.menu_item.class%'
-            - '%app.form.type.menu_item.validation_groups%'
+            - '%monsieurbiz_menu.form.type.menu_item.validation_groups%'
 
     MonsieurBiz\SyliusMenuPlugin\Form\Type\MenuItemTranslationType:
         arguments:
             - '%monsieurbiz_menu.model.menu_item_translation.class%'
-            - '%app.form.type.menu_item_translation.validation_groups%'
+            - '%monsieurbiz_menu.form.type.menu_item_translation.validation_groups%'
