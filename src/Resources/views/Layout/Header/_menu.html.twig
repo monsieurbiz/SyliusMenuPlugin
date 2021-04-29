@@ -1,7 +1,6 @@
 {% macro item(menu) %}
     {% import _self as macros %}
-
-    <div class="ui dropdown item">
+    <div class="ui {% if menu.items is not empty %} dropdown {% endif %} item">
         <a href="{% if menu.url is empty %}#{% else %}{{ menu.url }}{% endif %}" style="color: inherit;text-decoration: none;">
             <span class="text">{{ menu.label }}</span>
         </a>
@@ -17,7 +16,7 @@
 {% endmacro %}
 
 {% import _self as macros %}
-    {% set menu_items = menu_first_level('main') %}
+{% set menu_items = menu_first_level('main') %}
 
 {% if menu_items is not empty %}
     <div class="ui large stackable menu" data-component="navigation">
