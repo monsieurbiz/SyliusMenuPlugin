@@ -24,13 +24,13 @@ sylius_ui:
             blocks:
                 menu_js:
                     template: '@MonsieurBizSyliusMenuPlugin/Admin/Menu/_js.html.twig'
-
         sylius.shop.layout.header:
             blocks:
                 menu:
-                    template: '@MonsieurBizSyliusMenuPlugin/Layout/Header/_menu.html.twig'
-                    
-        sylius.shop.layout.footer:
+                    template: '@MonsieurBizSyliusMenuPlugin/Layout/Header/_menu.html.twig'   
+        sylius.shop.layout.footer.grid:
             blocks:
-                grid: 
-                    template: '@MonsieurBizSyliusMenuPlugin/Layout/_footer.html.twig'
+                your_store: 
+                    template: '@MonsieurBizSyliusMenuPlugin/Layout/Footer/Grid/_your_store.html.twig'
+                customer_care:
+                    template: '@MonsieurBizSyliusMenuPlugin/Layout/Footer/Grid/_customer_care.html.twig'
