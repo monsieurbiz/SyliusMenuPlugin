@@ -31,6 +31,6 @@ sylius_ui:
         sylius.shop.layout.footer.grid:
             blocks:
                 your_store: 
-                    template: '@MonsieurBizSyliusMenuPlugin/Layout/Footer/Grid/_your_store.html.twig'
+                    template: '@MonsieurBizSyliusMenuPlugin/Layout/Footer/grid/_your_store.html.twig'
                 customer_care:
-                    template: '@MonsieurBizSyliusMenuPlugin/Layout/Footer/Grid/_customer_care.html.twig'
+                    template: '@MonsieurBizSyliusMenuPlugin/Layout/Footer/grid/_customer_care.html.twig'
