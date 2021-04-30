@@ -1,4 +1,4 @@
-monsieurbiz_sylius_menu:
+monsieurbiz_menu_admin_menu:
     resource: |
         alias: monsieurbiz_menu.menu
         section: admin
