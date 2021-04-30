@@ -1,23 +1,24 @@
 {% macro item(menu) %}
     {% import _self as macros %}
-    <div class="ui {% if menu.items is not empty %} dropdown {% endif %} item">
-        <a href="{% if menu.url is empty %}#{% else %}{{ menu.url }}{% endif %}" style="color: inherit;text-decoration: none;">
-            <span class="text">{{ menu.label }}</span>
-        </a>
-        {% if menu.items is not empty %}
+
+    {% if menu.items|length > 0 %}
+        <div class="ui dropdown item">
+            <span class="text"> {{ menu.label }}</span>
             <i class="dropdown icon"></i>
             <div class="menu">
                 {% for sub_item in menu.items %}
                     {{ macros.item(sub_item) }}
                 {% endfor %}
             </div>
-        {% endif %}
-    </div>
+        </div>
+    {% else %}
+        <a href="{% if menu.url is empty %}#{% else %}{{ menu.url }}{% endif %}" class="item">{{ menu.label }}</a>
+    {% endif %}
 {% endmacro %}
 
 {% import _self as macros %}
-{% set menu_items = menu_first_level('main') %}
 
+{% set menu_items = menu_first_level('main') %}
 {% if menu_items is not empty %}
     <div class="ui large stackable menu" data-component="navigation">
         {% for first_level_item in menu_items %}
