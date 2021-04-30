@@ -58,7 +58,7 @@ monsieurbiz_menu_admin_menu_item_create_for_parent:
                 arguments: ['expr:notFoundOnNull(service("monsieurbiz_menu.repository.menu_item").find($parentId))']
             vars:
                 route:
-                    name: 'app_admin_menu_item_create_for_parent'
+                    name: 'monsieurbiz_menu_admin_menu_item_create_for_parent'
                     parameters:
                         menuId: 'expr:$menuId'
                         parentId: 'expr:$parentId'
@@ -77,7 +77,7 @@ monsieurbiz_menu_admin_menu_item_update:
             redirect: *sylius_redirect
             vars:
                 route:
-                    name: 'app_admin_menu_item_update'
+                    name: 'monsieurbiz_menu_admin_menu_item_update'
                     parameters:
                         menuId: 'expr:$menuId'
                         id: 'expr:$id'
