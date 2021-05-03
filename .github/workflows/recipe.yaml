@@ -37,8 +37,9 @@ jobs:
             - name: Run standalone symfony flex server
               run: |
                   echo ${{ github.token }} | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
-                  docker run --rm --name flex -d -v $PWD/plugin/recipes:/var/www/flex/var/repo/private/monsieurbiz/sylius-menu-plugin -p 80:80 docker.pkg.github.com/monsieurbiz/docker/symfony-flex-server:latest contrib official
+                  docker run --rm --name flex -d -v $PWD/plugin/recipes:/var/www/flex/var/repo/private/monsieurbiz/sylius-menu-plugin -p 80:80 ghcr.io/monsieurbiz/docker/symfony-flex-server:latest contrib official
                   docker ps
+
             - uses: actions/cache@v1
               id: cache-composer
               with:
@@ -58,6 +59,7 @@ jobs:
             - name: Install Sylius-Standard
               run: |
                   composer create-project --prefer-dist --no-scripts --no-progress sylius/sylius-standard sylius "~${{ matrix.sylius }}.0"
+
             - name: Setup some requirements
               working-directory: ./sylius
               run: |
@@ -65,9 +67,11 @@ jobs:
                   composer config extra.symfony.allow-contrib true
                   composer config secure-http false
                   composer config --unset platform.php
+
             - name: Install plugin
               working-directory: ./sylius
               run: |
                   composer require monsieurbiz/sylius-menu-plugin="*@dev"
+
             - name: Show flex server logs
               run: docker logs --tail 100 flex
