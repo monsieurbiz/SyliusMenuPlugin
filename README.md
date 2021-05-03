@@ -12,11 +12,11 @@
 
 <h1 align="center">Menu Plugin</h1>
 
-[![Anti Spam Plugin license](https://img.shields.io/github/license/monsieurbiz/SyliusMenuPlugin?public)](https://github.com/monsieurbiz/SyliusMenuPlugin/blob/master/LICENSE.txt)
+[![Menu Plugin license](https://img.shields.io/github/license/monsieurbiz/SyliusMenuPlugin?public)](https://github.com/monsieurbiz/SyliusMenuPlugin/blob/master/LICENSE.txt)
 [![Tests Status](https://img.shields.io/github/workflow/status/monsieurbiz/SyliusMenuPlugin/Tests?logo=github)](https://github.com/monsieurbiz/SyliusMenuPlugin/actions?query=workflow%3ATests)
 [![Security Status](https://img.shields.io/github/workflow/status/monsieurbiz/SyliusMenuPlugin/Security?label=security&logo=github)](https://github.com/monsieurbiz/SyliusMenuPlugin/actions?query=workflow%3ASecurity)
 
-This plugins allows you to manage your menus
+This plugins allows you to manage your menus.
 
 ## Installation
 
@@ -56,7 +56,9 @@ bin/console doctrine:migrations:migrate
 ```
 
 ## Customize your menu
+
 If you want to customize your menu, like adding an image, do so by overriding the MenuItem entity (more info about [overriding entities in the Sylius documentation](https://docs.sylius.com/en/1.9/customization/model.html)).
+
 ## Menu example
 
 ### Admin form index
@@ -65,7 +67,7 @@ If you want to customize your menu, like adding an image, do so by overriding th
 
 ### Menu front view
 
-The front view is exactly the same as the default one
+The front view is exactly the same as the default one.
 
 ## Contributing
 
