@@ -77,19 +77,7 @@ class MenuFixtureFactory extends AbstractExampleFactory implements MenuFixtureFa
         $position = 1;
 
         foreach ($options['items'] as $item) {
-            /** @var MenuItemInterface $menuItem */
-            $menuItem = $this->menuItemFactory->createNew();
-            $menuItem->setPosition($position++);
-            $menuItem->setMenu($menu);
-
-            foreach ($item['translations'] as $locale => $translation) {
-                /** @var MenuItemTranslationInterface $menuItemTranslation */
-                $menuItemTranslation = $this->menuItemTranslationFactory->createNew();
-                $menuItemTranslation->setLabel($translation['label']);
-                $menuItemTranslation->setUrl($translation['url']);
-                $menuItemTranslation->setLocale($locale);
-                $menuItem->addTranslation($menuItemTranslation);
-            }
+            $this->createMenuItem($item, $position++, $menu);
         }
 
         return $menu;
@@ -105,5 +93,34 @@ class MenuFixtureFactory extends AbstractExampleFactory implements MenuFixtureFa
             ->setDefault('code', null)
             ->setDefault('items', [])
         ;
+    }
+
+    private function createMenuItem(array $item, int $position, MenuInterface $menu, ?MenuItemInterface $parentItem = null): MenuItemInterface
+    {
+        $item['children'] ??= [];
+        /** @var MenuItemInterface $menuItem */
+        $menuItem = $this->menuItemFactory->createNew();
+        $menuItem->setPosition($position);
+        $menuItem->setMenu($menu);
+
+        if (null !== $parentItem) {
+            $menuItem->setParent($parentItem);
+        }
+
+        foreach ($item['translations'] as $locale => $translation) {
+            /** @var MenuItemTranslationInterface $menuItemTranslation */
+            $menuItemTranslation = $this->menuItemTranslationFactory->createNew();
+            $menuItemTranslation->setLabel($translation['label']);
+            $menuItemTranslation->setUrl($translation['url']);
+            $menuItemTranslation->setLocale($locale);
+            $menuItem->addTranslation($menuItemTranslation);
+        }
+        $childPosition = 1;
+
+        foreach ($item['children'] as $child) {
+            $this->createMenuItem($child, $childPosition++, $menu, $menuItem);
+        }
+
+        return $menuItem;
     }
 }
