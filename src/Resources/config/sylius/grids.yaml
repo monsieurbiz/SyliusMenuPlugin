@@ -1,0 +1,25 @@
+sylius_grid:
+    grids:
+        monsieurbiz_menu_menu:
+            driver:
+                options:
+                    class: '%monsieurbiz_menu.model.menu.class%'
+            fields:
+                code:
+                    type: string
+                    label: monsieurbiz_menu.ui.code
+                    sortable: ~
+            actions:
+                main:
+                    create:
+                        type: create
+                        label: monsieurbiz_menu.ui.create
+                item:
+                    update:
+                        type: update
+                    delete:
+                        type: delete
+            filters:
+                code:
+                    type: string
+                    label: monsieurbiz_menu.ui.code

@@ -1,1 +1,59 @@
-# Add services
+parameters:
+    monsieurbiz_menu.form.type.menu.validation_groups: ['monsieurbiz_menu']
+    monsieurbiz_menu.form.type.menu_item.validation_groups: ['monsieurbiz_menu']
+    monsieurbiz_menu.form.type.menu_item_translation.validation_groups: ['monsieurbiz_menu']
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    _instanceof:
+        Sylius\Bundle\ResourceBundle\Controller\ResourceController:
+            autowire: false
+        Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType:
+            autowire: false
+
+    MonsieurBiz\SyliusMenuPlugin\:
+        resource: '../../*'
+        exclude: '../../{Entity,Migrations}'
+
+    MonsieurBiz\SyliusMenuPlugin\Controller\:
+        resource: '../../Controller'
+        tags: ['controller.service_arguments']
+
+    MonsieurBiz\SyliusMenuPlugin\EventListener\AdminMenuListener:
+        tags:
+            -
+                name: 'kernel.event_listener'
+                event: 'sylius.menu.admin.main'
+                method: 'addAdminMenuItem'
+                priority: -100
+
+    MonsieurBiz\SyliusMenuPlugin\EventListener\Doctrine\MenuItemListener:
+        tags:
+            -
+                name: 'doctrine.orm.entity_listener'
+                event: 'prePersist'
+                entity: '%monsieurbiz_menu.model.menu_item.class%'
+
+    MonsieurBiz\SyliusMenuPlugin\Factory\MenuItemFactory:
+        decorates: 'monsieurbiz_menu.factory.menu_item'
+        arguments:
+            - '@MonsieurBiz\SyliusMenuPlugin\Factory\MenuItemFactory.inner'
+
+    MonsieurBiz\SyliusMenuPlugin\Form\Type\MenuType:
+        arguments:
+            - '%monsieurbiz_menu.model.menu.class%'
+            - '%monsieurbiz_menu.form.type.menu.validation_groups%'
+
+    MonsieurBiz\SyliusMenuPlugin\Form\Type\MenuItemType:
+        arguments:
+            - '%monsieurbiz_menu.model.menu_item.class%'
+            - '%monsieurbiz_menu.form.type.menu_item.validation_groups%'
+
+    MonsieurBiz\SyliusMenuPlugin\Form\Type\MenuItemTranslationType:
+        arguments:
+            - '%monsieurbiz_menu.model.menu_item_translation.class%'
+            - '%monsieurbiz_menu.form.type.menu_item_translation.validation_groups%'

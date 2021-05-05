@@ -1,0 +1,5 @@
+MonsieurBiz\SyliusMenuPlugin\Entity\Menu:
+    properties:
+        code:
+            -   NotBlank:
+                    groups: [monsieurbiz_menu]

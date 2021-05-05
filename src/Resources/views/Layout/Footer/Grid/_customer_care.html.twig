@@ -1,0 +1,11 @@
+{% set footer_customer_care = menu_first_level('customer_care') %}
+{% if footer_customer_care is not empty %}
+    <div class="four wide column">
+        <h4 class="ui inverted header">{{ 'sylius.ui.customer_care'|trans  }}</h4>
+        <div class="ui inverted link list">
+            {% for item in footer_customer_care %}
+                <a class="item">{{ item.label }}</a>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}

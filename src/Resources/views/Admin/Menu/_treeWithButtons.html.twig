@@ -1,0 +1,79 @@
+{% import '@SyliusUi/Macro/buttons.html.twig' as buttons %}
+{% import _self as tree %}
+
+{% macro render(items) %}
+    {% import '@SyliusUi/Macro/buttons.html.twig' as buttons %}
+    {% import _self as tree %}
+
+<ul>
+    {% for item in items %}
+    {% if item.id is not null %}
+    <li data-id="{{ item.id }}" {% if item.items is not empty %}data-sylius-js-tree-parent="{{ item.id }}"{% endif %}>
+        <div class="sylius-tree__item">
+            <div class="sylius-tree__icon" {% if item.items is not empty %}data-sylius-js-tree-trigger="{{ item.id }}"{% endif %}>
+                <i class="{{ item.items is not empty ? 'caret down' : 'angle left' }} icon"></i>
+            </div>
+            <div class="sylius-tree__title">
+                <a href="{{ path('monsieurbiz_menu_admin_menu_item_update', {'id': item.id, 'menuId': item.menu.id}) }}"{# {% if not item.enabled %} class="text gray"{% endif %} #}>
+                    {{ item.label }}
+                </a>
+            </div>
+            <div class="sylius-tree__action">
+                <div class="ui tiny basic icon top right pointing dropdown button sylius-tree__action__trigger">
+                    <i class="ellipsis horizontal icon"></i>
+                    <div class="menu">
+                        <a class="item" href="{{ path('monsieurbiz_menu_admin_menu_item_create_for_parent', {'menuId': item.menu.id, 'parentId': item.id}) }}">
+                            <i class="plus icon blue"></i>{{ 'sylius.ui.create'|trans }}
+                        </a>
+                        <a class="item" href="{{ path('monsieurbiz_menu_admin_menu_item_update', {'id': item.id, 'menuId': item.menu.id}) }}">
+                            <i class="pencil icon grey"></i>{{ 'sylius.ui.edit'|trans }}
+                        </a>
+
+                        <div class="divider"></div>
+
+                        {% if not loop.first %}
+                            <a class="item js-move-link" data-method="PUT" data-url="{{ url('monsieurbiz_menu_admin_menu_item_move_up', {'id': item.id, 'menuId': item.menu.id}) }}">
+                                <i class="arrow up icon grey"></i>{{ 'sylius.ui.move_up'|trans }}
+                            </a>
+                        {% endif %}
+                        {% if loop.last is defined and not loop.last %}
+                            <a class="item js-move-link" data-method="PUT" data-url="{{ url('monsieurbiz_menu_admin_menu_item_move_down', {'id': item.id, 'menuId': item.menu.id}) }}">
+                                <i class="arrow down icon grey"></i>{{ 'sylius.ui.move_down'|trans }}
+                            </a>
+                        {% endif %}
+
+                        {% if not loop.first or (loop.last is defined and not loop.last) %}
+                            <div class="divider"></div>
+                        {% endif %}
+
+                        <form action="{{ path('monsieurbiz_menu_admin_menu_item_delete', {'id': item.id, 'menuId': item.menu.id}) }}" method="post" class="item">
+                            <button class="ui basic negative button" type="submit" style="width: 100%;" data-requires-confirmation>
+                                <i class="icon trash red"></i>{{ 'sylius.ui.delete'|trans }}
+                            </button>
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token(item.id) }}" />
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if item.items is not empty %}
+            {{ tree.render(item.items) }}
+        {% endif %}
+    </li>
+    {% endif %}
+    {% endfor %}
+</ul>
+{% endmacro %}
+
+<div class="ui segment sylius-tree hidden" data-sylius-js-tree>
+    <a href="{{ path('monsieurbiz_menu_admin_menu_item_create_for_menu', {'menuId': menu.id}) }}" class="ui fluid labeled icon primary button">
+        <i class="plus icon"></i>
+        {{ 'sylius.ui.create'|trans }}
+    </a>
+
+    <div class="ui hidden divider small"></div>
+
+    {{ tree.render(menu.firstLevelItems) }}
+</div>

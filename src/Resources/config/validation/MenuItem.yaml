@@ -1,0 +1,4 @@
+MonsieurBiz\SyliusMenuPlugin\Entity\MenuItem:
+    properties:
+        translations:
+            -   Valid: ~

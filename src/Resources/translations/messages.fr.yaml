@@ -1,0 +1,15 @@
+monsieurbiz_menu:
+    ui:
+        menu: 'Menu'
+        menus: 'Menus'
+        new_menu: 'Nouveau menu'
+        items: 'Éléments'
+        is_system: 'Système ?'
+        edit_menu: 'Éditer le menu'
+        code: 'Code'
+        create: 'Créer'
+        new_menu_item: 'Nouvel élément de menu'
+        edit_menu_item: 'Modifier un élément de menu'
+        menu_items: 'Éléments de menu'
+        label: 'Label'
+        url: 'URL'

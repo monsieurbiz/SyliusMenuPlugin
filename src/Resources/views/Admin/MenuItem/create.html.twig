@@ -1,0 +1,16 @@
+{% extends '@SyliusAdmin/Crud/create.html.twig' %}
+
+{% block content %}
+    {{ sylius_template_event('monsieurbiz_menu.admin.menu_item.create.before_content', {'resource': resource}) }}
+
+    <div class="ui grid">
+        <div class="sixteen wide mobile sixteen wide tablet four wide computer column">
+            {{ sylius_template_event('monsieurbiz_menu.admin.menu_item.create.items_tree', {'resource': resource, 'menu': resource.menu}) }}
+        </div>
+        <div class="sixteen wide mobile sixteen wide tablet twelve wide computer column">
+            {{ parent() }}
+        </div>
+    </div>
+
+    {{ sylius_template_event('monsieurbiz_menu.admin.menu_item.create.after_content', {'resource': resource}) }}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% set footer_your_store = menu_first_level('your_store') %}
+{% if footer_your_store is not empty %}
+    <div class="four wide column">
+        <h4 class="ui inverted header">{{ 'sylius.ui.your_store'|trans }}</h4>
+        <div class="ui inverted link list">
+            {% for item in footer_your_store %}
+                <a class="item">{{ item.label }}</a>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}

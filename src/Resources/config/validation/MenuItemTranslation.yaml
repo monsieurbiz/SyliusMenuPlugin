@@ -1,0 +1,11 @@
+MonsieurBiz\SyliusMenuPlugin\Entity\Menu\MenuItemTranslation:
+    properties:
+        label:
+            -   NotBlank:
+                    groups: [monsieurbiz_menu]
+            -   Length:
+                    min: 2
+                    max: 255
+                    groups: [monsieurbiz_menu]
+        url:
+            -   Valid: ~

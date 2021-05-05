@@ -1,0 +1,145 @@
+sylius_fixtures:
+    suites:
+        default:
+            fixtures:
+                monsieurbiz_menu:
+                    options:
+                        custom:
+                            -   isSystem: true
+                                code: 'main'
+                                items:
+                                    -   translations:
+                                            en_US:
+                                                label: 'T-shirts'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/en_US/taxons/category/t-shirts'
+                                            fr_FR:
+                                                label: 'T-shirts'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_fr/taxons/category/t-shirts'
+                                        children:
+                                            - translations:
+                                                en_US: 
+                                                    label: 'Men'
+                                                    url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/category/t-shirts/men'
+                                                fr_FR: 
+                                                    label: 'Homme'
+                                                    url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/category/t-shirts/men'
+                                            - translations:
+                                                en_US: 
+                                                    label: 'Women'
+                                                    url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/category/t-shirts/women'
+                                                fr_FR: 
+                                                    label: 'Femme'
+                                                    url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/category/t-shirts/women'
+                                    -   translations:
+                                            en_US:
+                                                label: 'Caps'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/en_US/taxons/category/caps'
+                                            fr_FR:
+                                                label: 'Bonnets'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/category/caps'
+                                        children:
+                                            - translations:
+                                                  en_US:
+                                                      label: 'Simple'
+                                                      url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/en_US/taxons/category/caps/simple'
+                                                  fr_FR:
+                                                      label: 'Simple'
+                                                      url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/en_US/taxons/category/caps/simple'
+                                            - translations:
+                                                  en_US:
+                                                      label: 'With pompons'
+                                                      url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/en_US/taxons/category/caps/with-pompons'
+                                                  fr_FR:
+                                                      label: 'Avec pompons'
+                                                      url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/en_US/taxons/category/caps/with-pompons'
+                                    -   translations:
+                                            en_US:
+                                                label: 'Dresses'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/en_US/taxons/category/dresses'
+                                            fr_FR:
+                                                label: 'Robes'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/category/dresses'
+                                    -   translations:
+                                            en_US:
+                                                label: 'Jeans'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/en_US/taxons/category/jeans'
+                                            fr_FR:
+                                                label: 'Jeans'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/category/jeans'
+                                        children:
+                                            - translations:
+                                                  en_US:
+                                                      label: 'Men'
+                                                      url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/category/jeans/men'
+                                                  fr_FR:
+                                                      label: 'Homme'
+                                                      url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/category/jeans/men'
+                                            - translations:
+                                                  en_US:
+                                                      label: 'Women'
+                                                      url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/category/jeans/women'
+                                                  fr_FR:
+                                                      label: 'Femme'
+                                                      url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/category/jeans/women'
+                            -   isSystem: true
+                                code: 'your_store'
+                                items:
+                                    -   translations:
+                                            en_US:
+                                                label: 'About'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/#'
+                                            fr_FR:
+                                                label: 'A propos'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/#'
+                                    -   translations:
+                                            en_US:
+                                                label: 'Terms and conditions'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/#'
+                                            fr_FR:
+                                                label: 'Termes et conditions'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/#'
+                                    -   translations:
+                                            en_US:
+                                                label: 'Privacy policy'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/#'
+                                            fr_FR:
+                                                label: 'Politique de confidentialité'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/#'
+                                    -   translations:
+                                            en_US:
+                                                label: 'Contact us'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/#'
+                                            fr_FR:
+                                                label: 'Nous contacter'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/#'
+                            -   isSystem: true
+                                code: 'customer_care'
+                                items:
+                                    -   translations:
+                                            en_US:
+                                                label: 'Contact us'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/#'
+                                            fr_FR:
+                                                label: 'Nous contacter'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/#'
+                                    -   translations:
+                                            en_US:
+                                                label: 'FAQs'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/#'
+                                            fr_FR:
+                                                label: 'FAQs'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/#'
+                                    -   translations:
+                                            en_US:
+                                                label: 'Delivery & Shipping'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/#'
+                                            fr_FR:
+                                                label: 'Expédition et livraison'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/#'
+                                    -   translations:
+                                            en_US:
+                                                label: 'Return policy'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/#'
+                                            fr_FR:
+                                                label: 'Politique de retour'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/#'
