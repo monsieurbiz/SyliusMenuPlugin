@@ -19,7 +19,7 @@ use Sylius\Component\Product\Generator\SlugGeneratorInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class MenuFixtureFactory extends AbstractExampleFactory implements MenuFixtureFactoryInterface
+final class MenuFixtureFactory extends AbstractExampleFactory implements MenuFixtureFactoryInterface
 {
     private FactoryInterface $menuFactory;
 
@@ -27,7 +27,7 @@ class MenuFixtureFactory extends AbstractExampleFactory implements MenuFixtureFa
 
     private FactoryInterface $menuItemTranslationFactory;
 
-    private OptionsResolver $optionResolver;
+    private OptionsResolver $optionsResolver;
 
     /**
      * @var \Faker\Generator
@@ -57,9 +57,14 @@ class MenuFixtureFactory extends AbstractExampleFactory implements MenuFixtureFa
         $this->menuItemFactory = $menuItemFactory;
         $this->slugGenerator = $slugGenerator;
         $this->menuItemTranslationFactory = $menuItemTranslationFactory;
-        $this->optionResolver = new OptionsResolver();
-        $this->configureOptions($this->optionResolver);
+        $this->optionsResolver = new OptionsResolver();
+        $this->configureOptions($this->getOptionsResolver());
         $this->faker = \Faker\Factory::create();
+    }
+
+    public function getOptionsResolver(): OptionsResolver
+    {
+        return $this->optionsResolver;
     }
 
     /**
@@ -69,7 +74,7 @@ class MenuFixtureFactory extends AbstractExampleFactory implements MenuFixtureFa
      */
     public function create(array $options = []): MenuInterface
     {
-        $options = $this->optionResolver->resolve($options);
+        $options = $this->optionsResolver->resolve($options);
         /** @var MenuInterface $menu */
         $menu = $this->menuFactory->createNew();
         $menu->setIsSystem($options['isSystem']);

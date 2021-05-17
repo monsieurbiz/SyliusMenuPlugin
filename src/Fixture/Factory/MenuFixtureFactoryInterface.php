@@ -12,7 +12,9 @@ declare(strict_types=1);
 namespace MonsieurBiz\SyliusMenuPlugin\Fixture\Factory;
 
 use Sylius\Bundle\CoreBundle\Fixture\Factory\ExampleFactoryInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 interface MenuFixtureFactoryInterface extends ExampleFactoryInterface
 {
+    public function getOptionsResolver(): OptionsResolver;
 }
