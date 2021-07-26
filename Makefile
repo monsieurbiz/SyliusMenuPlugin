@@ -23,7 +23,7 @@ stop: server.stop docker.stop ## Stop the project (stop docker, stop symfony ser
 down: server.stop docker.down ## Down the project (removes docker containers, stop symfony server)
 
 reset: docker.down ## Stop docker and remove dependencies
-	rm -rf ${APP_DIR}/node_modules
+	rm -rf ${APP_DIR}/node_modules ${APP_DIR}/yarn.lock
 	rm -rf vendor composer.lock
 .PHONY: reset
 
