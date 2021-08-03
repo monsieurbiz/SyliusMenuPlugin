@@ -4,6 +4,7 @@ sylius_resource:
             classes:
                 model: MonsieurBiz\SyliusMenuPlugin\Entity\Menu
                 form: MonsieurBiz\SyliusMenuPlugin\Form\Type\MenuType
+                repository: MonsieurBiz\SyliusMenuPlugin\Repository\MenuRepository
         monsieurbiz_menu.menu_item:
             classes:
                 model: MonsieurBiz\SyliusMenuPlugin\Entity\MenuItem

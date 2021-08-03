@@ -12,17 +12,20 @@ declare(strict_types=1);
 namespace MonsieurBiz\SyliusMenuPlugin\Twig\Extension;
 
 use MonsieurBiz\SyliusMenuPlugin\Entity\MenuInterface;
+use MonsieurBiz\SyliusMenuPlugin\Repository\MenuRepositoryInterface;
+use Sylius\Component\Locale\Context\LocaleContextInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\ExtensionInterface;
 use Twig\TwigFunction;
+use Webmozart\Assert\Assert;
 
 final class MenuExtension extends AbstractExtension implements ExtensionInterface
 {
     /**
-     * @var RepositoryInterface
+     * @var MenuRepositoryInterface
      */
-    private RepositoryInterface $menuRepository;
+    private MenuRepositoryInterface $menuRepository;
 
     /**
      * @var array
@@ -30,13 +33,23 @@ final class MenuExtension extends AbstractExtension implements ExtensionInterfac
     private array $menus = [];
 
     /**
+     * @var LocaleContextInterface
+     */
+    private LocaleContextInterface $localeContext;
+
+    /**
      * MenuExtension constructor.
      *
      * @param RepositoryInterface $menuRepository
+     * @param LocaleContextInterface $localeContext
      */
-    public function __construct(RepositoryInterface $menuRepository)
-    {
+    public function __construct(
+        RepositoryInterface $menuRepository,
+        LocaleContextInterface $localeContext
+    ) {
+        Assert::isInstanceOf($menuRepository, MenuRepositoryInterface::class);
         $this->menuRepository = $menuRepository;
+        $this->localeContext = $localeContext;
     }
 
     /**
@@ -53,7 +66,7 @@ final class MenuExtension extends AbstractExtension implements ExtensionInterfac
     {
         if (!\array_key_exists($menuCode, $this->menus)) {
             /** @var ?MenuInterface $menu */
-            $menu = $this->menuRepository->findOneBy(['code' => $menuCode]);
+            $menu = $this->menuRepository->findOneByLocaleAndCode($this->localeContext->getLocaleCode(), $menuCode);
             if (null === $menu) {
                 return [];
             }
