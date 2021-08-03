@@ -23,7 +23,7 @@ stop: server.stop docker.stop ## Stop the project (stop docker, stop symfony ser
 down: server.stop docker.down ## Down the project (removes docker containers, stop symfony server)
 
 reset: docker.down ## Stop docker and remove dependencies
-	rm -rf ${APP_DIR}/node_modules
+	rm -rf ${APP_DIR}/node_modules ${APP_DIR}/yarn.lock
 	rm -rf vendor composer.lock
 .PHONY: reset
 
@@ -96,7 +96,7 @@ test.schema: ## Validate MySQL Schema
 	${CONSOLE} doctrine:schema:validate
 
 test.twig: ## Validate Twig templates
-	${CONSOLE} lint:twig -e prod --no-debug ../../tests/Application/templates/
+	${CONSOLE} lint:twig -e prod --no-debug ../../src/Resources/views/
 
 ###
 ### SYLIUS
@@ -120,6 +120,9 @@ sylius.assets: ## Install all assets with symlinks
 
 doctrine.diff: ## Make doctrine diff
 	${CONSOLE} doctrine:migration:diff --namespace="${DOCTRINE_NAMESPACE}"
+
+doctrine.migrate: ## Make doctrine migrate
+	${CONSOLE} doctrine:migration:migrate
 
 ###
 ### PLATFORM
