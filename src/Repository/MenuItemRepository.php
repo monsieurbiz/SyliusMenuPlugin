@@ -16,7 +16,7 @@ use MonsieurBiz\SyliusMenuPlugin\Entity\MenuInterface;
 use MonsieurBiz\SyliusMenuPlugin\Entity\MenuItemInterface;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
-final class MenuItemRepository extends EntityRepository implements MenuItemRepositoryInterface
+class MenuItemRepository extends EntityRepository implements MenuItemRepositoryInterface
 {
     /**
      * {@inheritdoc}
