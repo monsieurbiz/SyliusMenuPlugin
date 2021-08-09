@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace MonsieurBiz\SyliusMenuPlugin\Form\Type;
 
 use Doctrine\ORM\EntityRepository;
-use MonsieurBiz\SyliusMenuPlugin\Entity\MenuItem;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -34,7 +33,7 @@ final class MenuItemType extends AbstractResourceType
                 $item = $event->getData();
                 $event->getForm()
                     ->add('parent', EntityType::class, [
-                        'class' => MenuItem::class,
+                        'class' => $this->dataClass,
                         'required' => false,
                         'choice_label' => 'translation.label',
                         'choice_value' => 'id',
