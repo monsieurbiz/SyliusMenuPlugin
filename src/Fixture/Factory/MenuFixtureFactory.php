@@ -30,11 +30,6 @@ final class MenuFixtureFactory extends AbstractExampleFactory implements MenuFix
     private OptionsResolver $optionsResolver;
 
     /**
-     * @var \Faker\Generator
-     */
-    private $faker;
-
-    /**
      * @var SlugGeneratorInterface
      */
     private $slugGenerator;
@@ -59,7 +54,6 @@ final class MenuFixtureFactory extends AbstractExampleFactory implements MenuFix
         $this->menuItemTranslationFactory = $menuItemTranslationFactory;
         $this->optionsResolver = new OptionsResolver();
         $this->configureOptions($this->getOptionsResolver());
-        $this->faker = \Faker\Factory::create();
     }
 
     public function getOptionsResolver(): OptionsResolver
