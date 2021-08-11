@@ -19,8 +19,8 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                php: [7.4]
-                sylius: [1.8]
+                php: ['7.4']
+                sylius: ['1.8.0', '1.9.0']
 
         steps:
             - name: Setup PHP
@@ -57,7 +57,7 @@ jobs:
 
             - name: Install Sylius-Standard
               run: |
-                  composer create-project --prefer-dist --no-scripts --no-progress sylius/sylius-standard sylius "~${{ matrix.sylius }}.0"
+                  composer create-project --prefer-dist --no-scripts --no-progress sylius/sylius-standard sylius "~${{ matrix.sylius }}"
 
             - name: Setup some requirements
               working-directory: ./sylius
