@@ -53,6 +53,11 @@ interface MenuItemInterface extends ResourceInterface, TranslatableInterface
     public function getItems(): ?Collection;
 
     /**
+     * @param Collection|null $items
+     */
+    public function setItems(?Collection $items): void;
+
+    /**
      * @param MenuItemInterface $item
      *
      * @return bool

@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace MonsieurBiz\SyliusMenuPlugin\Repository;
 
 use MonsieurBiz\SyliusMenuPlugin\Entity\MenuInterface;
+use MonsieurBiz\SyliusMenuPlugin\Hydrator\MenuTreeHydrator;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
 class MenuRepository extends EntityRepository implements MenuRepositoryInterface
@@ -29,6 +30,6 @@ class MenuRepository extends EntityRepository implements MenuRepositoryInterface
             ->setParameter('code', $code)
         ;
 
-        return $qb->getQuery()->getOneOrNullResult();
+        return (new MenuTreeHydrator())($qb->getQuery()->getOneOrNullResult());
     }
 }
