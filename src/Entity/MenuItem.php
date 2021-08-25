@@ -130,6 +130,14 @@ class MenuItem implements MenuItemInterface
     /**
      * {@inheritdoc}
      */
+    public function setItems(?Collection $items): void
+    {
+        $this->items = $items;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function hasItem(MenuItemInterface $item): bool
     {
         if (null === $this->items) {
