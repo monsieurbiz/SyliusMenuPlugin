@@ -30,7 +30,7 @@ class Menu implements MenuInterface
     protected ?string $code = null;
 
     /**
-     * @var Collection|null
+     * @var Collection<int, MenuItemInterface>|null
      */
     protected ?Collection $items;
 

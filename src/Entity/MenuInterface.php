@@ -33,7 +33,7 @@ interface MenuInterface extends ResourceInterface, TimestampableInterface
     public function setCode(?string $code): void;
 
     /**
-     * @return Collection|null
+     * @return Collection<int, MenuItemInterface>|null
      */
     public function getItems(): ?Collection;
 

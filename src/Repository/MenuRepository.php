@@ -19,8 +19,8 @@ class MenuRepository extends EntityRepository implements MenuRepositoryInterface
 {
     public function findOneByLocaleAndCode(string $localeCode, string $code): ?MenuInterface
     {
-        $qb = $this->createQueryBuilder('o');
-        $qb
+        $queryBuilder = $this->createQueryBuilder('o');
+        $queryBuilder
             ->addSelect('item')
             ->addSelect('item_translation')
             ->innerJoin('o.items', 'item')
@@ -30,6 +30,6 @@ class MenuRepository extends EntityRepository implements MenuRepositoryInterface
             ->setParameter('code', $code)
         ;
 
-        return (new MenuTreeHydrator())($qb->getQuery()->getOneOrNullResult());
+        return (new MenuTreeHydrator())($queryBuilder->getQuery()->getOneOrNullResult());
     }
 }

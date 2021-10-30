@@ -48,12 +48,12 @@ interface MenuItemInterface extends ResourceInterface, TranslatableInterface
     public function setPosition(?int $position): void;
 
     /**
-     * @return Collection|null
+     * @return Collection<int, MenuItemInterface>|null
      */
     public function getItems(): ?Collection;
 
     /**
-     * @param Collection|null $items
+     * @param Collection<int, MenuItemInterface>|null $items
      */
     public function setItems(?Collection $items): void;
 

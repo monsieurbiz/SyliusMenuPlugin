@@ -40,6 +40,11 @@ final class MenuTreeHydrator
         $item->setItems($items);
     }
 
+    /**
+     *
+     * @param Collection<int, MenuItemInterface> $items
+     * @return Collection<int, MenuItemInterface>
+     */
     private function filterItemsByParent(Collection $items, MenuItemInterface $parentItem): Collection
     {
         return $items->filter(function(MenuItemInterface $subItem) use ($parentItem): bool {

@@ -37,7 +37,7 @@ class MenuItem implements MenuItemInterface
     protected ?MenuInterface $menu = null;
 
     /**
-     * @var Collection|null
+     * @var Collection<int, MenuItemInterface>|null
      */
     protected ?Collection $items = null;
 
