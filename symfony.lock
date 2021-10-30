@@ -5,6 +5,12 @@
     "alcohol/iso4217": {
         "version": "4.0.0"
     },
+    "amphp/amp": {
+        "version": "v2.6.1"
+    },
+    "amphp/byte-stream": {
+        "version": "v1.8.1"
+    },
     "api-platform/core": {
         "version": "2.5",
         "recipe": {
@@ -57,6 +63,9 @@
     },
     "dmore/chrome-mink-driver": {
         "version": "2.8.0"
+    },
+    "dnoegel/php-xdg-base-dir": {
+        "version": "v0.1.1"
     },
     "doctrine/annotations": {
         "version": "1.0",
@@ -144,8 +153,23 @@
     "egulias/email-validator": {
         "version": "2.1.25"
     },
+    "ergebnis/composer-normalize": {
+        "version": "2.15.0"
+    },
+    "ergebnis/json-normalizer": {
+        "version": "1.0.3"
+    },
+    "ergebnis/json-printer": {
+        "version": "3.1.1"
+    },
     "fakerphp/faker": {
         "version": "v1.15.0"
+    },
+    "felixfbecker/advanced-json-rpc": {
+        "version": "v3.2.1"
+    },
+    "felixfbecker/language-server-protocol": {
+        "version": "1.5.1"
     },
     "fig/link-util": {
         "version": "1.1.2"
@@ -231,6 +255,15 @@
     "hamcrest/hamcrest-php": {
         "version": "v2.0.1"
     },
+    "hwi/oauth-bundle": {
+        "version": "1.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "0.6",
+            "ref": "18ce21f16066cccfa0803c9e846a2e4f4bec92ab"
+        }
+    },
     "imagine/imagine": {
         "version": "1.2.4"
     },
@@ -255,6 +288,9 @@
             "ref": "384cec52df45f3bfd46a09930d6960a58872b268"
         }
     },
+    "justinrainbow/json-schema": {
+        "version": "5.2.11"
+    },
     "knplabs/gaufrette": {
         "version": "v0.8.3"
     },
@@ -272,6 +308,9 @@
     },
     "laminas/laminas-eventmanager": {
         "version": "3.3.1"
+    },
+    "laminas/laminas-stdlib": {
+        "version": "3.6.0"
     },
     "laminas/laminas-zendframework-bridge": {
         "version": "1.3.0"
@@ -315,8 +354,20 @@
             "ref": "5a5bdc2d0e2533ed6935d5ae562f2b318a8fc1ee"
         }
     },
+    "localheinz/diff": {
+        "version": "1.1.1"
+    },
     "marcj/topsort": {
         "version": "1.1.0"
+    },
+    "matthiasnoback/symfony-config-test": {
+        "version": "4.3.0"
+    },
+    "matthiasnoback/symfony-dependency-injection-test": {
+        "version": "4.3.0"
+    },
+    "mikey179/vfsstream": {
+        "version": "v1.6.10"
     },
     "mockery/mockery": {
         "version": "1.4.3"
@@ -343,6 +394,9 @@
             "tests/Application/config/packages/test/nelmio_alice.yaml"
         ]
     },
+    "netresearch/jsonmapper": {
+        "version": "v3.1.1"
+    },
     "nette/finder": {
         "version": "v2.5.2"
     },
@@ -360,6 +414,9 @@
     },
     "pagerfanta/pagerfanta": {
         "version": "v2.7.2"
+    },
+    "pamil/prophecy-common": {
+        "version": "v0.1.0"
     },
     "paragonie/random_compat": {
         "version": "v9.99.100"
@@ -390,6 +447,12 @@
     },
     "php-cs-fixer/diff": {
         "version": "v1.3.1"
+    },
+    "php-http/client-common": {
+        "version": "2.4.0"
+    },
+    "php-http/discovery": {
+        "version": "1.14.1"
     },
     "php-http/guzzle6-adapter": {
         "version": "v2.0.2"
@@ -474,6 +537,9 @@
     "polishsymfonycommunity/symfony-mocker-container": {
         "version": "v1.0.4"
     },
+    "psalm/plugin-mockery": {
+        "version": "0.3.0"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
@@ -484,6 +550,9 @@
         "version": "1.0.0"
     },
     "psr/http-client": {
+        "version": "1.0.1"
+    },
+    "psr/http-factory": {
         "version": "1.0.1"
     },
     "psr/http-message": {
@@ -668,6 +737,9 @@
     },
     "symfony/css-selector": {
         "version": "v5.3.4"
+    },
+    "symfony/debug": {
+        "version": "v4.4.31"
     },
     "symfony/debug-bundle": {
         "version": "4.1",
@@ -1038,8 +1110,17 @@
     "twig/twig": {
         "version": "v2.14.6"
     },
+    "vimeo/psalm": {
+        "version": "3.18.2"
+    },
     "webmozart/assert": {
         "version": "1.10.0"
+    },
+    "webmozart/glob": {
+        "version": "4.4.0"
+    },
+    "webmozart/path-util": {
+        "version": "2.3.0"
     },
     "willdurand/hateoas": {
         "version": "3.7.0"
