@@ -4,8 +4,6 @@ on:
   push:
     branches: [ master ]
   pull_request:
-  schedule:
-    - cron:  '0 0 * * *'
 
 jobs:
 
@@ -16,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: ['7.4']
+        php: ['7.4', '8.0']
 
     env:
       SYMFONY_ARGS: --no-tls
@@ -31,11 +29,12 @@ jobs:
           sudo update-alternatives --set php /usr/bin/php${{ matrix.php }}
           echo "date.timezone=UTC" | sudo tee /etc/php/${{ matrix.php }}/cli/conf.d/timezone.ini
           echo "${{ matrix.php }}" > .php-version
-            
+
       - name: Install symfony CLI
         run: |
           curl https://get.symfony.com/cli/installer | bash
           echo "${HOME}/.symfony/bin" >> $GITHUB_PATH
+
       - uses: actions/cache@v1
         id: cache-composer
         with:
@@ -44,6 +43,7 @@ jobs:
           restore-keys: composer2-php:${{ matrix.php }}-
 
       - run: mkdir -p /home/runner/{.composer/cache,.config/composer}
+        if: steps.cache-composer.outputs.cache-hit != 'true'
 
       - name: Composer v2
         run: sudo composer self-update --2
@@ -60,6 +60,8 @@ jobs:
       - run: make test.phpunit
 
       - run: make test.phpstan
+
+      - run: make test.phpmd
 
       - run: make test.phpspec
 
