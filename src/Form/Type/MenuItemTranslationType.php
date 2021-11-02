@@ -21,7 +21,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 final class MenuItemTranslationType extends AbstractResourceType
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      *
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */

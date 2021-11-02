@@ -19,18 +19,9 @@ use Sylius\Component\Resource\Factory\FactoryInterface;
 
 interface MenuItemFactoryInterface extends FactoryInterface
 {
-    /**
-     * @return object
-     */
     public function createNew(): object;
 
-    /**
-     * @return MenuItemInterface
-     */
     public function createForMenu(MenuInterface $menu): MenuItemInterface;
 
-    /**
-     * @return MenuItemInterface
-     */
     public function createForParent(MenuItemInterface $parent): MenuItemInterface;
 }

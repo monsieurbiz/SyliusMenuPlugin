@@ -21,14 +21,8 @@ class Menu implements MenuInterface
 {
     use TimestampableTrait;
 
-    /**
-     * @var int|null
-     */
     protected ?int $id = null;
 
-    /**
-     * @var string|null
-     */
     protected ?string $code = null;
 
     /**
@@ -36,9 +30,6 @@ class Menu implements MenuInterface
      */
     protected ?Collection $items;
 
-    /**
-     * @var bool|null
-     */
     protected ?bool $isSystem = false;
 
     /**
@@ -50,7 +41,7 @@ class Menu implements MenuInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getId(): ?int
     {
@@ -58,7 +49,7 @@ class Menu implements MenuInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getCode(): ?string
     {
@@ -66,7 +57,7 @@ class Menu implements MenuInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setCode(?string $code): void
     {
@@ -74,7 +65,7 @@ class Menu implements MenuInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getItems(): ?Collection
     {
@@ -82,7 +73,7 @@ class Menu implements MenuInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getFirstLevelItems(): array
     {
@@ -90,14 +81,14 @@ class Menu implements MenuInterface
         if (null === $items) {
             return [];
         }
-        $filteredItems = $items->filter(function($item) {
+        $filteredItems = $items->filter(function ($item) {
             if (!$item->getParent()) {
                 return $item;
             }
 
             return null;
         })->toArray();
-        uasort($filteredItems, function($itemA, $itemB) {
+        uasort($filteredItems, function ($itemA, $itemB) {
             return $itemA->getPosition() <=> $itemB->getPosition();
         });
 
@@ -105,7 +96,7 @@ class Menu implements MenuInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function hasItem(MenuItemInterface $item): bool
     {
@@ -117,7 +108,7 @@ class Menu implements MenuInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function addItem(MenuItemInterface $item): void
     {
@@ -127,7 +118,7 @@ class Menu implements MenuInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function removeItem(MenuItemInterface $item): void
     {
@@ -137,7 +128,7 @@ class Menu implements MenuInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function isSystem(): ?bool
     {
@@ -145,7 +136,7 @@ class Menu implements MenuInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setIsSystem(?bool $isSystem): void
     {

@@ -21,7 +21,7 @@ use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 class MenuItemRepository extends EntityRepository implements MenuItemRepositoryInterface
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getLastPositionWithinMenu(MenuInterface $menu): int
     {
@@ -38,7 +38,7 @@ class MenuItemRepository extends EntityRepository implements MenuItemRepositoryI
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getLastPositionWithinMenuItem(MenuItemInterface $menuItem): int
     {

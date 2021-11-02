@@ -38,11 +38,6 @@ final class MenuFixtureFactory extends AbstractExampleFactory implements MenuFix
 
     /**
      * MenuFixtureFactory constructor.
-     *
-     * @param FactoryInterface $menuFactory
-     * @param FactoryInterface $menuItemFactory
-     * @param FactoryInterface $menuItemTranslationFactory
-     * @param SlugGeneratorInterface $slugGenerator
      */
     public function __construct(
         FactoryInterface $menuFactory,
@@ -63,11 +58,6 @@ final class MenuFixtureFactory extends AbstractExampleFactory implements MenuFix
         return $this->optionsResolver;
     }
 
-    /**
-     * @param array $options
-     *
-     * @return MenuInterface
-     */
     public function create(array $options = []): MenuInterface
     {
         $options = $this->optionsResolver->resolve($options);
@@ -84,9 +74,6 @@ final class MenuFixtureFactory extends AbstractExampleFactory implements MenuFix
         return $menu;
     }
 
-    /**
-     * @param OptionsResolver $resolver
-     */
     protected function configureOptions(OptionsResolver $resolver): void
     {
         $resolver

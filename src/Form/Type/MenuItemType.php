@@ -24,14 +24,14 @@ use Symfony\Component\Form\FormEvents;
 final class MenuItemType extends AbstractResourceType
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      *
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->addEventListener(FormEvents::PRE_SET_DATA, function(FormEvent $event): void {
+            ->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event): void {
                 $item = $event->getData();
                 $event->getForm()
                     ->add('parent', EntityType::class, [
@@ -39,7 +39,7 @@ final class MenuItemType extends AbstractResourceType
                         'required' => false,
                         'choice_label' => 'translation.label',
                         'choice_value' => 'id',
-                        'query_builder' => function(EntityRepository $er) use ($item) {
+                        'query_builder' => function (EntityRepository $er) use ($item) {
                             $qb = $er->createQueryBuilder('o');
                             $qb
                                 ->where('o.menu = :menu')

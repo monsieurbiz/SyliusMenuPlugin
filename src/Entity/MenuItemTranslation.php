@@ -17,23 +17,14 @@ use Sylius\Component\Resource\Model\AbstractTranslation;
 
 class MenuItemTranslation extends AbstractTranslation implements MenuItemTranslationInterface
 {
-    /**
-     * @var int|null
-     */
     protected ?int $id = null;
 
-    /**
-     * @var string|null
-     */
     protected ?string $url = null;
 
-    /**
-     * @var string|null
-     */
     protected ?string $label = null;
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getId(): ?int
     {
@@ -41,7 +32,7 @@ class MenuItemTranslation extends AbstractTranslation implements MenuItemTransla
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getUrl(): ?string
     {
@@ -49,7 +40,7 @@ class MenuItemTranslation extends AbstractTranslation implements MenuItemTransla
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setUrl(?string $url): void
     {
@@ -57,7 +48,7 @@ class MenuItemTranslation extends AbstractTranslation implements MenuItemTransla
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getLabel(): ?string
     {
@@ -65,7 +56,7 @@ class MenuItemTranslation extends AbstractTranslation implements MenuItemTransla
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setLabel(?string $label): void
     {

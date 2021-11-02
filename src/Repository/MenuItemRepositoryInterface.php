@@ -19,17 +19,7 @@ use Sylius\Component\Resource\Repository\RepositoryInterface;
 
 interface MenuItemRepositoryInterface extends RepositoryInterface
 {
-    /**
-     * @param MenuInterface $menu
-     *
-     * @return int
-     */
     public function getLastPositionWithinMenu(MenuInterface $menu): int;
 
-    /**
-     * @param MenuItemInterface $menuItem
-     *
-     * @return int
-     */
     public function getLastPositionWithinMenuItem(MenuItemInterface $menuItem): int;
 }

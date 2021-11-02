@@ -18,24 +18,16 @@ use MonsieurBiz\SyliusMenuPlugin\Repository\MenuItemRepositoryInterface;
 
 final class MenuItemListener
 {
-    /**
-     * @var MenuItemRepositoryInterface
-     */
     private MenuItemRepositoryInterface $menuItemRepository;
 
     /**
      * MenuItemListener constructor.
-     *
-     * @param MenuItemRepositoryInterface $menuItemRepository
      */
     public function __construct(MenuItemRepositoryInterface $menuItemRepository)
     {
         $this->menuItemRepository = $menuItemRepository;
     }
 
-    /**
-     * @param MenuItemInterface $menuItem
-     */
     public function prePersist(MenuItemInterface $menuItem): void
     {
         // Calculate Position

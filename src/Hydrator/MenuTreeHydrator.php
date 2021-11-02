@@ -49,7 +49,7 @@ final class MenuTreeHydrator
      */
     private function filterItemsByParent(Collection $items, MenuItemInterface $parentItem): Collection
     {
-        return $items->filter(function(MenuItemInterface $subItem) use ($parentItem): bool {
+        return $items->filter(function (MenuItemInterface $subItem) use ($parentItem): bool {
             if (null === $subItem->getParent()) {
                 return false;
             }

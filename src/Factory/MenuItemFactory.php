@@ -19,15 +19,10 @@ use Sylius\Component\Resource\Factory\FactoryInterface;
 
 final class MenuItemFactory implements MenuItemFactoryInterface
 {
-    /**
-     * @var FactoryInterface
-     */
     private FactoryInterface $decoratedFactory;
 
     /**
      * MenuItemFactory constructor.
-     *
-     * @param FactoryInterface $decoratedFactory
      */
     public function __construct(
         FactoryInterface $decoratedFactory
@@ -36,18 +31,13 @@ final class MenuItemFactory implements MenuItemFactoryInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function createNew(): object
     {
         return $this->decoratedFactory->createNew();
     }
 
-    /**
-     * @param MenuInterface $menu
-     *
-     * @return MenuItemInterface
-     */
     public function createForMenu(MenuInterface $menu): MenuItemInterface
     {
         /** @var MenuItemInterface $item */
@@ -57,11 +47,6 @@ final class MenuItemFactory implements MenuItemFactoryInterface
         return $item;
     }
 
-    /**
-     * @param MenuItemInterface $parent
-     *
-     * @return MenuItemInterface
-     */
     public function createForParent(MenuItemInterface $parent): MenuItemInterface
     {
         /** @var MenuItemInterface $item */

@@ -18,23 +18,11 @@ use Sylius\Component\Resource\Model\TranslationInterface;
 
 interface MenuItemTranslationInterface extends ResourceInterface, TranslationInterface
 {
-    /**
-     * @return string|null
-     */
     public function getLabel(): ?string;
 
-    /**
-     * @param string|null $label
-     */
     public function setLabel(?string $label): void;
 
-    /**
-     * @return string|null
-     */
     public function getUrl(): ?string;
 
-    /**
-     * @param string|null $url
-     */
     public function setUrl(?string $url): void;
 }

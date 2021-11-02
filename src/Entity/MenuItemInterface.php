@@ -19,14 +19,8 @@ use Sylius\Component\Resource\Model\TranslatableInterface;
 
 interface MenuItemInterface extends ResourceInterface, TranslatableInterface
 {
-    /**
-     * @return MenuInterface|null
-     */
     public function getMenu(): ?MenuInterface;
 
-    /**
-     * @param MenuInterface|null $menu
-     */
     public function setMenu(?MenuInterface $menu): void;
 
     /**
@@ -39,14 +33,8 @@ interface MenuItemInterface extends ResourceInterface, TranslatableInterface
      */
     public function setParent(?self $parent): void;
 
-    /**
-     * @return int|null
-     */
     public function getPosition(): ?int;
 
-    /**
-     * @param int|null $position
-     */
     public function setPosition(?int $position): void;
 
     /**
@@ -61,8 +49,6 @@ interface MenuItemInterface extends ResourceInterface, TranslatableInterface
 
     /**
      * @param MenuItemInterface $item
-     *
-     * @return bool
      */
     public function hasItem(self $item): bool;
 
@@ -76,13 +62,7 @@ interface MenuItemInterface extends ResourceInterface, TranslatableInterface
      */
     public function removeItem(self $item): void;
 
-    /**
-     * @return string|null
-     */
     public function getLabel(): ?string;
 
-    /**
-     * @return string|null
-     */
     public function getUrl(): ?string;
 }

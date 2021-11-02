@@ -24,6 +24,7 @@ use Symfony\Component\HttpKernel\Exception\PreconditionFailedHttpException;
 final class MenuItemResourceController extends ResourceController
 {
     public const MOVE_UP = 'up';
+
     public const MOVE_DOWN = 'down';
 
     public function moveUpAction(Request $request, EntityManagerInterface $menuItemManager): Response

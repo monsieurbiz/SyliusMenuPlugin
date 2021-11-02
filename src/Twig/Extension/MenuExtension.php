@@ -24,26 +24,14 @@ use Webmozart\Assert\Assert;
 
 final class MenuExtension extends AbstractExtension implements ExtensionInterface
 {
-    /**
-     * @var MenuRepositoryInterface
-     */
     private MenuRepositoryInterface $menuRepository;
 
-    /**
-     * @var array
-     */
     private array $menus = [];
 
-    /**
-     * @var LocaleContextInterface
-     */
     private LocaleContextInterface $localeContext;
 
     /**
      * MenuExtension constructor.
-     *
-     * @param RepositoryInterface $menuRepository
-     * @param LocaleContextInterface $localeContext
      */
     public function __construct(
         RepositoryInterface $menuRepository,
