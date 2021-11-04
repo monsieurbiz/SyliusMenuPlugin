@@ -17,6 +17,7 @@
         <one-to-many field="items" target-entity="MonsieurBiz\SyliusMenuPlugin\Entity\MenuItemInterface" mapped-by="menu" fetch="EAGER">
             <cascade>
                 <cascade-persist/>
+                <cascade-remove/>
             </cascade>
             <order-by>
                 <order-by-field name="position" direction="ASC"/>
