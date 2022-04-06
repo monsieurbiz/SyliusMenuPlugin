@@ -1,9 +1,11 @@
 <?php
 
 /*
- * This file is part of Monsieur Biz' menu plugin for Sylius.
+ * This file is part of Monsieur Biz' Menu plugin for Sylius.
+ *
  * (c) Monsieur Biz <sylius@monsieurbiz.com>
- * For the full copyright and license information, please view the LICENSE
+ *
+ * For the full copyright and license information, please view the LICENSE.txt
  * file that was distributed with this source code.
  */
 
@@ -17,14 +19,8 @@ use Sylius\Component\Resource\Model\TranslatableInterface;
 
 interface MenuItemInterface extends ResourceInterface, TranslatableInterface
 {
-    /**
-     * @return MenuInterface|null
-     */
     public function getMenu(): ?MenuInterface;
 
-    /**
-     * @param MenuInterface|null $menu
-     */
     public function setMenu(?MenuInterface $menu): void;
 
     /**
@@ -37,30 +33,22 @@ interface MenuItemInterface extends ResourceInterface, TranslatableInterface
      */
     public function setParent(?self $parent): void;
 
-    /**
-     * @return int|null
-     */
     public function getPosition(): ?int;
 
-    /**
-     * @param int|null $position
-     */
     public function setPosition(?int $position): void;
 
     /**
-     * @return Collection|null
+     * @return Collection<int, MenuItemInterface>|null
      */
     public function getItems(): ?Collection;
 
     /**
-     * @param Collection|null $items
+     * @param Collection<int, MenuItemInterface>|null $items
      */
     public function setItems(?Collection $items): void;
 
     /**
      * @param MenuItemInterface $item
-     *
-     * @return bool
      */
     public function hasItem(self $item): bool;
 
@@ -74,13 +62,7 @@ interface MenuItemInterface extends ResourceInterface, TranslatableInterface
      */
     public function removeItem(self $item): void;
 
-    /**
-     * @return string|null
-     */
     public function getLabel(): ?string;
 
-    /**
-     * @return string|null
-     */
     public function getUrl(): ?string;
 }

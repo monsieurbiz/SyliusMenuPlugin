@@ -1,9 +1,11 @@
 <?php
 
 /*
- * This file is part of Monsieur Biz' menu plugin for Sylius.
+ * This file is part of Monsieur Biz' Menu plugin for Sylius.
+ *
  * (c) Monsieur Biz <sylius@monsieurbiz.com>
- * For the full copyright and license information, please view the LICENSE
+ *
+ * For the full copyright and license information, please view the LICENSE.txt
  * file that was distributed with this source code.
  */
 
@@ -22,33 +24,22 @@ use Sylius\Component\Resource\Model\TranslatableTrait;
 class MenuItem implements MenuItemInterface
 {
     use TimestampableTrait;
+
     use TranslatableTrait {
         __construct as protected initializeTranslationsCollection;
     }
 
-    /**
-     * @var int|null
-     */
     protected ?int $id = null;
 
-    /**
-     * @var MenuInterface|null
-     */
     protected ?MenuInterface $menu = null;
 
     /**
-     * @var Collection|null
+     * @var Collection<int, MenuItemInterface>|null
      */
     protected ?Collection $items = null;
 
-    /**
-     * @var MenuItemInterface|null
-     */
     protected ?MenuItemInterface $parent = null;
 
-    /**
-     * @var int|null
-     */
     protected ?int $position = null;
 
     /**
@@ -61,7 +52,7 @@ class MenuItem implements MenuItemInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getId(): ?int
     {
@@ -69,7 +60,7 @@ class MenuItem implements MenuItemInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getMenu(): ?MenuInterface
     {
@@ -77,7 +68,7 @@ class MenuItem implements MenuItemInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setMenu(?MenuInterface $menu): void
     {
@@ -88,7 +79,7 @@ class MenuItem implements MenuItemInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getParent(): ?MenuItemInterface
     {
@@ -96,7 +87,7 @@ class MenuItem implements MenuItemInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setParent(?MenuItemInterface $parent): void
     {
@@ -104,7 +95,7 @@ class MenuItem implements MenuItemInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getPosition(): ?int
     {
@@ -112,7 +103,7 @@ class MenuItem implements MenuItemInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setPosition(?int $position): void
     {
@@ -120,7 +111,7 @@ class MenuItem implements MenuItemInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getItems(): ?Collection
     {
@@ -128,7 +119,7 @@ class MenuItem implements MenuItemInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setItems(?Collection $items): void
     {
@@ -136,7 +127,7 @@ class MenuItem implements MenuItemInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function hasItem(MenuItemInterface $item): bool
     {
@@ -148,7 +139,7 @@ class MenuItem implements MenuItemInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function addItem(MenuItemInterface $item): void
     {
@@ -158,7 +149,7 @@ class MenuItem implements MenuItemInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function removeItem(MenuItemInterface $item): void
     {
@@ -168,7 +159,7 @@ class MenuItem implements MenuItemInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getLabel(): ?string
     {
@@ -176,7 +167,7 @@ class MenuItem implements MenuItemInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getUrl(): ?string
     {
@@ -184,7 +175,7 @@ class MenuItem implements MenuItemInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     protected function createTranslation(): MenuItemTranslationInterface
     {

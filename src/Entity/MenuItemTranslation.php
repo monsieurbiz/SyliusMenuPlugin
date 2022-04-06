@@ -1,9 +1,11 @@
 <?php
 
 /*
- * This file is part of Monsieur Biz' menu plugin for Sylius.
+ * This file is part of Monsieur Biz' Menu plugin for Sylius.
+ *
  * (c) Monsieur Biz <sylius@monsieurbiz.com>
- * For the full copyright and license information, please view the LICENSE
+ *
+ * For the full copyright and license information, please view the LICENSE.txt
  * file that was distributed with this source code.
  */
 
@@ -15,23 +17,14 @@ use Sylius\Component\Resource\Model\AbstractTranslation;
 
 class MenuItemTranslation extends AbstractTranslation implements MenuItemTranslationInterface
 {
-    /**
-     * @var int|null
-     */
     protected ?int $id = null;
 
-    /**
-     * @var string|null
-     */
     protected ?string $url = null;
 
-    /**
-     * @var string|null
-     */
     protected ?string $label = null;
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getId(): ?int
     {
@@ -39,7 +32,7 @@ class MenuItemTranslation extends AbstractTranslation implements MenuItemTransla
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getUrl(): ?string
     {
@@ -47,7 +40,7 @@ class MenuItemTranslation extends AbstractTranslation implements MenuItemTransla
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setUrl(?string $url): void
     {
@@ -55,7 +48,7 @@ class MenuItemTranslation extends AbstractTranslation implements MenuItemTransla
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getLabel(): ?string
     {
@@ -63,7 +56,7 @@ class MenuItemTranslation extends AbstractTranslation implements MenuItemTransla
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function setLabel(?string $label): void
     {

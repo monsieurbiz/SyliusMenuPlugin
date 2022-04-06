@@ -1,9 +1,11 @@
 <?php
 
 /*
- * This file is part of Monsieur Biz' menu plugin for Sylius.
+ * This file is part of Monsieur Biz' Menu plugin for Sylius.
+ *
  * (c) Monsieur Biz <sylius@monsieurbiz.com>
- * For the full copyright and license information, please view the LICENSE
+ *
+ * For the full copyright and license information, please view the LICENSE.txt
  * file that was distributed with this source code.
  */
 
@@ -17,17 +19,7 @@ use Sylius\Component\Resource\Repository\RepositoryInterface;
 
 interface MenuItemRepositoryInterface extends RepositoryInterface
 {
-    /**
-     * @param MenuInterface $menu
-     *
-     * @return int
-     */
     public function getLastPositionWithinMenu(MenuInterface $menu): int;
 
-    /**
-     * @param MenuItemInterface $menuItem
-     *
-     * @return int
-     */
     public function getLastPositionWithinMenuItem(MenuItemInterface $menuItem): int;
 }

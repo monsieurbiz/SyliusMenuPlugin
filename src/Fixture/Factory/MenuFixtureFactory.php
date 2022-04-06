@@ -1,9 +1,11 @@
 <?php
 
 /*
- * This file is part of Monsieur Biz' menu plugin for Sylius.
+ * This file is part of Monsieur Biz' Menu plugin for Sylius.
+ *
  * (c) Monsieur Biz <sylius@monsieurbiz.com>
- * For the full copyright and license information, please view the LICENSE
+ *
+ * For the full copyright and license information, please view the LICENSE.txt
  * file that was distributed with this source code.
  */
 
@@ -36,11 +38,6 @@ final class MenuFixtureFactory extends AbstractExampleFactory implements MenuFix
 
     /**
      * MenuFixtureFactory constructor.
-     *
-     * @param FactoryInterface $menuFactory
-     * @param FactoryInterface $menuItemFactory
-     * @param FactoryInterface $menuItemTranslationFactory
-     * @param SlugGeneratorInterface $slugGenerator
      */
     public function __construct(
         FactoryInterface $menuFactory,
@@ -61,11 +58,6 @@ final class MenuFixtureFactory extends AbstractExampleFactory implements MenuFix
         return $this->optionsResolver;
     }
 
-    /**
-     * @param array $options
-     *
-     * @return MenuInterface
-     */
     public function create(array $options = []): MenuInterface
     {
         $options = $this->optionsResolver->resolve($options);
@@ -82,9 +74,6 @@ final class MenuFixtureFactory extends AbstractExampleFactory implements MenuFix
         return $menu;
     }
 
-    /**
-     * @param OptionsResolver $resolver
-     */
     protected function configureOptions(OptionsResolver $resolver): void
     {
         $resolver

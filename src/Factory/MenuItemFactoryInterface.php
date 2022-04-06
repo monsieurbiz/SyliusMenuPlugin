@@ -1,9 +1,11 @@
 <?php
 
 /*
- * This file is part of Monsieur Biz' menu plugin for Sylius.
+ * This file is part of Monsieur Biz' Menu plugin for Sylius.
+ *
  * (c) Monsieur Biz <sylius@monsieurbiz.com>
- * For the full copyright and license information, please view the LICENSE
+ *
+ * For the full copyright and license information, please view the LICENSE.txt
  * file that was distributed with this source code.
  */
 
@@ -17,18 +19,9 @@ use Sylius\Component\Resource\Factory\FactoryInterface;
 
 interface MenuItemFactoryInterface extends FactoryInterface
 {
-    /**
-     * @return object
-     */
     public function createNew(): object;
 
-    /**
-     * @return MenuItemInterface
-     */
     public function createForMenu(MenuInterface $menu): MenuItemInterface;
 
-    /**
-     * @return MenuItemInterface
-     */
     public function createForParent(MenuItemInterface $parent): MenuItemInterface;
 }

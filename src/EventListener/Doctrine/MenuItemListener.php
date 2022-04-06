@@ -1,9 +1,11 @@
 <?php
 
 /*
- * This file is part of Monsieur Biz' menu plugin for Sylius.
+ * This file is part of Monsieur Biz' Menu plugin for Sylius.
+ *
  * (c) Monsieur Biz <sylius@monsieurbiz.com>
- * For the full copyright and license information, please view the LICENSE
+ *
+ * For the full copyright and license information, please view the LICENSE.txt
  * file that was distributed with this source code.
  */
 
@@ -16,24 +18,16 @@ use MonsieurBiz\SyliusMenuPlugin\Repository\MenuItemRepositoryInterface;
 
 final class MenuItemListener
 {
-    /**
-     * @var MenuItemRepositoryInterface
-     */
     private MenuItemRepositoryInterface $menuItemRepository;
 
     /**
      * MenuItemListener constructor.
-     *
-     * @param MenuItemRepositoryInterface $menuItemRepository
      */
     public function __construct(MenuItemRepositoryInterface $menuItemRepository)
     {
         $this->menuItemRepository = $menuItemRepository;
     }
 
-    /**
-     * @param MenuItemInterface $menuItem
-     */
     public function prePersist(MenuItemInterface $menuItem): void
     {
         // Calculate Position

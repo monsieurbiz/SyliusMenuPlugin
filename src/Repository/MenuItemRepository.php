@@ -1,9 +1,11 @@
 <?php
 
 /*
- * This file is part of Monsieur Biz' menu plugin for Sylius.
+ * This file is part of Monsieur Biz' Menu plugin for Sylius.
+ *
  * (c) Monsieur Biz <sylius@monsieurbiz.com>
- * For the full copyright and license information, please view the LICENSE
+ *
+ * For the full copyright and license information, please view the LICENSE.txt
  * file that was distributed with this source code.
  */
 
@@ -19,7 +21,7 @@ use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 class MenuItemRepository extends EntityRepository implements MenuItemRepositoryInterface
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getLastPositionWithinMenu(MenuInterface $menu): int
     {
@@ -36,7 +38,7 @@ class MenuItemRepository extends EntityRepository implements MenuItemRepositoryI
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getLastPositionWithinMenuItem(MenuItemInterface $menuItem): int
     {

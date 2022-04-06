@@ -1,9 +1,11 @@
 <?php
 
 /*
- * This file is part of Monsieur Biz' menu plugin for Sylius.
+ * This file is part of Monsieur Biz' Menu plugin for Sylius.
+ *
  * (c) Monsieur Biz <sylius@monsieurbiz.com>
- * For the full copyright and license information, please view the LICENSE
+ *
+ * For the full copyright and license information, please view the LICENSE.txt
  * file that was distributed with this source code.
  */
 
@@ -22,26 +24,14 @@ use Webmozart\Assert\Assert;
 
 final class MenuExtension extends AbstractExtension implements ExtensionInterface
 {
-    /**
-     * @var MenuRepositoryInterface
-     */
     private MenuRepositoryInterface $menuRepository;
 
-    /**
-     * @var array
-     */
     private array $menus = [];
 
-    /**
-     * @var LocaleContextInterface
-     */
     private LocaleContextInterface $localeContext;
 
     /**
      * MenuExtension constructor.
-     *
-     * @param RepositoryInterface $menuRepository
-     * @param LocaleContextInterface $localeContext
      */
     public function __construct(
         RepositoryInterface $menuRepository,

@@ -1,9 +1,11 @@
 <?php
 
 /*
- * This file is part of Monsieur Biz' menu plugin for Sylius.
+ * This file is part of Monsieur Biz' Menu plugin for Sylius.
+ *
  * (c) Monsieur Biz <sylius@monsieurbiz.com>
- * For the full copyright and license information, please view the LICENSE
+ *
+ * For the full copyright and license information, please view the LICENSE.txt
  * file that was distributed with this source code.
  */
 
@@ -17,15 +19,10 @@ use Sylius\Component\Resource\Factory\FactoryInterface;
 
 final class MenuItemFactory implements MenuItemFactoryInterface
 {
-    /**
-     * @var FactoryInterface
-     */
     private FactoryInterface $decoratedFactory;
 
     /**
      * MenuItemFactory constructor.
-     *
-     * @param FactoryInterface $decoratedFactory
      */
     public function __construct(
         FactoryInterface $decoratedFactory
@@ -34,18 +31,13 @@ final class MenuItemFactory implements MenuItemFactoryInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function createNew(): object
     {
         return $this->decoratedFactory->createNew();
     }
 
-    /**
-     * @param MenuInterface $menu
-     *
-     * @return MenuItemInterface
-     */
     public function createForMenu(MenuInterface $menu): MenuItemInterface
     {
         /** @var MenuItemInterface $item */
@@ -55,11 +47,6 @@ final class MenuItemFactory implements MenuItemFactoryInterface
         return $item;
     }
 
-    /**
-     * @param MenuItemInterface $parent
-     *
-     * @return MenuItemInterface
-     */
     public function createForParent(MenuItemInterface $parent): MenuItemInterface
     {
         /** @var MenuItemInterface $item */
