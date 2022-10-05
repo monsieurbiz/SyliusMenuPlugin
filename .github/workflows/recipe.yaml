@@ -87,6 +87,7 @@ jobs:
       - name: Composer install
         working-directory: ./sylius
         run: |
+          composer config --no-plugins allow-plugins true
           composer install
 
       - name: Show flex server logs
