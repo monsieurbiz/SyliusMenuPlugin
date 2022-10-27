@@ -15,7 +15,6 @@ namespace MonsieurBiz\SyliusMenuPlugin\Form\Type;
 
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 final class MenuItemTranslationType extends AbstractResourceType
@@ -31,7 +30,7 @@ final class MenuItemTranslationType extends AbstractResourceType
             ->add('label', TextType::class, [
                 'label' => 'monsieurbiz_menu.ui.label',
             ])
-            ->add('url', UrlType::class, [
+            ->add('url', TextType::class, [
                 'required' => false,
                 'label' => 'monsieurbiz_menu.ui.url',
             ])

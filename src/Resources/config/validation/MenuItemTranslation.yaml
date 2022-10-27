@@ -1,4 +1,4 @@
-MonsieurBiz\SyliusMenuPlugin\Entity\Menu\MenuItemTranslation:
+MonsieurBiz\SyliusMenuPlugin\Entity\MenuItemTranslation:
     properties:
         label:
             -   NotBlank:
@@ -8,4 +8,12 @@ MonsieurBiz\SyliusMenuPlugin\Entity\Menu\MenuItemTranslation:
                     max: 255
                     groups: [monsieurbiz_menu]
         url:
-            -   Valid: ~
+            -   AtLeastOneOf:
+                    includeInternalMessages: false
+                    message: monsieurbiz_menu.not_valid_url
+                    constraints:
+                        -   Url:
+                                protocols: [http, https]
+                                relativeProtocol: true
+                        -   Regex: '`^(#|/[^/])`'
+                    groups: [monsieurbiz_menu]
