@@ -87,7 +87,7 @@ jobs:
       - name: Require plugin without install
         working-directory: ./sylius
         run: |
-          composer require --no-install --no-update monsieurbiz/sylius-menu-plugin="*@dev"
+          composer require --no-install --no-scripts monsieurbiz/sylius-menu-plugin="*@dev"
 
       - name: Composer install
         working-directory: ./sylius
