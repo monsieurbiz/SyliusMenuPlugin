@@ -11,47 +11,47 @@ sylius_fixtures:
                                     -   translations:
                                             en_US:
                                                 label: 'T-shirts'
-                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/en_US/taxons/category/t-shirts'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/en_US/taxons/t-shirts'
                                             fr_FR:
                                                 label: 'T-shirts'
-                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_fr/taxons/category/t-shirts'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/t-shirts'
                                         children:
                                             - translations:
-                                                en_US: 
+                                                en_US:
                                                     label: 'Men'
-                                                    url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/category/t-shirts/men'
-                                                fr_FR: 
+                                                    url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/en_US/taxons/t-shirts/men'
+                                                fr_FR:
                                                     label: 'Homme'
-                                                    url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/category/t-shirts/men'
+                                                    url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/t-shirts/men'
                                             - translations:
-                                                en_US: 
+                                                en_US:
                                                     label: 'Women'
-                                                    url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/category/t-shirts/women'
-                                                fr_FR: 
+                                                    url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/en_US/taxons/t-shirts/women'
+                                                fr_FR:
                                                     label: 'Femme'
-                                                    url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/category/t-shirts/women'
+                                                    url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/t-shirts/women'
                                     -   translations:
                                             en_US:
                                                 label: 'Caps'
-                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/en_US/taxons/category/caps'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/en_US/taxons/caps'
                                             fr_FR:
                                                 label: 'Bonnets'
-                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/category/caps'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/caps'
                                         children:
                                             - translations:
                                                   en_US:
                                                       label: 'Simple'
-                                                      url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/en_US/taxons/category/caps/simple'
+                                                      url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/en_US/taxons/caps/simple'
                                                   fr_FR:
                                                       label: 'Simple'
-                                                      url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/en_US/taxons/category/caps/simple'
+                                                      url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/caps/simple'
                                             - translations:
                                                   en_US:
                                                       label: 'With pompons'
-                                                      url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/en_US/taxons/category/caps/with-pompons'
+                                                      url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/en_US/taxons/caps/with-pompons'
                                                   fr_FR:
                                                       label: 'Avec pompons'
-                                                      url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/en_US/taxons/category/caps/with-pompons'
+                                                      url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/caps/with-pompons'
                                     -   translations:
                                             en_US:
                                                 label: 'Dresses'
@@ -62,25 +62,25 @@ sylius_fixtures:
                                     -   translations:
                                             en_US:
                                                 label: 'Jeans'
-                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/en_US/taxons/category/jeans'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/en_US/taxons/jeans'
                                             fr_FR:
                                                 label: 'Jeans'
-                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/category/jeans'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/jeans'
                                         children:
                                             - translations:
                                                   en_US:
                                                       label: 'Men'
-                                                      url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/category/jeans/men'
+                                                      url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/en_US/taxons/jeans/men'
                                                   fr_FR:
                                                       label: 'Homme'
-                                                      url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/category/jeans/men'
+                                                      url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/jeans/men'
                                             - translations:
                                                   en_US:
                                                       label: 'Women'
-                                                      url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/category/jeans/women'
+                                                      url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/en_US/taxons/jeans/women'
                                                   fr_FR:
                                                       label: 'Femme'
-                                                      url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/category/jeans/women'
+                                                      url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/jeans/women'
                             -   isSystem: true
                                 code: 'your_store'
                                 items:
