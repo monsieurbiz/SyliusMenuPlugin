@@ -73,7 +73,8 @@
             "symfony/thanks": true,
             "symfony/flex": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "ergebnis/composer-normalize": true
+            "ergebnis/composer-normalize": true,
+            "php-http/discovery": true
         }
     }
 }
