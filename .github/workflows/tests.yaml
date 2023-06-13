@@ -41,15 +41,20 @@ jobs:
           curl https://get.symfony.com/cli/installer | bash
           echo "${HOME}/.symfony5/bin" >> $GITHUB_PATH
 
-      - uses: actions/cache@v1
+      - name: Determine composer cache directory
+        id: composer-cache-directory
+        run: echo "directory=$(composer config cache-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache dependencies installed with composer
+        uses: actions/cache@v2
         id: cache-composer
         with:
-          path: /home/runner/.composer/cache
+          path: ${{ steps.composer-cache-directory.outputs.directory }}
           key: composer2-php:${{ matrix.php }}-${{ github.sha }}
           restore-keys: composer2-php:${{ matrix.php }}-
 
-      - run: mkdir -p /home/runner/{.composer/cache,.config/composer}
-        if: steps.cache-composer.outputs.cache-hit != 'true'
+      - name: Ensure that composer cache directory exists
+        run: mkdir -p ${{ steps.composer-cache-directory.outputs.directory }}
 
       - name: Composer v2
         run: sudo composer self-update --2
