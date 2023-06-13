@@ -56,9 +56,6 @@ jobs:
       - name: Ensure that composer cache directory exists
         run: mkdir -p ${{ steps.composer-cache-directory.outputs.directory }}
 
-      - name: Composer v2
-        run: sudo composer self-update --2
-
       - name: Composer Github Auth
         run: composer config -g github-oauth.github.com ${{ github.token }}
 
