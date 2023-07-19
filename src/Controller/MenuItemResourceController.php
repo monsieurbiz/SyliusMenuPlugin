@@ -45,6 +45,7 @@ final class MenuItemResourceController extends ResourceController
 
         /** @var MenuItemInterface $resource */
         $resource = $this->findOr404($configuration);
+        $this->eventDispatcher->dispatchPreEvent(ResourceActions::UPDATE, $configuration, $resource);
 
         $items = $this->getItems($resource);
 
@@ -62,6 +63,7 @@ final class MenuItemResourceController extends ResourceController
             }
             $menuItemManager->flush();
         }
+        $this->eventDispatcher->dispatchPostEvent(ResourceActions::UPDATE, $configuration, $resource);
 
         return new Response();
     }
