@@ -1,10 +1,34 @@
 {% from '@SyliusAdmin/Macro/translationForm.html.twig' import translationForm %}
+{% form_theme form '@SyliusAdmin/Form/theme.html.twig' %}
 
 {{ form_errors(form) }}
 
 <div class="ui segment">
     <div class="field">
         {{ form_row(form.parent) }}
+
+        <div class="ui segment">
+            <div>
+                {{ form_row(form.targetBlank) }}
+                {{ form_help(form.targetBlank) }}
+            </div>
+            <div class="ui hidden divider"></div>
+            <div>
+                {{ form_row(form.noreferrer) }}
+                {{ form_help(form.noreferrer) }}
+            </div>
+            <div class="ui hidden divider"></div>
+            <div>
+                {{ form_row(form.noopener) }}
+                {{ form_help(form.noopener) }}
+            </div>
+            <div class="ui hidden divider"></div>
+            <div>
+                {{ form_row(form.nofollow) }}
+                {{ form_help(form.nofollow) }}
+            </div>
+        </div>
+
         {{ translationForm(form.translations) }}
     </div>
 </div>

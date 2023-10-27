@@ -17,6 +17,7 @@ use Doctrine\ORM\EntityRepository;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -54,6 +55,26 @@ final class MenuItemType extends AbstractResourceType
 
                             return $qb;
                         },
+                    ])
+                    ->add('targetBlank', CheckboxType::class, [
+                        'label' => 'monsieurbiz_menu.ui.target_blank',
+                        'help' => 'monsieurbiz_menu.ui.help_target_blank',
+                        'required' => false,
+                    ])
+                    ->add('noreferrer', CheckboxType::class, [
+                        'label' => 'monsieurbiz_menu.ui.noreferrer',
+                        'help' => 'monsieurbiz_menu.ui.help_noreferrer',
+                        'required' => false,
+                    ])
+                    ->add('noopener', CheckboxType::class, [
+                        'label' => 'monsieurbiz_menu.ui.noopener',
+                        'help' => 'monsieurbiz_menu.ui.help_noopener',
+                        'required' => false,
+                    ])
+                    ->add('nofollow', CheckboxType::class, [
+                        'label' => 'monsieurbiz_menu.ui.nofollow',
+                        'help' => 'monsieurbiz_menu.ui.help_nofollow',
+                        'required' => false,
                     ])
                     ->add('translations', ResourceTranslationsType::class, [
                         'label' => 'sylius.ui.translations',
