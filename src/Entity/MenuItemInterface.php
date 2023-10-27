@@ -62,6 +62,22 @@ interface MenuItemInterface extends ResourceInterface, TranslatableInterface
      */
     public function removeItem(self $item): void;
 
+    public function isTargetBlank(): bool;
+
+    public function setTargetBlank(bool $targetBlank): void;
+
+    public function isNoreferrer(): bool;
+
+    public function setNoreferrer(bool $noreferrer): void;
+
+    public function isNoopener(): bool;
+
+    public function setNoopener(bool $noopener): void;
+
+    public function isNofollow(): bool;
+
+    public function setNofollow(bool $nofollow): void;
+
     public function getLabel(): ?string;
 
     public function getUrl(): ?string;

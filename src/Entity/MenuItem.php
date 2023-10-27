@@ -42,6 +42,14 @@ class MenuItem implements MenuItemInterface
 
     protected ?int $position = null;
 
+    protected bool $targetBlank = false;
+
+    protected bool $noreferrer = false;
+
+    protected bool $noopener = false;
+
+    protected bool $nofollow = false;
+
     /**
      * MenuItem constructor.
      */
@@ -156,6 +164,46 @@ class MenuItem implements MenuItemInterface
         if (null !== $this->items && $this->hasItem($item)) {
             $this->items->removeElement($item);
         }
+    }
+
+    public function isTargetBlank(): bool
+    {
+        return $this->targetBlank;
+    }
+
+    public function setTargetBlank(bool $targetBlank): void
+    {
+        $this->targetBlank = $targetBlank;
+    }
+
+    public function isNoreferrer(): bool
+    {
+        return $this->noreferrer;
+    }
+
+    public function setNoreferrer(bool $noreferrer): void
+    {
+        $this->noreferrer = $noreferrer;
+    }
+
+    public function isNoopener(): bool
+    {
+        return $this->noopener;
+    }
+
+    public function setNoopener(bool $noopener): void
+    {
+        $this->noopener = $noopener;
+    }
+
+    public function isNofollow(): bool
+    {
+        return $this->nofollow;
+    }
+
+    public function setNofollow(bool $nofollow): void
+    {
+        $this->nofollow = $nofollow;
     }
 
     /**
