@@ -12,7 +12,17 @@
             </div>
         </div>
     {% else %}
-        <a href="{% if menu.url is empty %}#{% else %}{{ menu.url }}{% endif %}" class="item">{{ menu.label }}</a>
+        {% set noreferrer = menu.noreferrer %}
+        {% set noopener = menu.noopener %}
+        {% set nofollow = menu.nofollow %}
+        {% set hasRel = noreferrer or noopener or nofollow %}
+        <a href="{% if menu.url is empty %}#{% else %}{{ menu.url }}{% endif %}" class="item" {% if menu.targetBlank %}target="_blank"{% endif %}
+            {% if hasRel %}
+                rel="{% if noreferrer %}noreferrer{% endif %}{% if noopener %} noopener{% endif %}{% if nofollow %} nofollow{% endif %}"
+            {% endif %}
+        >
+            {{ menu.label }}
+        </a>
     {% endif %}
 {% endmacro %}
 

@@ -28,5 +28,17 @@
         <field name="position" column="position" type="integer" nullable="false">
             <options name="default">null</options>
         </field>
+        <field name="targetBlank" column="target_blank" type="boolean" nullable="false">
+            <options name="default">false</options>
+        </field>
+        <field name="noreferrer" column="noreferrer" type="boolean" nullable="false">
+            <options name="default">false</options>
+        </field>
+        <field name="noopener" column="noopener" type="boolean" nullable="false">
+            <options name="default">false</options>
+        </field>
+        <field name="nofollow" column="nofollow" type="boolean" nullable="false">
+            <options name="default">false</options>
+        </field>
     </mapped-superclass>
 </doctrine-mapping>
