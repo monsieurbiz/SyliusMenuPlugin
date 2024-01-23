@@ -21,3 +21,11 @@ monsieurbiz_menu:
         help_noopener: 'Ajoute "noopener" à l''attribut rel'
         nofollow: 'nofollow'
         help_nofollow: 'Ajoute "nofollow" à l''attribut rel'
+sylius_plus:
+    rbac:
+        parent: 
+            menus: 'Menus'
+        action:
+            create_for_menu: 'Créer pour le menu'
+            move_up: 'Déplacer vers le haut'
+            move_down: 'Déplacer vers le bas'

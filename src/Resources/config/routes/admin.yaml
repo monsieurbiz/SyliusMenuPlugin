@@ -2,6 +2,7 @@ monsieurbiz_menu_admin_menu:
     resource: |
         alias: monsieurbiz_menu.menu
         section: admin
+        permission: true
         templates: "@MonsieurBizSyliusMenuPlugin/Admin/Menu"
         except: ['show', 'bulkDelete']
         redirect: index
