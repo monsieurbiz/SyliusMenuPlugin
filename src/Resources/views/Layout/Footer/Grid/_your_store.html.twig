@@ -4,7 +4,15 @@
         <h4 class="ui inverted header">{{ 'sylius.ui.your_store'|trans }}</h4>
         <div class="ui inverted link list">
             {% for item in footer_your_store %}
-                <a class="item">{{ item.label }}</a>
+                {% set noreferrer = item.noreferrer %}
+                {% set noopener = item.noopener %}
+                {% set nofollow = item.nofollow %}
+                {% set hasRel = noreferrer or noopener or nofollow %}
+                <a href="{{ item.url }}" class="item" {% if item.targetBlank %}target="_blank"{% endif %}
+                    {% if hasRel %}
+                    rel="{% if noreferrer %}noreferrer{% endif %}{% if noopener %} noopener{% endif %}{% if nofollow %} nofollow{% endif %}"
+                    {% endif %}>
+                    {{ item.label }}</a>
             {% endfor %}
         </div>
     </div>
