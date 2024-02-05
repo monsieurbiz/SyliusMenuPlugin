@@ -59,6 +59,13 @@ If you want to customize your menu, like adding an image, do so by overriding th
 
 The front view is exactly the same as the default one.
 
+## Customize front view
+
+A menu can look very differently depending on where it should be displayed so most of the time you will need to create your own macro for the menu items.
+A good place to start is the template of the main menu here: ```src/Resources/views/Layout/Header/_menu.html.twig``` where we define a macro for the menu items, and we use them directly in the template.
+
+To get the first items of a menu you can call our custom twig function ```menu_first_level('main')``` where `main` is the code of the menu we want to retrieve.
+
 ## Contributing
 
 You can open an issue or a Pull Request if you want! 😘  
