@@ -31,7 +31,7 @@
         let req = new XMLHttpRequest();
         req.onload = function(progress) {
             if (this.status === 200) {
-                $('.monsieurbiz-sylius-menu-browser_modal').remove();
+                $('.monsieurbiz-sylius-menu-browser__modal').remove();
                 monsieurbizSyliusMenuBrowserRemoveLoaderModal();
                 $(this.responseText).modal({duration: 0,inverted: true,blurring: true}).modal('show');
             } else {
