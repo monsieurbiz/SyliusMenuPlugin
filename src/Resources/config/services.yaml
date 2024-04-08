@@ -57,3 +57,7 @@ services:
         arguments:
             - '%monsieurbiz_menu.model.menu_item_translation.class%'
             - '%monsieurbiz_menu.form.type.menu_item_translation.validation_groups%'
+
+    MonsieurBiz\SyliusMenuPlugin\Provider\BrowsableObjectProvider:
+        arguments:
+            - !tagged_iterator { tag: 'monsieurbiz_menu.url_provider' }

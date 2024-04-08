@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusMenuPlugin\DependencyInjection;
 
+use MonsieurBiz\SyliusMenuPlugin\Provider\UrlProviderInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
@@ -28,6 +29,7 @@ final class MonsieurBizSyliusMenuExtension extends Extension implements PrependE
     {
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yaml');
+        $container->registerForAutoconfiguration(UrlProviderInterface::class)->addTag('monsieurbiz_menu.url_provider');
     }
 
     /**
