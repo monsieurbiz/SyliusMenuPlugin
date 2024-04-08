@@ -21,6 +21,12 @@ monsieurbiz_menu:
         help_noopener: 'Add "noopener" to the rel attribute'
         nofollow: 'nofollow'
         help_nofollow: 'Add "nofollow" to the rel attribute'
+        choose_object: 'Choose an object'
+        cancel: 'Cancel'
+        go_back: 'Go back'
+    provider:
+        product: 'Product'
+        taxon: 'Taxon'
 sylius_plus:
     rbac:
         parent:

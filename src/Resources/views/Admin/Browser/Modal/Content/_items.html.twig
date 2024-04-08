@@ -1,0 +1,25 @@
+<div class="item">
+    <i class="arrow alternate circle left icon" style="width: 10px;"></i>
+    <div class="content monsieurbiz-sylius-menu-browser__item"
+        onclick="monsieurbizSyliusMenuBrowserList('{{ inputName | escape('js') }}', '{{ inputValue | escape('js') }}', '{{ locale | escape('js') }}');"
+    >
+        <div class="description">
+            {{ ('monsieurbiz_menu.ui.go_back')|trans }}
+        </div>
+    </div>
+</div>
+{% for item in urlProvider.items(locale) %}
+    <div class="item">
+        <div class="right floated content">
+            {% include '@MonsieurBizSyliusMenuPlugin/Admin/Browser/Modal/Content/Item/_showLink.html.twig' %}
+        </div>
+        <i class="{{ urlProvider.icon }} icon" style="width: 10px;"></i>
+        <div class="content monsieurbiz-sylius-menu-browser__item"
+            onclick="monsieurbizSyliusMenuBrowseChooseItem('{{ inputName | escape('js') }}', '{{ inputValue | escape('js') }}', '{{ locale | escape('js') }}', '{{ urlProvider.code | escape('js')}}', '{{ item.value | escape('js')}}');"
+        >
+            <div class="description">
+                {{ item.name }}
+            </div>
+        </div>
+    </div>
+{% endfor %}

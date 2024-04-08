@@ -1,0 +1,113 @@
+<script type="text/javascript">
+    /**
+     * Choose type of provider (Product, Taxon etc.)
+     */
+    function monsieurbizSyliusMenuBrowserList(inputName, inputValue, locale)
+    {
+        let req = new XMLHttpRequest();
+        const params = new URLSearchParams({
+            inputName: inputName,
+            inputValue: inputValue,
+            locale: locale,
+        });
+        req.onload = function(progress) {
+            if (this.status === 200) {
+                $('.monsieurbiz-sylius-menu-browser_modal').remove();
+                monsieurbizSyliusMenuBrowserRemoveLoaderModal();
+                $(this.responseText).modal({duration: 0,inverted: true,blurring: true}).modal('show');
+            } else {
+                alert(this.responseText);
+                monsieurbizSyliusMenuBrowserRemoveLoaderModal();
+            }
+        };
+        req.open("get", "{{ path('monsieurbiz_menu_admin_browser_list') }}?" + params.toString(), true);
+        req.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+        req.send();
+        monsieurbizSyliusMenuBrowserAddLoaderModal();
+    }
+
+    /**
+     * Choose route for given prodiver (Select a product in a list, select a taxon in a list etc.)
+     */
+    function monsieurbizSyliusMenuBrowseListItems(inputName, inputValue, locale, providerCode)
+    {
+        let req = new XMLHttpRequest();
+        const params = new URLSearchParams({
+            inputName: inputName,
+            inputValue: inputValue,
+            locale: locale,
+            providerCode: providerCode,
+        });
+        req.onload = function(progress) {
+            if (this.status === 200) {
+                $('.monsieurbiz-sylius-menu-browser_modal').remove();
+                monsieurbizSyliusMenuBrowserRemoveLoaderModal();
+                $(this.responseText).modal({duration: 0,inverted: true,blurring: true}).modal('show');
+            } else {
+                alert(this.responseText);
+                monsieurbizSyliusMenuBrowserRemoveLoaderModal();
+            }
+        };
+        req.open("get", "{{ path('monsieurbiz_menu_admin_browser_list_items') }}?" + params.toString(), true);
+        req.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+        req.send();
+        monsieurbizSyliusMenuBrowserAddLoaderModal();
+    }
+
+    /**
+     * Choose route for given prodiver (Select a product in a list, select a taxon in a list etc.)
+     */
+    function monsieurbizSyliusMenuBrowseChooseItem(inputName, inputValue, locale, providerCode, value)
+    {
+        monsieurbizSyliusMenuBrowserCloseModal();
+        document.querySelector('input[name="' + inputName + '"]').value = value;
+    }
+
+    function monsieurbizSyliusMenuBrowserCloseModal()
+    {
+        $('.monsieurbiz-sylius-menu-browser__modal').modal('hide');
+        setTimeout(() => {
+            $('.monsieurbiz-sylius-menu-browser__modal').remove();
+        }, 1000);
+    }
+
+    function monsieurbizSyliusMenuBrowserAddLoaderModal()
+    {
+        document.querySelectorAll('.monsieurbiz-sylius-menu-browser__loader').forEach(function(modal) {
+            modal.classList.add('active');
+        });
+    }
+
+    function monsieurbizSyliusMenuBrowserRemoveLoaderModal()
+    {
+        document.querySelectorAll('.monsieurbiz-sylius-menu-browser__loader').forEach(function(modal) {
+            modal.classList.remove('active');
+        });
+    }
+</script>
+
+
+<style>
+    .monsieurbiz-sylius-menu-browser__modal > .content {
+        height: 50vh;
+        overflow-y: auto;
+    }
+
+    .monsieurbiz-sylius-menu-browser__item {
+        height: 30px;
+    }
+
+    .monsieurbiz-sylius-menu-browser__item {
+        cursor: pointer;
+    }
+
+    .monsieurbiz-sylius-menu-browser__item:hover {
+        background-color: #cce2ff;
+    }
+
+    .monsieurbiz-sylius-menu-browser__modal .ui.list > .item > i.icon,
+    .monsieurbiz-sylius-menu-browser__modal .ui.list > .item > .icon + .content
+    {
+        vertical-align: middle;
+    }
+</style>
