@@ -122,6 +122,10 @@ sylius_fixtures:
                                             fr_FR:
                                                 label: 'Nous contacter'
                                                 url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/#'
+                                        targetBlank: true
+                                        noreferrer: true
+                                        noopener: true
+                                        nofollow: true
                                     -   translations:
                                             en_US:
                                                 label: 'FAQs'
