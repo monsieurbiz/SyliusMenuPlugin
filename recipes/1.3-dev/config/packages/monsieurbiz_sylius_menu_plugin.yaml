@@ -1,0 +1,5 @@
+imports:
+    - { resource: "@MonsieurBizSyliusMenuPlugin/Resources/config/config.yaml" }
+
+twig:
+    form_themes: ['@MonsieurBizSyliusMenuPlugin/Admin/Browser/Form/_theme.html.twig']
