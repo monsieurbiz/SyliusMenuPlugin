@@ -17,6 +17,7 @@ use MonsieurBiz\SyliusMenuPlugin\Entity\MenuInterface;
 use MonsieurBiz\SyliusMenuPlugin\Repository\MenuRepositoryInterface;
 use Sylius\Component\Locale\Context\LocaleContextInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
+use Symfony\Component\Form\FormView;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\ExtensionInterface;
 use Twig\TwigFunction;
@@ -24,6 +25,8 @@ use Webmozart\Assert\Assert;
 
 final class MenuExtension extends AbstractExtension implements ExtensionInterface
 {
+    public const SYLIUS_TRANSLATION_BLOCK_PREFIX = 'sylius_translations';
+
     private MenuRepositoryInterface $menuRepository;
 
     private array $menus = [];
@@ -49,6 +52,7 @@ final class MenuExtension extends AbstractExtension implements ExtensionInterfac
     {
         return [
             new TwigFunction('menu_first_level', [$this, 'getMenuFirstLevelItems']),
+            new TwigFunction('get_locale_from_form', [$this, 'getLocaleFromForm']),
         ];
     }
 
@@ -64,5 +68,27 @@ final class MenuExtension extends AbstractExtension implements ExtensionInterfac
         }
 
         return $this->menus[$menuCode]->getFirstLevelItems();
+    }
+
+    public function getLocaleFromForm(FormView $form): ?string
+    {
+        $currentForm = $form;
+        do {
+            /**
+             * `sylius_translations` block prefix is used in Sylius translation forms.
+             * The child has the name of the current form locale.
+             */
+            $parentForm = $currentForm->parent;
+            $blockPrefixes = $parentForm?->vars['block_prefixes'] ?? [];
+            if (
+                \in_array(self::SYLIUS_TRANSLATION_BLOCK_PREFIX, $blockPrefixes, true) // Check the parent is `sylius_translations`
+                && null !== ($locale = $currentForm->vars['name'] ?? null) // Check the current form has a name (containing the locale code)
+            ) {
+                return $locale;
+            }
+        } while ($currentForm = $currentForm->parent);
+
+        // Fallback on locale context
+        return $this->localeContext->getLocaleCode();
     }
 }
