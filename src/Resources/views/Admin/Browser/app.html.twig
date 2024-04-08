@@ -4,26 +4,12 @@
      */
     function monsieurbizSyliusMenuBrowserList(inputName, inputValue, locale)
     {
-        let req = new XMLHttpRequest();
         const params = new URLSearchParams({
             inputName: inputName,
             inputValue: inputValue,
             locale: locale,
         });
-        req.onload = function(progress) {
-            if (this.status === 200) {
-                $('.monsieurbiz-sylius-menu-browser_modal').remove();
-                monsieurbizSyliusMenuBrowserRemoveLoaderModal();
-                $(this.responseText).modal({duration: 0,inverted: true,blurring: true}).modal('show');
-            } else {
-                alert(this.responseText);
-                monsieurbizSyliusMenuBrowserRemoveLoaderModal();
-            }
-        };
-        req.open("get", "{{ path('monsieurbiz_menu_admin_browser_list') }}?" + params.toString(), true);
-        req.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-        req.send();
-        monsieurbizSyliusMenuBrowserAddLoaderModal();
+        monsieurbizSyliusMenuLoadModal("{{ path('monsieurbiz_menu_admin_browser_list')|escape('js') }}", params);
     }
 
     /**
@@ -31,13 +17,18 @@
      */
     function monsieurbizSyliusMenuBrowseListItems(inputName, inputValue, locale, providerCode)
     {
-        let req = new XMLHttpRequest();
         const params = new URLSearchParams({
             inputName: inputName,
             inputValue: inputValue,
             locale: locale,
             providerCode: providerCode,
         });
+        monsieurbizSyliusMenuLoadModal("{{ path('monsieurbiz_menu_admin_browser_list_items')|escape('js') }}", params);
+    }
+
+    function monsieurbizSyliusMenuLoadModal(route, params)
+    {
+        let req = new XMLHttpRequest();
         req.onload = function(progress) {
             if (this.status === 200) {
                 $('.monsieurbiz-sylius-menu-browser_modal').remove();
@@ -48,7 +39,7 @@
                 monsieurbizSyliusMenuBrowserRemoveLoaderModal();
             }
         };
-        req.open("get", "{{ path('monsieurbiz_menu_admin_browser_list_items') }}?" + params.toString(), true);
+        req.open("get", route + "?" + params.toString(), true);
         req.setRequestHeader("X-Requested-With", "XMLHttpRequest");
         req.send();
         monsieurbizSyliusMenuBrowserAddLoaderModal();
