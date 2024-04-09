@@ -30,4 +30,16 @@ class BrowsableObjectProvider implements BrowsableObjectProviderInterface
 
         return $urlProviders;
     }
+
+    public function findProviderByCode(string $code): ?UrlProviderInterface
+    {
+        /** @var UrlProviderInterface $urlProvider */
+        foreach ($this->getUrlProviders() as $urlProvider) {
+            if ($urlProvider->getCode() === $code) {
+                return $urlProvider;
+            }
+        }
+
+        return null;
+    }
 }

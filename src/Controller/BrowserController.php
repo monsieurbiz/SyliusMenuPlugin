@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace MonsieurBiz\SyliusMenuPlugin\Controller;
 
 use MonsieurBiz\SyliusMenuPlugin\Provider\BrowsableObjectProviderInterface;
-use MonsieurBiz\SyliusMenuPlugin\Provider\UrlProviderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -50,7 +49,7 @@ final class BrowserController extends AbstractController
         $inputValue = (string) $request->query->get('inputValue', '');
         $locale = (string) $request->query->get('locale', '');
 
-        $urlProvider = $this->findProviderByCode($providerCode);
+        $urlProvider = $this->browsableObjectProvider->findProviderByCode($providerCode);
         if (null === $urlProvider) {
             return new JsonResponse(['error' => 'URL Provider not found'], 404);
         }
@@ -61,17 +60,5 @@ final class BrowserController extends AbstractController
             'inputValue' => $inputValue,
             'locale' => $locale,
         ]);
-    }
-
-    private function findProviderByCode(string $code): ?UrlProviderInterface
-    {
-        /** @var UrlProviderInterface $urlProvider */
-        foreach ($this->browsableObjectProvider->getUrlProviders() as $urlProvider) {
-            if ($urlProvider->getCode() === $code) {
-                return $urlProvider;
-            }
-        }
-
-        return null;
     }
 }

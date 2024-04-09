@@ -16,4 +16,6 @@ namespace MonsieurBiz\SyliusMenuPlugin\Provider;
 interface BrowsableObjectProviderInterface
 {
     public function getUrlProviders(): array;
+
+    public function findProviderByCode(string $code): ?UrlProviderInterface;
 }
