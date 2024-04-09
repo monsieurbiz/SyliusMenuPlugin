@@ -36,12 +36,16 @@ class ProductUrlProvider extends AbstractUrlProvider
 
     public function getItems(string $locale): array
     {
-        $products = $this->productRepository->findBy(['enabled' => true]);
+        $products = $this->productRepository->createListQueryBuilder($locale)
+            ->andWhere('o.enabled = :enabled')
+            ->setParameter('enabled', true)
+            ->getQuery()
+            ->getResult()
+        ;
 
         $items = [];
         /** @var ProductInterface $product */
         foreach ($products as $product) {
-            $product->setCurrentLocale($locale); // To have translated name and slug with given locale
             $items[] = [
                 'name' => $product->getName(),
                 'value' => $this->router->generate('sylius_shop_product_show', ['slug' => $product->getSlug(), '_locale' => $locale]),

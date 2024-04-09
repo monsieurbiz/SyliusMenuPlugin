@@ -36,7 +36,14 @@ class TaxonUrlProvider extends AbstractUrlProvider
 
     public function getItems(string $locale): array
     {
-        $taxons = $this->taxonRepository->findBy(['enabled' => true]);
+        $taxons = $this->taxonRepository->createListQueryBuilder()
+            ->andWhere('translation.locale = :locale')
+            ->andWhere('o.enabled = :enabled')
+            ->setParameter('locale', $locale)
+            ->setParameter('enabled', true)
+            ->getQuery()
+            ->getResult()
+        ;
 
         $items = [];
         /** @var TaxonInterface $taxon */
@@ -44,7 +51,6 @@ class TaxonUrlProvider extends AbstractUrlProvider
             if ($taxon->isRoot()) {
                 continue;
             }
-            $taxon->setCurrentLocale($locale); // To have translated name and slug with given locale
             $items[] = [
                 'name' => $this->getTaxonFullName($taxon),
                 'value' => $this->router->generate('sylius_shop_product_index', ['slug' => $taxon->getSlug(), '_locale' => $locale]),
