@@ -16,6 +16,7 @@ namespace MonsieurBiz\SyliusMenuPlugin\Provider;
 use Sylius\Component\Core\Model\TaxonInterface;
 use Sylius\Component\Taxonomy\Repository\TaxonRepositoryInterface;
 use Symfony\Component\Routing\RouterInterface;
+use Webmozart\Assert\Assert;
 
 class TaxonUrlProvider extends AbstractUrlProvider
 {
@@ -34,31 +35,25 @@ class TaxonUrlProvider extends AbstractUrlProvider
         parent::__construct($router);
     }
 
-    public function getItems(string $locale): array
+    protected function getResults(string $locale): iterable
     {
-        $taxons = $this->taxonRepository->createListQueryBuilder()
+        return $this->taxonRepository->createListQueryBuilder()
             ->andWhere('translation.locale = :locale')
             ->andWhere('o.enabled = :enabled')
+            ->andWhere('o.parent IS NOT NULL') // Avoid root taxons
             ->setParameter('locale', $locale)
             ->setParameter('enabled', true)
             ->getQuery()
             ->getResult()
         ;
+    }
 
-        $items = [];
-        /** @var TaxonInterface $taxon */
-        foreach ($taxons as $taxon) {
-            if ($taxon->isRoot()) {
-                continue;
-            }
-            $items[] = [
-                'name' => $taxon->getFullname(' > '),
-                'value' => $this->router->generate('sylius_shop_product_index', ['slug' => $taxon->getSlug(), '_locale' => $locale]),
-            ];
-        }
-
-        usort($items, fn ($itemA, $itemB) => $itemA['name'] <=> $itemB['name']);
-
-        return $items;
+    protected function addItemFromResult(object $result, string $locale): void
+    {
+        Assert::isInstanceOf($result, TaxonInterface::class);
+        $this->addItem(
+            (string) $result->getFullname(' > '),
+            $this->router->generate('sylius_shop_product_index', ['slug' => $result->getSlug(), '_locale' => $locale])
+        );
     }
 }

@@ -13,9 +13,10 @@ declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusMenuPlugin\Provider;
 
-use Sylius\Component\Core\Model\ProductInterface;
+use Sylius\Component\Core\Model\Product;
 use Sylius\Component\Core\Repository\ProductRepositoryInterface;
 use Symfony\Component\Routing\RouterInterface;
+use Webmozart\Assert\Assert;
 
 class ProductUrlProvider extends AbstractUrlProvider
 {
@@ -34,26 +35,22 @@ class ProductUrlProvider extends AbstractUrlProvider
         parent::__construct($router);
     }
 
-    public function getItems(string $locale): array
+    protected function getResults(string $locale): iterable
     {
-        $products = $this->productRepository->createListQueryBuilder($locale)
+        return $this->productRepository->createListQueryBuilder($locale)
             ->andWhere('o.enabled = :enabled')
             ->setParameter('enabled', true)
             ->getQuery()
             ->getResult()
         ;
+    }
 
-        $items = [];
-        /** @var ProductInterface $product */
-        foreach ($products as $product) {
-            $items[] = [
-                'name' => $product->getName(),
-                'value' => $this->router->generate('sylius_shop_product_show', ['slug' => $product->getSlug(), '_locale' => $locale]),
-            ];
-        }
-
-        usort($items, fn ($itemA, $itemB) => $itemA['name'] <=> $itemB['name']);
-
-        return $items;
+    protected function addItemFromResult(object $result, string $locale): void
+    {
+        Assert::isInstanceOf($result, Product::class);
+        $this->addItem(
+            (string) $result->getName(),
+            $this->router->generate('sylius_shop_product_show', ['slug' => $result->getSlug(), '_locale' => $locale])
+        );
     }
 }

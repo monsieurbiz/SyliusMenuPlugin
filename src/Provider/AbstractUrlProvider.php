@@ -23,6 +23,8 @@ abstract class AbstractUrlProvider implements UrlProviderInterface
 
     protected int $priority = 0;
 
+    protected array $items = [];
+
     public function __construct(
         protected RouterInterface $router
     ) {
@@ -43,5 +45,34 @@ abstract class AbstractUrlProvider implements UrlProviderInterface
         return $this->priority;
     }
 
-    abstract public function getItems(string $locale): array;
+    protected function addItem(string $name, string $path): void
+    {
+        $this->items[] = [
+            'name' => $name,
+            'value' => $path,
+        ];
+    }
+
+    protected function sortItems(): void
+    {
+        usort($this->items, fn ($itemA, $itemB) => $itemA['name'] <=> $itemB['name']);
+    }
+
+    abstract protected function getResults(string $locale): iterable;
+
+    abstract protected function addItemFromResult(object $result, string $locale): void;
+
+    public function getItems(string $locale): array
+    {
+        $this->items = [];
+        $results = $this->getResults($locale);
+
+        foreach ($results as $result) {
+            $this->addItemFromResult($result, $locale);
+        }
+
+        $this->sortItems();
+
+        return $this->items;
+    }
 }
