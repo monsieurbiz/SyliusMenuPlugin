@@ -21,5 +21,5 @@ interface UrlProviderInterface
 
     public function getPriority(): int;
 
-    public function getItems(string $locale): array;
+    public function getItems(string $locale, string $search = ''): array;
 }

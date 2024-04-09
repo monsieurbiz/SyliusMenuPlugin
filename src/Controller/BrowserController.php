@@ -48,6 +48,7 @@ final class BrowserController extends AbstractController
         $inputName = (string) $request->query->get('inputName', '');
         $inputValue = (string) $request->query->get('inputValue', '');
         $locale = (string) $request->query->get('locale', '');
+        $search = (string) $request->query->get('search', '');
 
         $urlProvider = $this->browsableObjectProvider->findProviderByCode($providerCode);
         if (null === $urlProvider) {
@@ -59,6 +60,7 @@ final class BrowserController extends AbstractController
             'inputName' => $inputName,
             'inputValue' => $inputValue,
             'locale' => $locale,
+            'search' => $search,
         ]);
     }
 }

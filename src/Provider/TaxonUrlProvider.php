@@ -35,17 +35,24 @@ class TaxonUrlProvider extends AbstractUrlProvider
         parent::__construct($router);
     }
 
-    protected function getResults(string $locale): iterable
+    protected function getResults(string $locale, string $search = ''): iterable
     {
-        return $this->taxonRepository->createListQueryBuilder()
+        $queryBuilder = $this->taxonRepository->createListQueryBuilder()
             ->andWhere('translation.locale = :locale')
             ->andWhere('o.enabled = :enabled')
             ->andWhere('o.parent IS NOT NULL') // Avoid root taxons
             ->setParameter('locale', $locale)
             ->setParameter('enabled', true)
-            ->getQuery()
-            ->getResult()
         ;
+
+        if (!empty($search)) {
+            $queryBuilder
+                ->andWhere('translation.name LIKE :search')
+                ->setParameter('search', '%' . $search . '%')
+            ;
+        }
+
+        return $queryBuilder->getQuery()->getResult();
     }
 
     protected function addItemFromResult(object $result, string $locale): void

@@ -8,7 +8,7 @@
         </div>
     </div>
 </div>
-{% for item in urlProvider.items(locale) %}
+{% for item in urlProvider.items(locale, search) %}
     <div class="item">
         <div class="right floated content">
             {% include '@MonsieurBizSyliusMenuPlugin/Admin/Browser/Modal/Content/Item/_showLink.html.twig' %}

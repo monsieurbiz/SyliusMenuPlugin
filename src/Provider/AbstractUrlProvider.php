@@ -58,14 +58,14 @@ abstract class AbstractUrlProvider implements UrlProviderInterface
         usort($this->items, fn ($itemA, $itemB) => $itemA['name'] <=> $itemB['name']);
     }
 
-    abstract protected function getResults(string $locale): iterable;
+    abstract protected function getResults(string $locale, string $search = ''): iterable;
 
     abstract protected function addItemFromResult(object $result, string $locale): void;
 
-    public function getItems(string $locale): array
+    public function getItems(string $locale, string $search = ''): array
     {
         $this->items = [];
-        $results = $this->getResults($locale);
+        $results = $this->getResults($locale, $search);
 
         foreach ($results as $result) {
             $this->addItemFromResult($result, $locale);
