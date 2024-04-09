@@ -47,7 +47,7 @@ class TaxonUrlProvider extends AbstractUrlProvider
 
         if (!empty($search)) {
             $queryBuilder
-                ->andWhere('translation.name LIKE :search')
+                ->andWhere('translation.name LIKE :search OR o.code LIKE :search OR translation.slug LIKE :search')
                 ->setParameter('search', '%' . $search . '%')
             ;
         }
