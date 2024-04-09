@@ -24,6 +24,7 @@ monsieurbiz_menu:
         choose_object: 'Choose an object'
         cancel: 'Cancel'
         go_back: 'Go back'
+        search: 'Search'
     provider:
         product: 'Product'
         taxon: 'Taxon'

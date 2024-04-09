@@ -2,7 +2,7 @@
     <div class="item">
         <i class="{{ urlProvider.icon }} icon" style="width: 10px;"></i>
         <div class="content monsieurbiz-sylius-menu-browser__item"
-            onclick="monsieurbizSyliusMenuBrowseListItems('{{ inputName | escape('js') }}', '{{ inputValue | escape('js') }}', '{{ locale | escape('js') }}', '{{ urlProvider.code | escape('js')}}');"
+            onclick="monsieurbizSyliusMenuBrowseListItems('{{ inputName | escape('js') }}', '{{ inputValue | escape('js') }}', '{{ locale | escape('js') }}', '{{ urlProvider.code | escape('js')}}', '');"
         >
             <div class="description">
                 {{ ('monsieurbiz_menu.provider.' ~ urlProvider.code)|trans }}

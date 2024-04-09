@@ -15,13 +15,14 @@
     /**
      * Choose route for given prodiver (Select a product in a list, select a taxon in a list etc.)
      */
-    function monsieurbizSyliusMenuBrowseListItems(inputName, inputValue, locale, providerCode)
+    function monsieurbizSyliusMenuBrowseListItems(inputName, inputValue, locale, providerCode, search)
     {
         const params = new URLSearchParams({
             inputName: inputName,
             inputValue: inputValue,
             locale: locale,
             providerCode: providerCode,
+            search: search,
         });
         monsieurbizSyliusMenuLoadModal("{{ path('monsieurbiz_menu_admin_browser_list_items')|escape('js') }}", params);
     }
@@ -84,15 +85,12 @@
         overflow-y: auto;
     }
 
-    .monsieurbiz-sylius-menu-browser__item {
+    .monsieurbiz-sylius-menu-browser__item:not(.monsieurbiz-sylius-file-manager__item-search) {
         height: 30px;
-    }
-
-    .monsieurbiz-sylius-menu-browser__item {
         cursor: pointer;
     }
 
-    .monsieurbiz-sylius-menu-browser__item:hover {
+    .monsieurbiz-sylius-menu-browser__item:hover:not(.monsieurbiz-sylius-file-manager__item-search) {
         background-color: #cce2ff;
     }
 
