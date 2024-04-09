@@ -52,7 +52,7 @@ class TaxonUrlProvider extends AbstractUrlProvider
                 continue;
             }
             $items[] = [
-                'name' => $this->getTaxonFullName($taxon),
+                'name' => $taxon->getFullname(' > '),
                 'value' => $this->router->generate('sylius_shop_product_index', ['slug' => $taxon->getSlug(), '_locale' => $locale]),
             ];
         }
@@ -60,21 +60,5 @@ class TaxonUrlProvider extends AbstractUrlProvider
         usort($items, fn ($itemA, $itemB) => $itemA['name'] <=> $itemB['name']);
 
         return $items;
-    }
-
-    private function getTaxonFullName(TaxonInterface $taxon): string
-    {
-        $fullName = (string) $taxon->getName();
-        $parent = $taxon->getParent();
-        while (null !== $parent) {
-            /** @var TaxonInterface $parent */
-            if ($parent->isRoot()) {
-                break;
-            }
-            $fullName = $parent->getName() . ' > ' . $fullName;
-            $parent = $parent->getParent();
-        }
-
-        return $fullName;
     }
 }
