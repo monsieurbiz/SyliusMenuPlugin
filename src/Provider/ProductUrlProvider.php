@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusMenuPlugin\Provider;
 
-use Sylius\Component\Core\Model\Product;
+use Sylius\Component\Core\Model\ProductInterface;
 use Sylius\Component\Core\Repository\ProductRepositoryInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Webmozart\Assert\Assert;
@@ -56,7 +56,9 @@ class ProductUrlProvider extends AbstractUrlProvider
 
     protected function addItemFromResult(object $result, string $locale): void
     {
-        Assert::isInstanceOf($result, Product::class);
+        Assert::isInstanceOf($result, ProductInterface::class);
+        /** @var ProductInterface $result */
+        $result->setCurrentLocale($locale);
         $this->addItem(
             (string) $result->getName(),
             $this->router->generate('sylius_shop_product_show', ['slug' => $result->getSlug(), '_locale' => $locale])

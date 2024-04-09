@@ -60,6 +60,8 @@ class TaxonUrlProvider extends AbstractUrlProvider
     protected function addItemFromResult(object $result, string $locale): void
     {
         Assert::isInstanceOf($result, TaxonInterface::class);
+        /** @var TaxonInterface $result */
+        $result->setCurrentLocale($locale);
         $this->addItem(
             (string) $result->getFullname(' > '),
             $this->router->generate('sylius_shop_product_index', ['slug' => $result->getSlug(), '_locale' => $locale])
