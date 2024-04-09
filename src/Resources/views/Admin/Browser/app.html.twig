@@ -35,6 +35,7 @@
                 $('.monsieurbiz-sylius-menu-browser__modal').remove();
                 monsieurbizSyliusMenuBrowserRemoveLoaderModal();
                 $(this.responseText).modal({duration: 0,inverted: true,blurring: true}).modal('show');
+                monsieurbizSyliusMenuBrowserSearchEnter();
             } else {
                 alert(this.responseText);
                 monsieurbizSyliusMenuBrowserRemoveLoaderModal();
@@ -75,6 +76,20 @@
         document.querySelectorAll('.monsieurbiz-sylius-menu-browser__loader').forEach(function(modal) {
             modal.classList.remove('active');
         });
+    }
+
+    function monsieurbizSyliusMenuBrowserSearchEnter()
+    {
+        let input = document.querySelector(".monsieurbiz-sylius-menu-browser__search input");
+        let button = document.querySelector(".monsieurbiz-sylius-menu-browser__search div.button");
+        if (input && button) {
+            input.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                button.click();
+            }
+            });
+        }
     }
 </script>
 
