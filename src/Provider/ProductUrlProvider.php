@@ -49,6 +49,8 @@ class ProductUrlProvider extends AbstractUrlProvider
             ;
         }
 
+        $queryBuilder->setMaxResults($this->getMaxResults());
+
         return $queryBuilder->getQuery()->getResult();
     }
 

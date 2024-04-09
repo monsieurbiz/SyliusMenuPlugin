@@ -52,6 +52,8 @@ class TaxonUrlProvider extends AbstractUrlProvider
             ;
         }
 
+        $queryBuilder->setMaxResults($this->getMaxResults());
+
         return $queryBuilder->getQuery()->getResult();
     }
 

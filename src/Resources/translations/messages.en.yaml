@@ -25,6 +25,7 @@ monsieurbiz_menu:
         cancel: 'Cancel'
         go_back: 'Go back'
         search: 'Search'
+        too_many_results: 'This view is limited to %maxResults% results. Use search to filter on items.'
     provider:
         product: 'Product'
         taxon: 'Taxon'

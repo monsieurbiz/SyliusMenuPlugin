@@ -17,6 +17,8 @@ use Symfony\Component\Routing\RouterInterface;
 
 abstract class AbstractUrlProvider implements UrlProviderInterface
 {
+    protected int $maxResults = 1000;
+
     protected string $code;
 
     protected string $icon = 'angle right';
@@ -43,6 +45,11 @@ abstract class AbstractUrlProvider implements UrlProviderInterface
     public function getPriority(): int
     {
         return $this->priority;
+    }
+
+    public function getMaxResults(): int
+    {
+        return $this->maxResults;
     }
 
     protected function addItem(string $name, string $path): void
