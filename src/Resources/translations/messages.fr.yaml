@@ -21,7 +21,7 @@ monsieurbiz_menu:
         help_noopener: 'Ajoute "noopener" à l''attribut rel'
         nofollow: 'nofollow'
         help_nofollow: 'Ajoute "nofollow" à l''attribut rel'
-        choose_object: 'Choisir un objet'
+        choose_target: 'Choisir une cible'
         cancel: 'Annuler'
         go_back: 'Retour en arrière'
         search: 'Rechercher'
