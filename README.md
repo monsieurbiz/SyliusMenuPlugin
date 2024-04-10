@@ -30,6 +30,9 @@ Then create the config file in `config/packages/monsieurbiz_sylius_menu_plugin.y
 ```yaml
 imports:
     - { resource: "@MonsieurBizSyliusMenuPlugin/Resources/config/config.yaml" }
+
+twig:
+    form_themes: ['@MonsieurBizSyliusMenuPlugin/Admin/Browser/Form/_theme.html.twig']
 ```
 Finally import the routes in `config/routes/monsieurbiz_sylius_menu_plugin.yaml`:
 
@@ -48,6 +51,15 @@ bin/console doctrine:migrations:migrate
 ## Customize your menu
 
 If you want to customize your menu, like adding an image, do so by overriding the MenuItem entity (more info about [overriding entities in the Sylius documentation](https://docs.sylius.com/en/1.9/customization/model.html)).
+
+## Add URL Provider
+
+The URLs selector allows you to select a URL from a list of URLs.
+It provides URLs for :
+- Taxons
+- Products
+
+You can add your customer Provider by creating a class which implements the `MonsieurBiz\SyliusMenuPlugin\Provider\UrlProviderInterface` .interface.
 
 ## Menu example
 

@@ -21,6 +21,14 @@ monsieurbiz_menu:
         help_noopener: 'Add "noopener" to the rel attribute'
         nofollow: 'nofollow'
         help_nofollow: 'Add "nofollow" to the rel attribute'
+        choose_target: 'Choose a target'
+        cancel: 'Cancel'
+        go_back: 'Go back'
+        search: 'Search'
+        too_many_results: 'This view is limited to %maxResults% results. Use search to filter on items.'
+    provider:
+        product: 'Product'
+        taxon: 'Taxon'
 sylius_plus:
     rbac:
         parent:

@@ -111,3 +111,18 @@ monsieurbiz_menu_admin_menu_item_move_down:
     defaults:
         _controller: monsieurbiz_menu.controller.menu_item::moveDownAction
         _sylius: *move_sylius
+
+monsieurbiz_menu_admin_browser_list:
+    path: /ajax/menus-browser/list
+    methods: [GET]
+    defaults:
+        _controller: 'MonsieurBiz\SyliusMenuPlugin\Controller\BrowserController::listAction'
+    condition: 'request.headers.get("X-Requested-With") == "XMLHttpRequest"'
+
+
+monsieurbiz_menu_admin_browser_list_items:
+    path: /ajax/menus-browser/list-items
+    methods: [GET]
+    defaults:
+        _controller: 'MonsieurBiz\SyliusMenuPlugin\Controller\BrowserController::listItemsAction'
+    condition: 'request.headers.get("X-Requested-With") == "XMLHttpRequest"'

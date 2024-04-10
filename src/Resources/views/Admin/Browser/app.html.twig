@@ -1,0 +1,117 @@
+<script type="text/javascript">
+    /**
+     * Choose type of provider (Product, Taxon etc.)
+     */
+    function monsieurbizSyliusMenuBrowserList(inputName, inputValue, locale)
+    {
+        const params = new URLSearchParams({
+            inputName: inputName,
+            inputValue: inputValue,
+            locale: locale,
+        });
+        monsieurbizSyliusMenuLoadModal("{{ path('monsieurbiz_menu_admin_browser_list')|escape('js') }}", params);
+    }
+
+    /**
+     * Choose route for given prodiver (Select a product in a list, select a taxon in a list etc.)
+     */
+    function monsieurbizSyliusMenuBrowseListItems(inputName, inputValue, locale, providerCode, search)
+    {
+        const params = new URLSearchParams({
+            inputName: inputName,
+            inputValue: inputValue,
+            locale: locale,
+            providerCode: providerCode,
+            search: search,
+        });
+        monsieurbizSyliusMenuLoadModal("{{ path('monsieurbiz_menu_admin_browser_list_items')|escape('js') }}", params);
+    }
+
+    function monsieurbizSyliusMenuLoadModal(route, params)
+    {
+        let req = new XMLHttpRequest();
+        req.onload = function(progress) {
+            if (this.status === 200) {
+                $('.monsieurbiz-sylius-menu-browser__modal').remove();
+                monsieurbizSyliusMenuBrowserRemoveLoaderModal();
+                $(this.responseText).modal({duration: 0,inverted: true,blurring: true}).modal('show');
+                monsieurbizSyliusMenuBrowserSearchEnter();
+            } else {
+                alert(this.responseText);
+                monsieurbizSyliusMenuBrowserRemoveLoaderModal();
+            }
+        };
+        req.open("get", route + "?" + params.toString(), true);
+        req.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+        req.send();
+        monsieurbizSyliusMenuBrowserAddLoaderModal();
+    }
+
+    /**
+     * Choose route for given prodiver (Select a product in a list, select a taxon in a list etc.)
+     */
+    function monsieurbizSyliusMenuBrowseChooseItem(inputName, inputValue, locale, providerCode, value)
+    {
+        monsieurbizSyliusMenuBrowserCloseModal();
+        document.querySelector('input[name="' + inputName + '"]').value = value;
+    }
+
+    function monsieurbizSyliusMenuBrowserCloseModal()
+    {
+        $('.monsieurbiz-sylius-menu-browser__modal').modal('hide');
+        setTimeout(() => {
+            $('.monsieurbiz-sylius-menu-browser__modal').remove();
+        }, 1000);
+    }
+
+    function monsieurbizSyliusMenuBrowserAddLoaderModal()
+    {
+        document.querySelectorAll('.monsieurbiz-sylius-menu-browser__loader').forEach(function(modal) {
+            modal.classList.add('active');
+        });
+    }
+
+    function monsieurbizSyliusMenuBrowserRemoveLoaderModal()
+    {
+        document.querySelectorAll('.monsieurbiz-sylius-menu-browser__loader').forEach(function(modal) {
+            modal.classList.remove('active');
+        });
+    }
+
+    function monsieurbizSyliusMenuBrowserSearchEnter()
+    {
+        let input = document.querySelector(".monsieurbiz-sylius-menu-browser__search input");
+        let button = document.querySelector(".monsieurbiz-sylius-menu-browser__search div.button");
+        if (input && button) {
+            input.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                button.click();
+            }
+            });
+        }
+    }
+</script>
+
+
+<style>
+    .monsieurbiz-sylius-menu-browser__modal > .content {
+        height: 50vh;
+        overflow-y: auto;
+    }
+
+    .monsieurbiz-sylius-menu-browser__item:not(.monsieurbiz-sylius-menu-browser__item-search) {
+        height: 30px;
+        cursor: pointer;
+    }
+
+    .monsieurbiz-sylius-menu-browser__item:hover:not(.monsieurbiz-sylius-menu-browser__item-search) {
+        background-color: #cce2ff;
+    }
+
+    .monsieurbiz-sylius-menu-browser__modal .ui.list > .item > i.icon,
+    .monsieurbiz-sylius-menu-browser__modal .ui.list > .item > .icon + .content
+    {
+        vertical-align: middle;
+    }
+</style>

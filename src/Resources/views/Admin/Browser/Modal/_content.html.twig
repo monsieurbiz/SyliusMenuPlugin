@@ -1,0 +1,7 @@
+<div class="ui list">
+    {% if urlProviders is defined %}
+        {% include '@MonsieurBizSyliusMenuPlugin/Admin/Browser/Modal/Content/_providers.html.twig' %}
+    {% elseif urlProvider is defined %}
+        {% include '@MonsieurBizSyliusMenuPlugin/Admin/Browser/Modal/Content/_items.html.twig' %}
+    {% endif %}
+</div>
