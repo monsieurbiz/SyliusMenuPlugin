@@ -59,7 +59,7 @@ It provides URLs for :
 - Taxons
 - Products
 
-You can add your customer Provider by creating a class which implements the `MonsieurBiz\SyliusMenuPlugin\Provider\UrlProviderInterface` .interface.
+You can add your own custom Provider by creating a class which implements the `MonsieurBiz\SyliusMenuPlugin\Provider\UrlProviderInterface` interface.
 
 ## Menu example
 
