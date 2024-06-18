@@ -5,7 +5,7 @@
     "description": "This plugins allows you to manage menus.",
     "license": "MIT",
     "require": {
-        "php": "~8.0",
+        "php": "^8.0",
         "sylius/sylius": ">=1.11 <1.14"
     },
     "require-dev": {
