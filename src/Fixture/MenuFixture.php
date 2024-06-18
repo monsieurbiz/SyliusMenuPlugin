@@ -54,7 +54,7 @@ final class MenuFixture extends AbstractResourceFixture
                     ->end()
                 ->end()
             ->end()
-            ;
+        ;
     }
 
     public function getName(): string

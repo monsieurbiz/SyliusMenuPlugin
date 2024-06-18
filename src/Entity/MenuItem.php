@@ -24,7 +24,6 @@ use Sylius\Component\Resource\Model\TranslatableTrait;
 class MenuItem implements MenuItemInterface
 {
     use TimestampableTrait;
-
     use TranslatableTrait {
         __construct as protected initializeTranslationsCollection;
     }

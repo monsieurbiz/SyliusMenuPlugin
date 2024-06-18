@@ -14,12 +14,12 @@ declare(strict_types=1);
 namespace MonsieurBiz\SyliusMenuPlugin\DependencyInjection;
 
 use MonsieurBiz\SyliusMenuPlugin\Provider\UrlProviderInterface;
+use Sylius\Bundle\CoreBundle\DependencyInjection\PrependDoctrineMigrationsTrait;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
-use Sylius\Bundle\CoreBundle\DependencyInjection\PrependDoctrineMigrationsTrait;
 
 final class MonsieurBizSyliusMenuExtension extends Extension implements PrependExtensionInterface
 {
