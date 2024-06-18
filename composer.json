@@ -5,8 +5,8 @@
     "description": "This plugins allows you to manage menus.",
     "license": "MIT",
     "require": {
-        "php": "~7.4|~8.0",
-        "sylius/sylius": ">=1.8 <1.13"
+        "php": "~8.0",
+        "sylius/sylius": ">=1.11 <1.14"
     },
     "require-dev": {
         "behat/behat": "^3.6.1",
