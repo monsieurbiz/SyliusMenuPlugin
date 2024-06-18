@@ -1,6 +1,6 @@
 [![Banner of Sylius Menu plugin](docs/images/banner.jpg)](https://monsieurbiz.com/agence-web-experte-sylius)
 
-<h1 align="center">Menu Plugin</h1>
+<h1 align="center">Sylius Menu Plugin</h1>
 
 [![Menu Plugin license](https://img.shields.io/github/license/monsieurbiz/SyliusMenuPlugin?public)](https://github.com/monsieurbiz/SyliusMenuPlugin/blob/master/LICENSE.txt)
 [![Tests Status](https://img.shields.io/github/workflow/status/monsieurbiz/SyliusMenuPlugin/Tests?logo=github)](https://github.com/monsieurbiz/SyliusMenuPlugin/actions?query=workflow%3ATests)
@@ -8,7 +8,21 @@
 
 This plugins allows you to manage your menus.
 
+## Compatibility
+
+| Sylius Version | PHP Version |
+|---|---|
+| 1.11 | 8.0 - 8.1 |
+| 1.12 | 8.1 - 8.2 |
+| 1.13 | 8.1 - 8.2 |
+
 ## Installation
+
+If you want to use our recipes, you can configure your composer.json by running:
+
+```json
+composer config --no-plugins --json extra.symfony.endpoint '["https://api.github.com/repos/monsieurbiz/symfony-recipes/contents/index.json?ref=flex/master","flex://defaults"]'
+```
 
 ```bash
 composer require monsieurbiz/sylius-menu-plugin
@@ -60,6 +74,8 @@ It provides URLs for :
 - Products
 
 You can add your own custom Provider by creating a class which implements the `MonsieurBiz\SyliusMenuPlugin\Provider\UrlProviderInterface` interface.
+
+https://github.com/monsieurbiz/SyliusMenuPlugin/assets/11380627/98edde9e-8a25-46be-bc1c-7a2b06d15ead
 
 ## Menu example
 
