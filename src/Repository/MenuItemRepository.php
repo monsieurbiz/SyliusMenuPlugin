@@ -34,6 +34,7 @@ class MenuItemRepository extends EntityRepository implements MenuItemRepositoryI
             ->setParameter('menu', $menu)
         ;
 
+        /** @phpstan-ignore-next-line */
         return (int) $queryBuilder->getQuery()->getSingleScalarResult();
     }
 
@@ -50,6 +51,7 @@ class MenuItemRepository extends EntityRepository implements MenuItemRepositoryI
             ->setParameter('parent', $menuItem)
         ;
 
+        /** @phpstan-ignore-next-line */
         return (int) $queryBuilder->getQuery()->getSingleScalarResult();
     }
 }

@@ -81,13 +81,10 @@ class Menu implements MenuInterface
         if (null === $items) {
             return [];
         }
-        $filteredItems = $items->filter(function ($item) {
-            if (!$item->getParent()) {
-                return $item;
-            }
-
-            return null;
+        $filteredItems = $items->filter(function (MenuItemInterface $item) {
+            return !$item->getParent();
         })->toArray();
+
         uasort($filteredItems, function ($itemA, $itemB) {
             return $itemA->getPosition() <=> $itemB->getPosition();
         });

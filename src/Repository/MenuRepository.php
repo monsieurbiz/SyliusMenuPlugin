@@ -32,6 +32,7 @@ class MenuRepository extends EntityRepository implements MenuRepositoryInterface
             ->setParameter('code', $code)
         ;
 
+        /** @phpstan-ignore-next-line */
         return (new MenuTreeHydrator())($queryBuilder->getQuery()->getOneOrNullResult());
     }
 }

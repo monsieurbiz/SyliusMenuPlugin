@@ -17,7 +17,6 @@ use MonsieurBiz\SyliusMenuPlugin\Entity\MenuInterface;
 use MonsieurBiz\SyliusMenuPlugin\Entity\MenuItemInterface;
 use MonsieurBiz\SyliusMenuPlugin\Entity\MenuItemTranslationInterface;
 use Sylius\Bundle\CoreBundle\Fixture\Factory\AbstractExampleFactory;
-use Sylius\Component\Product\Generator\SlugGeneratorInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -32,22 +31,15 @@ final class MenuFixtureFactory extends AbstractExampleFactory implements MenuFix
     private OptionsResolver $optionsResolver;
 
     /**
-     * @var SlugGeneratorInterface
-     */
-    private $slugGenerator;
-
-    /**
      * MenuFixtureFactory constructor.
      */
     public function __construct(
         FactoryInterface $menuFactory,
         FactoryInterface $menuItemFactory,
         FactoryInterface $menuItemTranslationFactory,
-        SlugGeneratorInterface $slugGenerator
     ) {
         $this->menuFactory = $menuFactory;
         $this->menuItemFactory = $menuItemFactory;
-        $this->slugGenerator = $slugGenerator;
         $this->menuItemTranslationFactory = $menuItemTranslationFactory;
         $this->optionsResolver = new OptionsResolver();
         $this->configureOptions($this->getOptionsResolver());
