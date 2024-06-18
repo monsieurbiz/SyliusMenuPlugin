@@ -3,8 +3,9 @@
 <h1 align="center">Sylius Menu Plugin</h1>
 
 [![Menu Plugin license](https://img.shields.io/github/license/monsieurbiz/SyliusMenuPlugin?public)](https://github.com/monsieurbiz/SyliusMenuPlugin/blob/master/LICENSE.txt)
-[![Tests Status](https://img.shields.io/github/workflow/status/monsieurbiz/SyliusMenuPlugin/Tests?logo=github)](https://github.com/monsieurbiz/SyliusMenuPlugin/actions?query=workflow%3ATests)
-[![Security Status](https://img.shields.io/github/workflow/status/monsieurbiz/SyliusMenuPlugin/Security?label=security&logo=github)](https://github.com/monsieurbiz/SyliusMenuPlugin/actions?query=workflow%3ASecurity)
+[![Tests Status](https://img.shields.io/github/actions/workflow/status/monsieurbiz/SyliusMenuPlugin/tests.yaml?branch=master&logo=github)](https://github.com/monsieurbiz/SyliusMenuPlugin/actions?query=workflow%3ATests)
+[![Recipe Status](https://img.shields.io/github/actions/workflow/status/monsieurbiz/SyliusMenuPlugin/recipe.yaml?branch=master&label=recipes&logo=github)](https://github.com/monsieurbiz/SyliusMenuPlugin/actions?query=workflow%3ASecurity)
+[![Security Status](https://img.shields.io/github/actions/workflow/status/monsieurbiz/SyliusMenuPlugin/security.yaml?branch=master&label=security&logo=github)](https://github.com/monsieurbiz/SyliusMenuPlugin/actions?query=workflow%3ASecurity)
 
 This plugins allows you to manage your menus.
 
