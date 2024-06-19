@@ -63,6 +63,12 @@ class TaxonUrlProvider extends AbstractUrlProvider
         Assert::isInstanceOf($result, TaxonInterface::class);
         /** @var TaxonInterface $result */
         $result->setCurrentLocale($locale);
+
+        // Avoid incorrect locale while getting fullname in the root taxon
+        if (!$result->isRoot()) {
+            $result->getRoot()?->setCurrentLocale($locale);
+        }
+
         $this->addItem(
             (string) $result->getFullname(' > '),
             $this->router->generate('sylius_shop_product_index', ['slug' => $result->getSlug(), '_locale' => $locale])
