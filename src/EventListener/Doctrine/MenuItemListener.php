@@ -20,9 +20,6 @@ final class MenuItemListener
 {
     private MenuItemRepositoryInterface $menuItemRepository;
 
-    /**
-     * MenuItemListener constructor.
-     */
     public function __construct(MenuItemRepositoryInterface $menuItemRepository)
     {
         $this->menuItemRepository = $menuItemRepository;

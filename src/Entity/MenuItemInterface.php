@@ -23,14 +23,8 @@ interface MenuItemInterface extends ResourceInterface, TranslatableInterface
 
     public function setMenu(?MenuInterface $menu): void;
 
-    /**
-     * @return MenuItemInterface|null
-     */
     public function getParent(): ?self;
 
-    /**
-     * @param MenuItemInterface|null $parent
-     */
     public function setParent(?self $parent): void;
 
     public function getPosition(): ?int;
@@ -47,19 +41,10 @@ interface MenuItemInterface extends ResourceInterface, TranslatableInterface
      */
     public function setItems(?Collection $items): void;
 
-    /**
-     * @param MenuItemInterface $item
-     */
     public function hasItem(self $item): bool;
 
-    /**
-     * @param MenuItemInterface $item
-     */
     public function addItem(self $item): void;
 
-    /**
-     * @param MenuItemInterface $item
-     */
     public function removeItem(self $item): void;
 
     public function isTargetBlank(): bool;

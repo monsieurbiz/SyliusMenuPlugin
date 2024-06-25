@@ -79,6 +79,9 @@ final class MenuItemResourceController extends ResourceController
         return $indexToGo;
     }
 
+    /**
+     * @return MenuItemInterface[]
+     */
     private function getItems(MenuItemInterface $resource): array
     {
         $items = [];

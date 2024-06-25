@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace MonsieurBiz\SyliusMenuPlugin\Form\Type;
 
 use Doctrine\ORM\EntityRepository;
+use MonsieurBiz\SyliusMenuPlugin\Entity\MenuItemInterface;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -21,6 +22,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
+use Webmozart\Assert\Assert;
 
 final class MenuItemType extends AbstractResourceType
 {
@@ -34,6 +36,8 @@ final class MenuItemType extends AbstractResourceType
         $builder
             ->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event): void {
                 $item = $event->getData();
+                /** @var MenuItemInterface $item */
+                Assert::isInstanceOf($item, MenuItemInterface::class);
                 $event->getForm()
                     ->add('parent', EntityType::class, [
                         'class' => $this->dataClass,

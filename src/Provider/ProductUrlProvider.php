@@ -51,6 +51,7 @@ class ProductUrlProvider extends AbstractUrlProvider
 
         $queryBuilder->setMaxResults($this->getMaxResults());
 
+        /** @phpstan-ignore-next-line */
         return $queryBuilder->getQuery()->getResult();
     }
 

@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace MonsieurBiz\SyliusMenuPlugin\DependencyInjection;
 
 use MonsieurBiz\SyliusMenuPlugin\Provider\UrlProviderInterface;
+use Sylius\Bundle\CoreBundle\DependencyInjection\PrependDoctrineMigrationsTrait;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
@@ -22,8 +23,10 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 final class MonsieurBizSyliusMenuExtension extends Extension implements PrependExtensionInterface
 {
+    use PrependDoctrineMigrationsTrait;
+
     /**
-     * @inheritdoc
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function load(array $config, ContainerBuilder $container): void
     {
@@ -32,24 +35,30 @@ final class MonsieurBizSyliusMenuExtension extends Extension implements PrependE
         $container->registerForAutoconfiguration(UrlProviderInterface::class)->addTag('monsieurbiz_menu.url_provider');
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getAlias(): string
     {
         return str_replace('monsieur_biz', 'monsieurbiz', parent::getAlias());
     }
 
-    /**
-     * @inheritdoc
-     */
     public function prepend(ContainerBuilder $container): void
     {
-        $doctrineConfig = $container->getExtensionConfig('doctrine_migrations');
-        $container->prependExtensionConfig('doctrine_migrations', [
-            'migrations_paths' => array_merge(array_pop($doctrineConfig)['migrations_paths'] ?? [], [
-                'MonsieurBiz\SyliusMenuPlugin\Migrations' => '@MonsieurBizSyliusMenuPlugin/Migrations',
-            ]),
-        ]);
+        $this->prependDoctrineMigrations($container);
+    }
+
+    protected function getMigrationsNamespace(): string
+    {
+        return 'MonsieurBiz\SyliusMenuPlugin\Migrations';
+    }
+
+    protected function getMigrationsDirectory(): string
+    {
+        return '@MonsieurBizSyliusMenuPlugin/Migrations';
+    }
+
+    protected function getNamespacesOfMigrationsExecutedBefore(): array
+    {
+        return [
+            'Sylius\Bundle\CoreBundle\Migrations',
+        ];
     }
 }
