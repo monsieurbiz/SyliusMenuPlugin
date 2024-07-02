@@ -21,7 +21,7 @@ This plugins allows you to manage your menus.
 
 If you want to use our recipes, you can configure your composer.json by running:
 
-```json
+```bash
 composer config --no-plugins --json extra.symfony.endpoint '["https://api.github.com/repos/monsieurbiz/symfony-recipes/contents/index.json?ref=flex/master","flex://defaults"]'
 ```
 
