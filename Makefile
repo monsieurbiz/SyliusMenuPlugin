@@ -7,7 +7,7 @@ COMPOSER=symfony composer
 CONSOLE=${SYMFONY} console
 export COMPOSE_PROJECT_NAME=menu
 PLUGIN_NAME=sylius-${COMPOSE_PROJECT_NAME}-plugin
-COMPOSE=docker-compose
+COMPOSE=docker compose
 YARN=yarn
 
 ###
@@ -194,7 +194,7 @@ docker.logs: ## Logs the docker containers
 .PHONY: docker.logs
 
 docker.dc: ARGS=ps
-docker.dc: ## Run docker-compose command. Use ARGS="" to pass parameters to docker-compose.
+docker.dc: ## Run docker compose command. Use ARGS="" to pass parameters to docker compose.
 	cd ${APP_DIR} && ${COMPOSE} ${ARGS}
 .PHONY: docker.dc
 
