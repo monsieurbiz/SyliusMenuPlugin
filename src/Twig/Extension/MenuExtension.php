@@ -70,6 +70,9 @@ final class MenuExtension extends AbstractExtension implements ExtensionInterfac
         return $this->menus[$menuCode]->getFirstLevelItems();
     }
 
+    /**
+     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+     */
     public function getLocaleFromForm(FormView $form): ?string
     {
         $currentForm = $form;
@@ -81,8 +84,9 @@ final class MenuExtension extends AbstractExtension implements ExtensionInterfac
             $parentForm = $currentForm->parent;
             $blockPrefixes = $parentForm?->vars['block_prefixes'] ?? [];
             if (
-                \in_array(self::SYLIUS_TRANSLATION_BLOCK_PREFIX, $blockPrefixes, true) // Check the parent is `sylius_translations`
-                && null !== ($locale = $currentForm->vars['name'] ?? null) // Check the current form has a name (containing the locale code)
+                (\in_array(self::SYLIUS_TRANSLATION_BLOCK_PREFIX, $blockPrefixes, true) // Check the parent is `sylius_translations`
+                && null !== ($locale = $currentForm->vars['name'] ?? null)) // Check the current form has a name (containing the locale code)
+                || (null !== ($locale = $currentForm->vars['attr']['data-locale'] ?? null)) // Check if the form has a data-locale attribute in case of rich-editor
             ) {
                 return $locale;
             }
