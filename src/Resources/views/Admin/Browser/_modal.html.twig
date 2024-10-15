@@ -1,17 +1,20 @@
-<div class="ui modal monsieurbiz-sylius-menu-browser__modal">
-    <div class="header">
-        {% include '@MonsieurBizSyliusMenuPlugin/Admin/Browser/Modal/_header.html.twig' %}
-    </div>
+<div class="modal monsieurbiz-sylius-menu-browser__modal" id="modal-{{ locale }}" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                {% include '@MonsieurBizSyliusMenuPlugin/Admin/Browser/Modal/_header.html.twig' %}
+            </div>
 
-    <div class="content">
-        {% include '@MonsieurBizSyliusMenuPlugin/Admin/Browser/Modal/_content.html.twig' %}
-    </div>
+            <div class="modal-body">
+                {% include '@MonsieurBizSyliusMenuPlugin/Admin/Browser/Modal/_content.html.twig' %}
+                <div class="ui dimmer inverted monsieurbiz-sylius-menu-browser__loader">
+                    <div class="ui loader"></div>
+                </div>
+            </div>
 
-    <div class="actions">
-        {% include '@MonsieurBizSyliusMenuPlugin/Admin/Browser/Modal/_actions.html.twig' %}
-    </div>
-
-    <div class="ui dimmer inverted monsieurbiz-sylius-menu-browser__loader">
-        <div class="ui loader"></div>
+            <div class="modal-footer">
+                {% include '@MonsieurBizSyliusMenuPlugin/Admin/Browser/Modal/_actions.html.twig' %}
+            </div>
+        </div>
     </div>
 </div>

@@ -21,7 +21,7 @@ final class AdminMenuListener
     {
         $menu = $event->getMenu();
         if (null !== $content = $menu->getChild('configuration')) {
-            $content->addChild('app-menu', ['route' => 'monsieurbiz_menu_admin_menu_index'])
+            $content->addChild('menu_type', ['route' => 'monsieurbiz_menu_admin_menu_index'])
                 ->setLabel('monsieurbiz_menu.ui.menus')
                 ->setLabelAttribute('icon', 'sitemap')
             ;

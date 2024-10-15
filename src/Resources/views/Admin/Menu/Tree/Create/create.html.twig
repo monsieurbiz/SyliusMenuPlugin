@@ -1,0 +1,11 @@
+{% if resource is not defined %}
+    {% set resource = hookable_metadata.context.resource %}
+{% endif %}
+
+{% import '@SyliusAdmin/shared/helper/button.html.twig' as button %}
+
+{% set url = path('monsieurbiz_menu_admin_menu_item_create_for_menu', {'menuId': resource.id}) %}
+
+<div class="col-12">
+    {{ button.cancel(sylius_test_form_attribute('cancel-changes-button')|merge({ text: 'sylius.ui.create'|trans, url: url, class: 'btn-primary col-12' })) }}
+</div>

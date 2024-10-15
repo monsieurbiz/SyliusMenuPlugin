@@ -1,0 +1,26 @@
+<div {{ attributes.defaults(stimulus_controller('menu-tree', {treeData: this.tree, autoOpen: true})) }}>
+    <div class="card mb-5">
+        <div data-loading>
+            <div class="sylius-loader">
+                <img src="{{ asset('build/admin/images/loader.gif', 'admin') }}" alt="{{ 'sylius.ui.loading'|trans }}"/>
+            </div>
+        </div>
+
+        {% hook 'create' %}
+
+        <div class="card-body">
+            <div class="d-none" data-menu-tree-target="itemPrototyp">
+                <div class="d-flex justify-content-between infinite-tree-item" {{ sylius_test_html_attribute('tree-menu', '__MENU_NAME__') }}>
+                    <div class="infinite-tree-node">
+                        <span class="infinite-tree-toggler" data-infinite-tree-toggler></span>
+                        <span class="infinite-tree-toggler infinite-tree-title">__MENU_NAME__</span>
+                    </div>
+
+                    {% hook 'tree' %}
+
+                </div>
+            </div>
+            <div data-menu-tree-target="tree" {{ sylius_test_html_attribute('tree-menus') }}></div>
+        </div>
+    </div>
+</div>

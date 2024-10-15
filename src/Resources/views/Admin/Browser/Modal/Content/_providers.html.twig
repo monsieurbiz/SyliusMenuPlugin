@@ -1,12 +1,11 @@
+{% from '@SyliusAdmin/shared/helper/icon.html.twig' import icon %}
+
 {% for urlProvider in urlProviders %}
-    <div class="item">
-        <i class="{{ urlProvider.icon }} icon" style="width: 10px;"></i>
+    <div class="list-group-item">
         <div class="content monsieurbiz-sylius-menu-browser__item"
             onclick="monsieurbizSyliusMenuBrowseListItems('{{ inputName | escape('js') }}', '{{ inputValue | escape('js') }}', '{{ locale | escape('js') }}', '{{ urlProvider.code | escape('js')}}', '');"
         >
-            <div class="description">
-                {{ ('monsieurbiz_menu.provider.' ~ urlProvider.code)|trans }}
-            </div>
+            {{ icon({ icon: urlProvider.icon, class: 'icon' }) }}{{ ('monsieurbiz_menu.provider.' ~ urlProvider.code)|trans }}
         </div>
     </div>
 {% endfor %}

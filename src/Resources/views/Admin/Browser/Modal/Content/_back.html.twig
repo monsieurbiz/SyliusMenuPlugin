@@ -1,10 +1,12 @@
-<div class="item">
+{% from '@SyliusAdmin/shared/helper/icon.html.twig' import icon %}
+
+<div class="list-group-item">
     <i class="arrow alternate circle left icon" style="width: 10px;"></i>
     <div class="content monsieurbiz-sylius-menu-browser__item"
         onclick="monsieurbizSyliusMenuBrowserList('{{ inputName | escape('js') }}', '{{ inputValue | escape('js') }}', '{{ locale | escape('js') }}');"
     >
         <div class="description">
-            {{ ('monsieurbiz_menu.ui.go_back')|trans }}
+            {{ icon({ icon: 'arrow_left', class: 'icon' }) }} {{ ('monsieurbiz_menu.ui.go_back')|trans }}
         </div>
     </div>
 </div>

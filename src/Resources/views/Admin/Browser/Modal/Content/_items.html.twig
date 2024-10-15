@@ -1,6 +1,8 @@
 {% set items = urlProvider.items(locale, search) %}
 {% set maxResults =  urlProvider.maxResults %}
 
+{% from '@SyliusAdmin/shared/helper/icon.html.twig' import icon %}
+
 {% if (items | length) >= maxResults %}
     <div class="ui message">
         <p>{{ 'monsieurbiz_menu.ui.too_many_results'|trans({'%maxResults%': maxResults }) }}</p>
@@ -10,16 +12,12 @@
 {% include '@MonsieurBizSyliusMenuPlugin/Admin/Browser/Modal/Content/_back.html.twig' %}
 {% include '@MonsieurBizSyliusMenuPlugin/Admin/Browser/Modal/Content/_search.html.twig' %}
 {% for item in items %}
-    <div class="item">
-        <div class="right floated content">
-            {% include '@MonsieurBizSyliusMenuPlugin/Admin/Browser/Modal/Content/Item/_showLink.html.twig' %}
-        </div>
-        <i class="{{ urlProvider.icon }} icon" style="width: 10px;"></i>
+    <div class="list-group-item">
         <div class="content monsieurbiz-sylius-menu-browser__item"
             onclick="monsieurbizSyliusMenuBrowseChooseItem('{{ inputName | escape('js') }}', '{{ inputValue | escape('js') }}', '{{ locale | escape('js') }}', '{{ urlProvider.code | escape('js')}}', '{{ item.value | escape('js')}}');"
         >
             <div class="description">
-                {{ item.name }}
+                {{ icon({ icon: urlProvider.icon, class: 'icon' }) }}{{ item.name }}
             </div>
         </div>
     </div>

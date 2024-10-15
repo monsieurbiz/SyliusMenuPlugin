@@ -1,15 +1,13 @@
-<div class="item monsieurbiz-sylius-menu-browser__item monsieurbiz-sylius-menu-browser__item-search">
-    <i class="search icon"></i>
-    <div class="content">
-        {# Form to search in provider #}
-        <div class="description monsieurbiz-sylius-menu-browser__search ui form mini">
-            <input type="text" name="search" class="ui field" style="max-width: 200px;height:28px;" value="{{ search | escape('html_attr') }}"/>
-            <div
-                class="ui button mini"
-                onclick="monsieurbizSyliusMenuBrowseListItems('{{ inputName | escape('js') }}', '{{ inputValue | escape('js') }}', '{{ locale | escape('js') }}', '{{ urlProvider.code | escape('js')}}', this.parentNode.querySelector('input').value);"
+<div class="monsieurbiz-sylius-menu-browser__item monsieurbiz-sylius-menu-browser__item-search list-group-item">
+    <div class="description monsieurbiz-sylius-menu-browser__search input-group">
+        <input type="text" name="search" class="form-control" value="{{ search | escape('html_attr') }}"/>
+        <div class="input-group-append">
+            <button
+                class="btn btn" type="button"
+                onclick="monsieurbizSyliusMenuBrowseListItems('{{ inputName | escape('js') }}', '{{ inputValue | escape('js') }}', '{{ locale | escape('js') }}', '{{ urlProvider.code | escape('js')}}', this.parentNode.parentNode.querySelector('input').value);"
             >
                 {{ 'monsieurbiz_menu.ui.search' | trans }}
-            </div>
+            </button>
         </div>
     </div>
 </div>

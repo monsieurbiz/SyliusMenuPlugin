@@ -32,12 +32,20 @@
         let req = new XMLHttpRequest();
         req.onload = function(progress) {
             if (this.status === 200) {
-                $('.monsieurbiz-sylius-menu-browser__modal').remove();
                 monsieurbizSyliusMenuBrowserRemoveLoaderModal();
-                $(this.responseText).modal({duration: 0,inverted: true,blurring: true}).modal('show');
+                const locale = params.get('locale');
+                var myModal = bootstrap.Modal.getInstance(document.getElementById('modal-' + locale));
+                if (myModal) {
+                    myModal.dispose()
+                }
+                const modalWrapper = document.getElementById('modal-' + locale + '-wrapper');
+                modalWrapper.innerHTML = this.responseText;
+                var myModal = bootstrap.Modal.getOrCreateInstance(document.getElementById('modal-' + locale), {
+                    keyboard: false
+                });
+                myModal.show();
                 monsieurbizSyliusMenuBrowserSearchEnter();
             } else {
-                alert(this.responseText);
                 monsieurbizSyliusMenuBrowserRemoveLoaderModal();
             }
         };
@@ -52,16 +60,15 @@
      */
     function monsieurbizSyliusMenuBrowseChooseItem(inputName, inputValue, locale, providerCode, value)
     {
-        monsieurbizSyliusMenuBrowserCloseModal();
+        monsieurbizSyliusMenuBrowserCloseModal(locale);
         document.querySelector('input[name="' + inputName + '"]').value = value;
     }
 
-    function monsieurbizSyliusMenuBrowserCloseModal()
+    function monsieurbizSyliusMenuBrowserCloseModal(locale)
     {
-        $('.monsieurbiz-sylius-menu-browser__modal').modal('hide');
-        setTimeout(() => {
-            $('.monsieurbiz-sylius-menu-browser__modal').remove();
-        }, 1000);
+        var modal = bootstrap.Modal.getInstance(document.getElementById('modal-' + locale))
+        modal.hide();
+        modal.dispose();
     }
 
     function monsieurbizSyliusMenuBrowserAddLoaderModal()

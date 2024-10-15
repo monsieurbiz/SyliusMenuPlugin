@@ -13,8 +13,10 @@ declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusMenuPlugin\Repository;
 
+use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\Query\Expr;
 use MonsieurBiz\SyliusMenuPlugin\Entity\MenuInterface;
+use MonsieurBiz\SyliusMenuPlugin\Entity\MenuItem;
 use MonsieurBiz\SyliusMenuPlugin\Entity\MenuItemInterface;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 

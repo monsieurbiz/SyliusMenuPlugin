@@ -61,3 +61,18 @@ services:
     MonsieurBiz\SyliusMenuPlugin\Provider\BrowsableObjectProvider:
         arguments:
             - !tagged_iterator { tag: 'monsieurbiz_menu.url_provider' }
+            
+    MonsieurBiz\SyliusMenuPlugin\DataProvider\Tree\MenuItemTreeProvider:
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@sylius.context.locale.admin_based'
+            - '@sylius.translation_locale_provider'
+    
+    MonsieurBiz\SyliusMenuPlugin\Twig\Component\Menu\TreeComponent:
+        arguments:
+            - '@MonsieurBiz\SyliusMenuPlugin\DataProvider\Tree\MenuItemTreeProvider'
+            - '@MonsieurBiz\SyliusMenuPlugin\Manager\MenuPositionHandler'
+            - '@monsieurbiz_menu.repository.menu_item'
+            - '@doctrine.orm.entity_manager'
+        tags:
+            - { name: 'sylius.live_component', key: 'monsieur_biz:menu:tree', template: '@MonsieurBizSyliusMenuPlugin/Admin/Tree/tree.html.twig' }
