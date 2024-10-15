@@ -2,7 +2,6 @@ imports:
     - { resource: "services.yaml" }
     - { resource: "sylius/resources.yaml" }
     - { resource: "sylius/grids.yaml" }
-    - { resource: "sylius/ui.yaml" }
     - { resource: "sylius/fixtures.yaml"}
 
 sylius_labs_doctrine_migrations_extra:
