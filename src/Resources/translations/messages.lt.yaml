@@ -2,6 +2,7 @@ monsieurbiz_menu:
     ui:
         menu: 'Meniu'
         menus: 'Meniu'
+        menu_item: 'Meniu elementas'
         new_menu: 'Naujas meniu'
         items: 'Elementai'
         is_system: 'Sistema?'
