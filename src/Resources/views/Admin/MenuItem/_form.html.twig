@@ -1,35 +1,60 @@
-{% from '@SyliusAdmin/Macro/translationForm.html.twig' import translationForm %}
-{% form_theme form '@SyliusAdmin/Form/theme.html.twig' %}
+{% if form is not defined %}
+    {% set form = hookable_metadata.context.form %}
+{% endif %}
 
-{{ form_errors(form) }}
+{% form_theme form '@MonsieurBizSyliusMenuPlugin/Admin/Browser/Form/_theme.html.twig' %}
+{% import '@SyliusAdmin/shared/helper/translations.html.twig' as translations %}
 
-<div class="ui segment">
-    <div class="field">
-        {{ form_row(form.parent) }}
+<div class="container-xl" {% if attributes is defined %} {{ attributes }} {% endif %}>
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'id': form.vars.id}}) }}
+    <div class="card-body">
+        {% if hookable_metadata.configuration.method is defined %}
+            <input type="hidden" name="_method" value="{{ hookable_metadata.configuration.method }}"/>
+        {% elseif form.vars.data.id is not null %}
+            <input type="hidden" name="_method" value="PUT"/>
+        {% endif %}
+        {{ form_errors(form) }}
+        {{ form_widget(form._token) }}
 
-        <div class="ui segment">
-            <div class="two fields">
-                <div class="field">
+        {{ form_errors(form) }}
+
+        <div class="col">
+            {{ form_errors(form) }}
+
+            {{ form_row(form.parent) }}
+
+            <div class="row mb-3">
+                <div class="col">
                     {{ form_row(form.targetBlank) }}
-                    <div class="ui message">{{ form_help(form.targetBlank) }}</div>
                 </div>
-                <div class="field">
+                <div class="col">
                     {{ form_row(form.noreferrer) }}
-                    <div class="ui message">{{ form_help(form.noreferrer) }}</div>
                 </div>
             </div>
-            <div class="two fields">
-                <div class="field">
+            <div class="row mb-3">
+                <div class="col">
                     {{ form_row(form.noopener) }}
-                    <div class="ui message">{{ form_help(form.noopener) }}</div>
                 </div>
-                <div class="field">
+                <div class="col">
                     {{ form_row(form.nofollow) }}
-                    <div class="ui message">{{ form_help(form.nofollow) }}</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="tab-pane {% if hookable_metadata.configuration.active|default(false) %}show active{% endif %}" id="menu-item-translations" role="tabpanel" tabindex="0">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <h2 class="card-title">
+                                {{ 'sylius.ui.translations'|trans }}
+                            </h2>
+                        </div>
+                        <div>
+                            {{ translations.default(form.translations, null, {accordion_id: 'menu-item-translations', accordion_flush: true}) }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
-        {{ translationForm(form.translations) }}
     </div>
+    {{ form_end(form, {render_rest: hookable_metadata.configuration.render_rest|default(false)}) }}
 </div>

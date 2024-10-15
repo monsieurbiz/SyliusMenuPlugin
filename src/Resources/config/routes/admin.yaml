@@ -3,14 +3,11 @@ monsieurbiz_menu_admin_menu:
         alias: monsieurbiz_menu.menu
         section: admin
         permission: true
-        templates: "@MonsieurBizSyliusMenuPlugin/Admin/Menu"
+        templates: "@SyliusAdmin\\shared\\crud"
         except: ['show', 'bulkDelete']
         redirect: index
         grid: monsieurbiz_menu_menu
         vars:
-            all:
-                templates:
-                    form: "@MonsieurBizSyliusMenuPlugin/Admin/Menu/_form.html.twig"
             index:
                 icon: 'sitemap'
     type: sylius.resource
@@ -23,7 +20,7 @@ monsieurbiz_menu_admin_menu_item_create_for_menu:
         _sylius:
             section: admin
             permission: true
-            template: '@MonsieurBizSyliusMenuPlugin/Admin/MenuItem/create.html.twig'
+            template: '@SyliusAdmin/shared/crud/create.html.twig'
             redirect: &sylius_redirect
                 route: monsieurbiz_menu_admin_menu_update
                 parameters:
@@ -52,7 +49,7 @@ monsieurbiz_menu_admin_menu_item_create_for_parent:
         _sylius:
             section: admin
             permission: true
-            template: '@MonsieurBizSyliusMenuPlugin/Admin/MenuItem/create.html.twig'
+            template: '@SyliusAdmin/shared/crud/create.html.twig'
             redirect: *sylius_redirect
             factory:
                 method: createForParent
@@ -74,7 +71,7 @@ monsieurbiz_menu_admin_menu_item_update:
         _sylius:
             section: admin
             permission: true
-            template: '@MonsieurBizSyliusMenuPlugin/Admin/MenuItem/update.html.twig'
+            template: '@SyliusAdmin/shared/crud/update.html.twig'
             redirect: *sylius_redirect
             vars:
                 route:
@@ -82,35 +79,10 @@ monsieurbiz_menu_admin_menu_item_update:
                     parameters:
                         menuId: 'expr:$menuId'
                         id: 'expr:$id'
-                index: *sylius_vars_index
+                index: &sylius_vars_index
+                    route:
+                        name: 'monsieurbiz_menu_admin_menu_index'
                 templates: *sylius_vars_templates
-
-monsieurbiz_menu_admin_menu_item_delete:
-    path: /menus/{menuId}/delete-item/{id}
-    methods: [DELETE]
-    defaults:
-        _controller: monsieurbiz_menu.controller.menu_item::deleteAction
-        _sylius:
-            section: admin
-            permission: true
-            redirect: *sylius_redirect
-
-monsieurbiz_menu_admin_menu_item_move_up:
-    path: /menus/{menuId}/move-item/{id}/up
-    methods: [PUT]
-    defaults:
-        _controller: monsieurbiz_menu.controller.menu_item::moveUpAction
-        _sylius: &move_sylius
-            section: admin
-            permission: true
-            redirect: 'referer'
-
-monsieurbiz_menu_admin_menu_item_move_down:
-    path: /menus/{menuId}/move-item/{id}/down
-    methods: [PUT]
-    defaults:
-        _controller: monsieurbiz_menu.controller.menu_item::moveDownAction
-        _sylius: *move_sylius
 
 monsieurbiz_menu_admin_browser_list:
     path: /ajax/menus-browser/list

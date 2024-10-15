@@ -1,9 +1,13 @@
+{% extends '@SyliusAdmin/shared/form_theme.html.twig' %}
+
 {% block monsieurbiz_sylius_menu_url_row %}
     {% set locale = get_locale_from_form(form) %}
     <div class="monsieurbiz-sylius-menu-browser__field field">
         {{- form_row(form) -}}
+        <div id="modal-{{ locale }}-wrapper">
+        </div>
         <div class="field">
-            <button type="button" class="ui button" onclick="monsieurbizSyliusMenuBrowserList('{{ form.vars.full_name | escape('js') }}', '{{ form.vars.value | escape('js') }}', '{{ locale | escape('js') }}');">
+            <button type="button" class="btn btn" onclick="monsieurbizSyliusMenuBrowserList('{{ form.vars.full_name | escape('js') }}', '{{ form.vars.value | escape('js') }}', '{{ locale | escape('js') }}');">
                 {{ 'monsieurbiz_menu.ui.choose_target' | trans }}
             </button>
         </div>
