@@ -75,4 +75,4 @@ services:
             - '@monsieurbiz_menu.repository.menu_item'
             - '@doctrine.orm.entity_manager'
         tags:
-            - { name: 'sylius.live_component', key: 'monsieur_biz:menu:tree', template: '@MonsieurBizSyliusMenuPlugin/Admin/Tree/tree.html.twig' }
+            - { name: 'sylius.live_component.admin', key: 'monsieur_biz:menu:tree', template: '@MonsieurBizSyliusMenuPlugin/Admin/Tree/tree.html.twig' }
