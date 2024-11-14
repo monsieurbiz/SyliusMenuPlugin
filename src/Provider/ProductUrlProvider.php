@@ -24,7 +24,7 @@ class ProductUrlProvider extends AbstractUrlProvider
 
     protected string $code = self::PROVIDER_CODE;
 
-    protected string $icon = 'cube';
+    protected string $icon = 'tabler:brand-producthunt';
 
     protected int $priority = 50;
 

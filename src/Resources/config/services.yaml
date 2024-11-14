@@ -65,7 +65,7 @@ services:
     MonsieurBiz\SyliusMenuPlugin\DataProvider\Tree\MenuItemTreeProvider:
         arguments:
             - '@doctrine.orm.entity_manager'
-            - '@sylius.context.locale.admin_based'
+            - '@sylius_admin.context.locale.admin_based'
             - '@sylius.translation_locale_provider'
     
     MonsieurBiz\SyliusMenuPlugin\Twig\Component\Menu\TreeComponent:
