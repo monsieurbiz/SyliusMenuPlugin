@@ -1,8 +1,6 @@
 {% set items = urlProvider.items(locale, search) %}
 {% set maxResults =  urlProvider.maxResults %}
 
-{% from '@SyliusAdmin/shared/helper/icon.html.twig' import icon %}
-
 {% if (items | length) >= maxResults %}
     <div class="ui message">
         <p>{{ 'monsieurbiz_menu.ui.too_many_results'|trans({'%maxResults%': maxResults }) }}</p>
@@ -17,7 +15,7 @@
             onclick="monsieurbizSyliusMenuBrowseChooseItem('{{ inputName | escape('js') }}', '{{ inputValue | escape('js') }}', '{{ locale | escape('js') }}', '{{ urlProvider.code | escape('js')}}', '{{ item.value | escape('js')}}');"
         >
             <div class="description">
-                {{ icon({ icon: urlProvider.icon, class: 'icon' }) }}{{ item.name }}
+                {{ ux_icon(urlProvider.icon, { 'class': 'icon' }) }}{{ item.name }}
             </div>
         </div>
     </div>
