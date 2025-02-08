@@ -15,5 +15,5 @@ MonsieurBiz\SyliusMenuPlugin\Entity\MenuItemTranslation:
                         -   Url:
                                 protocols: [http, https]
                                 relativeProtocol: true
-                        -   Regex: '`^(#|/[^/]|tel:|mailto:)`'
+                        -   Regex: '`^(#|\/|tel:|mailto:)`'
                     groups: [monsieurbiz_menu]
