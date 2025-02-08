@@ -75,7 +75,7 @@ monsieurbiz_menu_admin_menu_item_update:
             section: admin
             permission: true
             template: '@MonsieurBizSyliusMenuPlugin/Admin/MenuItem/update.html.twig'
-            redirect: *sylius_redirect
+            redirect: referer
             vars:
                 route:
                     name: 'monsieurbiz_menu_admin_menu_item_update'
