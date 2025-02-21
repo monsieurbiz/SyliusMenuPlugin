@@ -38,6 +38,7 @@ class ProductUrlProvider extends AbstractUrlProvider
     protected function getResults(string $locale, string $search = ''): iterable
     {
         $queryBuilder = $this->productRepository->createListQueryBuilder($locale)
+            ->andWhere('translation.locale = :locale') // Add condition to display only pages with the current locale
             ->andWhere('o.enabled = :enabled')
             ->setParameter('enabled', true)
         ;
