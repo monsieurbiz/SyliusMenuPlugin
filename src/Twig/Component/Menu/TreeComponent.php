@@ -1,18 +1,12 @@
 <?php
 
-/**
- * @copyright C UAB NFQ Technologies
+/*
+ * This file is part of Monsieur Biz' Menu plugin for Sylius.
  *
- * This Software is the property of NFQ Technologies
- * and is protected by copyright law – it is NOT Freeware.
+ * (c) Monsieur Biz <sylius@monsieurbiz.com>
  *
- * Any unauthorized use of this software without a valid license key
- * is a violation of the license agreement and will be prosecuted by
- * civil and criminal law.
- *
- * Contact UAB NFQ Technologies:
- * E-mail: info@nfq.lt
- * http://www.nfq.lt
+ * For the full copyright and license information, please view the LICENSE.txt
+ * file that was distributed with this source code.
  */
 
 declare(strict_types=1);
@@ -20,29 +14,19 @@ declare(strict_types=1);
 namespace MonsieurBiz\SyliusMenuPlugin\Twig\Component\Menu;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\Persistence\ObjectManager;
+use MonsieurBiz\SyliusMenuPlugin\DataProvider\Tree\MenuItemTreeProvider;
 use MonsieurBiz\SyliusMenuPlugin\Entity\MenuInterface;
-use MonsieurBiz\SyliusMenuPlugin\Entity\MenuItem;
-use MonsieurBiz\SyliusMenuPlugin\Repository\MenuItemRepository;
+use MonsieurBiz\SyliusMenuPlugin\Entity\MenuItemInterface;
 use MonsieurBiz\SyliusMenuPlugin\Manager\MenuPositionHandler;
-use MonsieurBiz\SyliusMenuPlugin\Repository\MenuRepository;
-use Sylius\Bundle\AdminBundle\Doctrine\Query\Taxon\AllTaxonsInterface;
-use Sylius\Bundle\UiBundle\Twig\Component\ResourceLivePropTrait;
-use Sylius\Component\Core\Model\OrderInterface;
+use MonsieurBiz\SyliusMenuPlugin\Repository\MenuItemRepository;
 use Sylius\Component\Resource\Model\ResourceInterface;
-use Sylius\Component\Taxonomy\Repository\TaxonRepositoryInterface;
 use Sylius\TwigHooks\LiveComponent\HookableLiveComponentTrait;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveArg;
-use Symfony\UX\LiveComponent\Attribute\LiveProp;
 use Symfony\UX\LiveComponent\DefaultActionTrait;
-use MonsieurBiz\SyliusMenuPlugin\DataProvider\Tree\MenuItemTreeProvider;
-use MonsieurBiz\SyliusMenuPlugin\Entity\Menu;
-use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
-use Symfony\UX\TwigComponent\Attribute\PreMount;
 
-#[AsLiveComponent]
+#[AsLiveComponent(name: 'monsieur_biz:menu:tree', template: '@MonsieurBizSyliusMenuPlugin/Admin/Tree/tree.html.twig')]
 class TreeComponent
 {
     use DefaultActionTrait;
@@ -61,28 +45,28 @@ class TreeComponent
     public function getTree(): array
     {
         $resource = $this->resource;
-
-        if ($resource !== null) {
-            if ($resource instanceof MenuItem) {
-                $resource = $resource->getMenu();
-            }
-
-            return $this->buildTree(
-                $this->treeDataProvider->getArrayResult(
-                    $resource,
-                )
-            );
+        if ($resource instanceof MenuItemInterface) {
+            $resource = $resource->getMenu();
         }
 
-        return [];
+        if (!$resource instanceof MenuInterface) {
+            return [];
+        }
+
+        return $this->buildTree(
+            $this->treeDataProvider->getArrayResult(
+                $resource,
+            )
+        );
     }
 
     #[LiveAction]
     public function moveUp(#[LiveArg] int $menuItemId): void
     {
+        /** @var ?MenuItemInterface $menuItem */
         $menuItem = $this->menuItemRepository->find($menuItemId);
 
-        if ($menuItem === null) {
+        if (null === $menuItem) {
             return;
         }
 
@@ -95,9 +79,9 @@ class TreeComponent
     #[LiveAction]
     public function moveDown(#[LiveArg] int $menuItemId): void
     {
+        /** @var ?MenuItemInterface $menuItem */
         $menuItem = $this->menuItemRepository->find($menuItemId);
-
-        if ($menuItem === null) {
+        if (null === $menuItem) {
             return;
         }
 
@@ -110,9 +94,9 @@ class TreeComponent
     #[LiveAction]
     public function deleteItem(#[LiveArg] int $menuItemId): void
     {
+        /** @var ?MenuItemInterface $menuItem */
         $menuItem = $this->menuItemRepository->find($menuItemId);
-
-        if ($menuItem === null) {
+        if (null === $menuItem) {
             return;
         }
 
@@ -137,9 +121,11 @@ class TreeComponent
 
             if (null !== $menuItem['parent_id']) {
                 $children[$menuItem['parent_id']][] = $treeChild;
-            } else {
-                $tree[] = $treeChild;
+
+                continue;
             }
+
+            $tree[] = $treeChild;
         }
 
         return $tree;

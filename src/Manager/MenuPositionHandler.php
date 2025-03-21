@@ -1,27 +1,19 @@
 <?php
 
-/**
- * @copyright C UAB NFQ Technologies
+/*
+ * This file is part of Monsieur Biz' Menu plugin for Sylius.
  *
- * This Software is the property of NFQ Technologies
- * and is protected by copyright law – it is NOT Freeware.
+ * (c) Monsieur Biz <sylius@monsieurbiz.com>
  *
- * Any unauthorized use of this software without a valid license key
- * is a violation of the license agreement and will be prosecuted by
- * civil and criminal law.
- *
- * Contact UAB NFQ Technologies:
- * E-mail: info@nfq.lt
- * http://www.nfq.lt
+ * For the full copyright and license information, please view the LICENSE.txt
+ * file that was distributed with this source code.
  */
 
 declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusMenuPlugin\Manager;
 
-use Doctrine\ORM\EntityManagerInterface;
 use MonsieurBiz\SyliusMenuPlugin\Entity\MenuItemInterface;
-use MonsieurBiz\SyliusMenuPlugin\Entity\MenuItem;
 use MonsieurBiz\SyliusMenuPlugin\Exception\IndexExceededException;
 
 class MenuPositionHandler
@@ -30,28 +22,28 @@ class MenuPositionHandler
 
     public const MOVE_DOWN = 'down';
 
-    public function __construct(
-        private readonly EntityManagerInterface $entityManager,
-    ) {
-    }
-
-    public function moveUp(MenuItem $menuItem): void
+    public function moveUp(MenuItemInterface $menuItem): void
     {
         try {
             $this->move($menuItem, self::MOVE_UP);
         } catch (IndexExceededException) {
+            // Do nothing if the index is exceeded
         }
     }
 
-    public function moveDown(MenuItem $menuItem)
+    public function moveDown(MenuItemInterface $menuItem): void
     {
         try {
             $this->move($menuItem, self::MOVE_DOWN);
         } catch (IndexExceededException) {
+            // Do nothing if the index is exceeded
         }
     }
 
-    private function move(MenuItem $menuItem, string $direction): void
+    /**
+     * @throws IndexExceededException
+     */
+    private function move(MenuItemInterface $menuItem, string $direction): void
     {
         $items = $this->getItems($menuItem);
 
@@ -69,6 +61,9 @@ class MenuPositionHandler
         }
     }
 
+    /**
+     * @throws IndexExceededException
+     */
     private function getNewIndex(int $index, int $max, string $direction): int
     {
         $indexToGo = $index + (self::MOVE_UP === $direction ? -1 : 1);

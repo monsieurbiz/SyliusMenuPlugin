@@ -1,7 +1,7 @@
 sylius_twig_hooks:
     hooks:
         'sylius_admin.menu.update#javascripts':
-            scripts:
+            browser_scripts:
                 template: '@MonsieurBizSyliusMenuPlugin/Admin/Browser/app.html.twig'
         
         'sylius_admin.menu.update.content':
@@ -9,7 +9,7 @@ sylius_twig_hooks:
                 enabled: false
             sections:
                 template: '@MonsieurBizSyliusMenuPlugin/Admin/Tree/Section/sections.html.twig'
-                
+
         'sylius_admin.menu.update.content.sections#left':
             create:
                 template: '@MonsieurBizSyliusMenuPlugin/Admin/Menu/Tree/Create/create.html.twig'
@@ -43,13 +43,11 @@ sylius_twig_hooks:
                 template: '@MonsieurBizSyliusMenuPlugin/Admin/Tree/Dropdown/Action/move_down.html.twig'
             delete_item:
                 template: '@MonsieurBizSyliusMenuPlugin/Admin/Tree/Dropdown/Action/delete_child.html.twig'
-                  
-                  
-                  
+
         'sylius_admin.menu_item.create#javascripts':
-            scripts:
+            browser_scripts:
                 template: '@MonsieurBizSyliusMenuPlugin/Admin/Browser/app.html.twig'
-                
+
         'sylius_admin.menu_item.create.content':
             form:
                 enabled: false
@@ -90,12 +88,10 @@ sylius_twig_hooks:
             delete_item:
                 template: '@MonsieurBizSyliusMenuPlugin/Admin/Tree/Dropdown/Action/delete_child.html.twig'
 
-
-
         'sylius_admin.menu_item.update#javascripts':
-            scripts:
-                template: '@MonsieurBizSyliusMenuPlugin/Admin/Browser/app.html.twig'            
-        
+            browser_scripts:
+                template: '@MonsieurBizSyliusMenuPlugin/Admin/Browser/app.html.twig'
+
         'sylius_admin.menu_item.update.content':
             form:
                 enabled: false

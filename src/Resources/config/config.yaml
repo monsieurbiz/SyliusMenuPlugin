@@ -3,6 +3,7 @@ imports:
     - { resource: "sylius/resources.yaml" }
     - { resource: "sylius/grids.yaml" }
     - { resource: "sylius/fixtures.yaml"}
+    - { resource: "twig_hooks.yml"}
 
 sylius_labs_doctrine_migrations_extra:
     migrations:

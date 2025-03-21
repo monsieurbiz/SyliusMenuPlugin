@@ -1,14 +1,14 @@
 .DEFAULT_GOAL := help
 SHELL=/bin/bash
 APP_DIR=tests/Application
-SYLIUS_VERSION=1.14.0
+SYLIUS_VERSION=2.0.0
 SYMFONY=cd ${APP_DIR} && symfony
 COMPOSER=symfony composer
 CONSOLE=${SYMFONY} console
 export COMPOSE_PROJECT_NAME=menu
 PLUGIN_NAME=sylius-${COMPOSE_PROJECT_NAME}-plugin
 COMPOSE=docker compose
-YARN=yarn
+YARN=$$(command -v n >/dev/null 2>&1 && echo "n exec auto yarn" || echo "yarn")
 
 ###
 ### DEVELOPMENT

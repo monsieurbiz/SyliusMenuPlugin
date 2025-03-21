@@ -1,26 +1,25 @@
-<div {{ attributes.defaults(stimulus_controller('menu-tree', {treeData: this.tree, autoOpen: true})) }}>
+<div {{ attributes.defaults(stimulus_controller('@monsieurbiz/sylius-menu-plugin/menu-tree', {treeData: this.tree, autoOpen: true})) }}>
     <div class="card mb-5">
         <div data-loading>
             <div class="sylius-loader">
-                <img src="{{ asset('build/admin/images/loader.gif', 'admin') }}" alt="{{ 'sylius.ui.loading'|trans }}"/>
+                <img src="{{ asset('build/admin/images/loader.svg', 'admin') }}" alt="{{ 'sylius.ui.loading'|trans }}"/>
             </div>
         </div>
 
         {% hook 'create' %}
 
         <div class="card-body">
-            <div class="d-none" data-menu-tree-target="itemPrototyp">
-                <div class="d-flex justify-content-between infinite-tree-item" {{ sylius_test_html_attribute('tree-menu', '__MENU_NAME__') }}>
+            <div class="d-none" data-monsieurbiz--sylius-menu-plugin--menu-tree-target="itemPrototyp">
+                <div class="d-flex justify-content-between infinite-tree-item" {{ sylius_test_html_attribute('tree-menu', '__MENU_ITEM_NAME__') }}>
                     <div class="infinite-tree-node">
                         <span class="infinite-tree-toggler" data-infinite-tree-toggler></span>
-                        <span class="infinite-tree-toggler infinite-tree-title">__MENU_NAME__</span>
+                        <a class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover" href="{{ path('monsieurbiz_menu_admin_menu_item_update', {'id': '__MENU_ITEM_ID__', 'menuId': '__MENU_ID__' }) }}">__MENU_ITEM_NAME__</a>
                     </div>
 
                     {% hook 'tree' %}
-
                 </div>
             </div>
-            <div data-menu-tree-target="tree" {{ sylius_test_html_attribute('tree-menus') }}></div>
+            <div data-monsieurbiz--sylius-menu-plugin--menu-tree-target="tree" {{ sylius_test_html_attribute('tree-menus') }}></div>
         </div>
     </div>
 </div>

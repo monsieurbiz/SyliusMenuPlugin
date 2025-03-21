@@ -1,0 +1,12 @@
+{
+  "controllers": {
+    "@monsieurbiz/sylius-menu-plugin": {
+      "menu-tree": {
+        "main": "js/controller.js",
+        "enabled": true,
+        "fetch": "eager"
+      }
+    }
+  },
+  "entrypoints": []
+}
