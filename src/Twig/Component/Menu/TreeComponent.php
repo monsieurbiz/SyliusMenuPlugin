@@ -45,10 +45,6 @@ class TreeComponent
     public function getTree(): array
     {
         $resource = $this->resource;
-        if ($resource instanceof MenuItemInterface) {
-            $resource = $resource->getMenu();
-        }
-
         if (!$resource instanceof MenuInterface) {
             return [];
         }

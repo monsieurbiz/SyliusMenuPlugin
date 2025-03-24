@@ -64,7 +64,7 @@ sylius_twig_hooks:
             tree:
                 component: 'monsieur_biz:menu:tree'
                 props:
-                    resource: '@=_context.resource'
+                    resource: '@=_context.resource.getMenu()'
 
         'sylius_admin.menu_item.create.content.sections#right':
             form:
@@ -108,7 +108,7 @@ sylius_twig_hooks:
             tree:
                 component: 'monsieur_biz:menu:tree'
                 props:
-                    resource: '@=_context.resource'
+                    resource: '@=_context.resource.getMenu()'
 
         'sylius_admin.menu_item.update.content.sections#right':
             form:
