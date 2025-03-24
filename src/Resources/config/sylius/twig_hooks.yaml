@@ -3,7 +3,7 @@ sylius_twig_hooks:
         'sylius_admin.menu.update#javascripts':
             browser_scripts:
                 template: '@MonsieurBizSyliusMenuPlugin/Admin/Browser/app.html.twig'
-        
+
         'sylius_admin.menu.update.content':
             form:
                 enabled: false
@@ -17,13 +17,13 @@ sylius_twig_hooks:
                 component: 'monsieur_biz:menu:tree'
                 props:
                     resource: '@=_context.resource'
-        
+
         'sylius_admin.menu.update.content.sections#right':
             form:
                 template: '@SyliusAdmin/shared/crud/common/content/form.html.twig'
                 configuration:
                     render_rest: true
-                    
+
         'sylius_admin.menu.update.content.sections.tree':
             actions:
                 template: '@SyliusAdmin/taxon/sections/tree/actions.html.twig'
@@ -67,7 +67,7 @@ sylius_twig_hooks:
                 template: '@MonsieurBizSyliusMenuPlugin/Admin/MenuItem/_form.html.twig'
                 configuration:
                     render_rest: true
-        
+
         'sylius_admin.menu_item.create.content.sections.tree':
             actions:
                 template: '@SyliusAdmin/taxon/sections/tree/actions.html.twig'
@@ -111,11 +111,11 @@ sylius_twig_hooks:
                 template: '@MonsieurBizSyliusMenuPlugin/Admin/MenuItem/_form.html.twig'
                 configuration:
                     render_rest: true
-        
+
         'sylius_admin.menu_item.update.content.header.title_block.actions':
             show:
                 enabled: false
-        
+
         'sylius_admin.menu_item.update.content.sections.tree':
             actions:
                 template: '@SyliusAdmin/taxon/sections/tree/actions.html.twig'
@@ -136,7 +136,7 @@ sylius_twig_hooks:
             delete_item:
                 template: '@MonsieurBizSyliusMenuPlugin/Admin/Tree/Dropdown/Action/delete_child.html.twig'
 
-        # Replace the default menu
+        # Replace the default menu in navbar
         'sylius_shop.base.header.navbar':
             menu:
                 component: 'monsieur_biz:shared:menu'
@@ -161,5 +161,32 @@ sylius_twig_hooks:
 
         'sylius_shop.base.header.navbar.menu.item#link':
             link:
-                template: '@MonsieurBizSyliusMenuPlugin/shared/layout/base/header/navbar/menu/item/link.html.twig'
+                template: '@MonsieurBizSyliusMenuPlugin/shared/menu/item/link.html.twig'
+                priority: 0
+
+        # Replace the menu in footer
+        'sylius_shop.base.footer.content':
+            menu:
+                template: '@MonsieurBizSyliusMenuPlugin/shared/layout/base/footer/content/menu.html.twig'
+                priority: 200
+
+        'sylius_shop.base.footer.content.menu':
+            column1:
+                component: 'monsieur_biz:shared:menu'
+                props:
+                    template: '@MonsieurBizSyliusMenuPlugin/shared/layout/base/footer/content/menu/item.html.twig'
+                configuration:
+                    menu_code: '%monsieurbiz_menu.menu.footer_column1_code%'
+
+            column2:
+                component: 'monsieur_biz:shared:menu'
+                props:
+                    template: '@MonsieurBizSyliusMenuPlugin/shared/layout/base/footer/content/menu/item.html.twig'
+                configuration:
+                    menu_code: '%monsieurbiz_menu.menu.footer_column2_code%'
+                    additional_classes: 'mb-5'
+
+        'sylius_shop.base.footer.content.menu.item#link':
+            link:
+                template: '@MonsieurBizSyliusMenuPlugin/shared/menu/item/link.html.twig'
                 priority: 0
