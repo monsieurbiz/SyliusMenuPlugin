@@ -2,6 +2,7 @@ parameters:
     monsieurbiz_menu.form.type.menu.validation_groups: ['monsieurbiz_menu']
     monsieurbiz_menu.form.type.menu_item.validation_groups: ['monsieurbiz_menu']
     monsieurbiz_menu.form.type.menu_item_translation.validation_groups: ['monsieurbiz_menu']
+    monsieurbiz_menu.menu.navbar_code: 'main'
 
 services:
     _defaults:

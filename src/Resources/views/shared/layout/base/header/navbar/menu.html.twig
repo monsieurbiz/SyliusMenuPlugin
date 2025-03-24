@@ -1,0 +1,18 @@
+{% set menu_items = this.getMenuItems(hookableMetadata.configuration.menu_code) %}
+<div class="w-100 border-bottom">
+    {% if menu_items|length > 0 %}
+        <nav class="navbar offcanvas-lg offcanvas-start offcanvas-wide p-0" id="navbarNav">
+            <div class="offcanvas-header w-full">
+                <h5 class="offcanvas-title">
+                    {{ 'monsieurbiz_menu.ui.menu'|trans }}
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#navbarNav" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body justify-content-lg-center w-full py-0">
+                <div class="navbar-nav my-2 flex-column flex-lg-row gap-lg-4" {{ sylius_test_html_attribute('menu') }}>
+                    {% hook 'sylius_shop.base.header.navbar.menu' with { menu_items } %}
+                </div>
+            </div>
+        </nav>
+    {% endif %}
+</div>

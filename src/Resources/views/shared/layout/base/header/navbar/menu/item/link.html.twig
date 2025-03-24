@@ -1,0 +1,17 @@
+{% set menu_item = hookable_metadata.context.menu_item %}
+
+{% set noreferrer = menu_item.noreferrer %}
+{% set noopener = menu_item.noopener %}
+{% set nofollow = menu_item.nofollow %}
+{% set hasRel = noreferrer or noopener or nofollow %}
+<a
+    class="nav-link"
+    href="{{ menu_item.url|default('#') }}"
+    {% if menu_item.targetBlank %} target="_blank"{% endif %}
+    {% if hasRel %}
+        rel="{% if noreferrer %}noreferrer{% endif %}{% if noopener %} noopener{% endif %}{% if nofollow %} nofollow{% endif %}"
+    {% endif %}
+    {{ sylius_test_html_attribute('menu-item', menu_item.label) }}
+>
+    {{ menu_item.label }}
+</a>

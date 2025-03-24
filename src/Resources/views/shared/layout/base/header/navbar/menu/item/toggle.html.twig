@@ -1,0 +1,6 @@
+{% set menu_item = hookable_metadata.context.menu_item %}
+
+<a class="nav-link d-flex align-items-center gap-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    {{ menu_item.label }}
+    {{ ux_icon('tabler:chevron-down', { 'class': 'icon icon-sm'}) }}
+</a>

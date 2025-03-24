@@ -1,0 +1,10 @@
+{% set menu_items = hookable_metadata.context.menu_items %}
+{% for menu_item in menu_items %}
+    {% if menu_item.items|length > 0 %}
+        <div class="nav-item dropdown" {{ sylius_test_html_attribute('menu-item', menu_item.label) }}>
+            {% hook 'item#dropdown' with { menu_item } %}
+        </div>
+    {% else %}
+        {% hook 'item#link' with { menu_item } %}
+    {% endif %}
+{% endfor %}

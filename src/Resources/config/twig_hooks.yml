@@ -135,3 +135,31 @@ sylius_twig_hooks:
                 template: '@MonsieurBizSyliusMenuPlugin/Admin/Tree/Dropdown/Action/move_down.html.twig'
             delete_item:
                 template: '@MonsieurBizSyliusMenuPlugin/Admin/Tree/Dropdown/Action/delete_child.html.twig'
+
+        # Replace the default menu
+        'sylius_shop.base.header.navbar':
+            menu:
+                component: 'monsieur_biz:shared:menu'
+                props:
+                    template: '@MonsieurBizSyliusMenuPlugin/shared/layout/base/header/navbar/menu.html.twig'
+                configuration:
+                    menu_code: '%monsieurbiz_menu.menu.navbar_code%'
+                priority: 0
+
+        'sylius_shop.base.header.navbar.menu':
+            item:
+                template: '@MonsieurBizSyliusMenuPlugin/shared/layout/base/header/navbar/menu/item.html.twig'
+                priority: 0
+
+        'sylius_shop.base.header.navbar.menu.item#dropdown':
+            toggle:
+                template: '@MonsieurBizSyliusMenuPlugin/shared/layout/base/header/navbar/menu/item/toggle.html.twig'
+                priority: 100
+            dropdown:
+                template: '@MonsieurBizSyliusMenuPlugin/shared/layout/base/header/navbar/menu/item/dropdown.html.twig'
+                priority: 0
+
+        'sylius_shop.base.header.navbar.menu.item#link':
+            link:
+                template: '@MonsieurBizSyliusMenuPlugin/shared/layout/base/header/navbar/menu/item/link.html.twig'
+                priority: 0
