@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace MonsieurBiz\SyliusMenuPlugin\Twig\Component\Menu;
 
 use Doctrine\ORM\EntityManagerInterface;
-use MonsieurBiz\SyliusMenuPlugin\DataProvider\Tree\MenuItemTreeProvider;
+use MonsieurBiz\SyliusMenuPlugin\DataProvider\Tree\MenuItemTreeProviderInterface;
 use MonsieurBiz\SyliusMenuPlugin\Entity\MenuInterface;
 use MonsieurBiz\SyliusMenuPlugin\Entity\MenuItemInterface;
 use MonsieurBiz\SyliusMenuPlugin\Manager\MenuPositionHandler;
@@ -35,7 +35,7 @@ class TreeComponent
     public ?ResourceInterface $resource = null;
 
     public function __construct(
-        private readonly MenuItemTreeProvider $treeDataProvider,
+        private readonly MenuItemTreeProviderInterface $treeDataProvider,
         private readonly MenuPositionHandler $menuPositionHandler,
         private readonly MenuItemRepository $menuItemRepository,
         private readonly EntityManagerInterface $entityManager,

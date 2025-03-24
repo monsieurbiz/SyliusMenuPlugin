@@ -21,7 +21,7 @@ use Sylius\Component\Locale\Context\LocaleContextInterface;
 use Sylius\Component\Locale\Context\LocaleNotFoundException;
 use Sylius\Component\Resource\Translation\Provider\TranslationLocaleProviderInterface;
 
-class MenuItemTreeProvider
+final class MenuItemTreeProvider implements MenuItemTreeProviderInterface
 {
     public function __construct(
         private readonly EntityManagerInterface $entityManager,
