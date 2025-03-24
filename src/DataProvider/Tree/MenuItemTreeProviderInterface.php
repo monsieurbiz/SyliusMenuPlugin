@@ -1,11 +1,11 @@
 <?php
 
 /*
- * This file is part of SyliusMenuPlugin website.
+ * This file is part of Monsieur Biz' Menu plugin for Sylius.
  *
- * (c) SyliusMenuPlugin <sylius+syliusmenuplugin@monsieurbiz.com>
+ * (c) Monsieur Biz <sylius@monsieurbiz.com>
  *
- * For the full copyright and license information, please view the LICENSE
+ * For the full copyright and license information, please view the LICENSE.txt
  * file that was distributed with this source code.
  */
 

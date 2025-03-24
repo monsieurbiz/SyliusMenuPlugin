@@ -13,7 +13,7 @@
     }
 
     /**
-     * Choose route for given prodiver (Select a product in a list, select a taxon in a list etc.)
+     * Choose route for given provider (Select a product in a list, select a taxon in a list etc.)
      */
     function monsieurbizSyliusMenuBrowseListItems(inputName, inputValue, locale, providerCode, search)
     {
@@ -36,13 +36,13 @@
                 const locale = params.get('locale');
                 var myModal = bootstrap.Modal.getInstance(document.getElementById('modal-' + locale));
                 if (myModal) {
+                    myModal.hide();
                     myModal.dispose()
                 }
                 const modalWrapper = document.getElementById('modal-' + locale + '-wrapper');
                 modalWrapper.innerHTML = this.responseText;
-                var myModal = bootstrap.Modal.getOrCreateInstance(document.getElementById('modal-' + locale), {
-                    keyboard: false
-                });
+                const myModalElement = document.getElementById('modal-' + locale);
+                var myModal = bootstrap.Modal.getOrCreateInstance(myModalElement);
                 myModal.show();
                 monsieurbizSyliusMenuBrowserSearchEnter();
             } else {
@@ -60,13 +60,17 @@
      */
     function monsieurbizSyliusMenuBrowseChooseItem(inputName, inputValue, locale, providerCode, value)
     {
-        monsieurbizSyliusMenuBrowserCloseModal(locale);
         document.querySelector('input[name="' + inputName + '"]').value = value;
+        monsieurbizSyliusMenuBrowserCloseModal(locale);
     }
 
     function monsieurbizSyliusMenuBrowserCloseModal(locale)
     {
-        var modal = bootstrap.Modal.getInstance(document.getElementById('modal-' + locale))
+        var modal = bootstrap.Modal.getInstance(document.getElementById('modal-' + locale));
+        if (!modal) {
+            return;
+        }
+
         modal.hide();
         modal.dispose();
     }
@@ -74,51 +78,28 @@
     function monsieurbizSyliusMenuBrowserAddLoaderModal()
     {
         document.querySelectorAll('.monsieurbiz-sylius-menu-browser__loader').forEach(function(modal) {
-            modal.classList.add('active');
+            modal.classList.remove('d-none');
         });
     }
 
     function monsieurbizSyliusMenuBrowserRemoveLoaderModal()
     {
         document.querySelectorAll('.monsieurbiz-sylius-menu-browser__loader').forEach(function(modal) {
-            modal.classList.remove('active');
+            modal.classList.add('d-none');
         });
     }
 
     function monsieurbizSyliusMenuBrowserSearchEnter()
     {
         let input = document.querySelector(".monsieurbiz-sylius-menu-browser__search input");
-        let button = document.querySelector(".monsieurbiz-sylius-menu-browser__search div.button");
+        let button = document.querySelector(".monsieurbiz-sylius-menu-browser__search button.btn");
         if (input && button) {
             input.addEventListener("keypress", function(event) {
-            if (event.key === "Enter") {
-                event.preventDefault();
-                button.click();
-            }
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    button.click();
+                }
             });
         }
     }
 </script>
-
-
-<style>
-    .monsieurbiz-sylius-menu-browser__modal > .content {
-        height: 50vh;
-        overflow-y: auto;
-    }
-
-    .monsieurbiz-sylius-menu-browser__item:not(.monsieurbiz-sylius-menu-browser__item-search) {
-        height: 30px;
-        cursor: pointer;
-    }
-
-    .monsieurbiz-sylius-menu-browser__item:hover:not(.monsieurbiz-sylius-menu-browser__item-search) {
-        background-color: #cce2ff;
-    }
-
-    .monsieurbiz-sylius-menu-browser__modal .ui.list > .item > i.icon,
-    .monsieurbiz-sylius-menu-browser__modal .ui.list > .item > .icon + .content
-    {
-        vertical-align: middle;
-    }
-</style>
