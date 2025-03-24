@@ -44,6 +44,10 @@ sylius_twig_hooks:
             delete_item:
                 template: '@MonsieurBizSyliusMenuPlugin/Admin/Tree/Dropdown/Action/delete_child.html.twig'
 
+        'sylius_admin.menu.update.content.sections.form':
+            form:
+                template: '@MonsieurBizSyliusMenuPlugin/Admin/Menu/form.html.twig'
+
         'sylius_admin.menu_item.create#javascripts':
             browser_scripts:
                 template: '@MonsieurBizSyliusMenuPlugin/Admin/Browser/app.html.twig'

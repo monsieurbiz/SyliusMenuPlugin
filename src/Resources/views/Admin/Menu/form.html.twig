@@ -1,0 +1,12 @@
+{% set form = hookable_metadata.context.form %}
+
+<div class="card mb-3">
+    <div class="card-body">
+        <div class="col-12">
+            {{ form_row(form.code) }}
+        </div>
+        <div class="col-12">
+            {{ form_row(form.isSystem) }}
+        </div>
+    </div>
+</div>
