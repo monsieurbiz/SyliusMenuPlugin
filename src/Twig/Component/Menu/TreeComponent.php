@@ -24,6 +24,7 @@ use Sylius\TwigHooks\LiveComponent\HookableLiveComponentTrait;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveArg;
+use Symfony\UX\LiveComponent\Attribute\LiveProp;
 use Symfony\UX\LiveComponent\DefaultActionTrait;
 
 #[AsLiveComponent(name: 'monsieur_biz:menu:tree', template: '@MonsieurBizSyliusMenuPlugin/Admin/Tree/tree.html.twig')]
@@ -33,6 +34,9 @@ class TreeComponent
     use HookableLiveComponentTrait;
 
     public ?ResourceInterface $resource = null;
+
+    #[LiveProp(writable: true)]
+    public array $currentMenuItem = [];
 
     public function __construct(
         private readonly MenuItemTreeProviderInterface $treeDataProvider,
@@ -107,6 +111,8 @@ class TreeComponent
         $tree = [];
         $children = [];
 
+        $mainIndex = 0;
+        $nbMainMenuItems = \count(array_filter($menuItems, static fn (array $item) => null === $item['parent_id']));
         foreach ($menuItems as $menuItem) {
             $treeChild = [
                 'id' => $menuItem['id'],
@@ -116,14 +122,30 @@ class TreeComponent
             ];
 
             if (null !== $menuItem['parent_id']) {
+                $this->markFirstAndLast($treeChild['children']);
                 $children[$menuItem['parent_id']][] = $treeChild;
 
                 continue;
             }
 
+            $treeChild['is_first'] = 0 === $mainIndex;
+            $treeChild['is_last'] = $mainIndex === $nbMainMenuItems - 1;
+
+            $this->markFirstAndLast($treeChild['children']);
+
             $tree[] = $treeChild;
+            ++$mainIndex;
         }
 
         return $tree;
+    }
+
+    private function markFirstAndLast(array &$items): void
+    {
+        $count = \count($items);
+        foreach ($items as $index => &$item) {
+            $item['is_first'] = (0 === $index);
+            $item['is_last'] = ($index === $count - 1);
+        }
     }
 }

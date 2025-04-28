@@ -1,5 +1,6 @@
+{% set tree = hookable_metadata.context.tree %}
 <li>
-    <a class="dropdown-item" href="{{ path('monsieurbiz_menu_admin_menu_item_create_for_parent', {'menuId': '__MENU_ID__', 'parentId': '__MENU_ITEM_ID__'}) }}">
+    <a class="dropdown-item" href="{{ path('monsieurbiz_menu_admin_menu_item_create_for_parent', {'menuId': tree.menu_id, 'parentId': tree.id}) }}">
         {{ 'sylius.ui.create'|trans }}
     </a>
 </li>

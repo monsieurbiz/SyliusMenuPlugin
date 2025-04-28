@@ -1,8 +1,10 @@
+{% set tree = hookable_metadata.context.tree %}
 <li>
-    <button class="dropdown-item"
-            data-action="live#action"
-            data-live-action-param="deleteItem"
-            data-live-menu-item-id-param="__MENU_ITEM_ID__"
+    <button
+        class="dropdown-item"
+        data-action="live#action"
+        data-live-action-param="deleteItem"
+        data-live-menu-item-id-param="{{ tree.id }}"
         {{ sylius_test_html_attribute('delete') }}
     >
         {{ 'sylius.ui.delete'|trans }}

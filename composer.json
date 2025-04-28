@@ -1,7 +1,7 @@
 {
     "name": "monsieurbiz/sylius-menu-plugin",
     "type": "sylius-plugin",
-    "keywords": ["sylius", "sylius-plugin", "monsieurbiz", "symfony-ux"],
+    "keywords": ["sylius", "sylius-plugin", "monsieurbiz"],
     "description": "This plugins allows you to manage menus.",
     "license": "MIT",
     "require": {

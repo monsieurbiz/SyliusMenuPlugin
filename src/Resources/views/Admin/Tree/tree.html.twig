@@ -1,25 +1,35 @@
-<div {{ attributes.defaults(stimulus_controller('@monsieurbiz/sylius-menu-plugin/menu-tree', {treeData: this.tree, autoOpen: true})) }}>
-    <div class="card mb-5">
-        <div data-loading>
-            <div class="sylius-loader">
-                <img src="{{ asset('build/admin/images/loader.svg', 'admin') }}" alt="{{ 'sylius.ui.loading'|trans }}"/>
-            </div>
+{% macro tree(tree, level, prefixes) %}
+    {% import _self as self %}
+    <li>
+        <div class="d-flex justify-content-between">
+            <div>{{ tree.name }}</div>
+            {% hook 'tree' with {'_prefixes': prefixes} %}
         </div>
+        {% if tree.children is not empty %}
+            <ul>
+                {% set level = level + 1 %}
+                {% for child in tree.children %}
+                    {{ self.tree(child, level, prefixes) }}
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </li>
+{% endmacro %}
 
-        {% hook 'create' %}
+{% import _self as self %}
 
+{% set tree = this.tree %}
+{% set level = 0 %}
+{% set prefixes = hookable_metadata.prefixes %}
+
+<div {{ attributes }}>
+    <div class="card mb-5">
         <div class="card-body">
-            <div class="d-none" data-monsieurbiz--sylius-menu-plugin--menu-tree-target="itemPrototyp">
-                <div class="d-flex justify-content-between infinite-tree-item" {{ sylius_test_html_attribute('tree-menu', '__MENU_ITEM_NAME__') }}>
-                    <div class="infinite-tree-node">
-                        <span class="infinite-tree-toggler" data-infinite-tree-toggler></span>
-                        <a class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover" href="{{ path('monsieurbiz_menu_admin_menu_item_update', {'id': '__MENU_ITEM_ID__', 'menuId': '__MENU_ID__' }) }}">__MENU_ITEM_NAME__</a>
-                    </div>
-
-                    {% hook 'tree' %}
-                </div>
-            </div>
-            <div data-monsieurbiz--sylius-menu-plugin--menu-tree-target="tree" {{ sylius_test_html_attribute('tree-menus') }}></div>
+            <ul>
+                {% for node in tree %}
+                    {{ self.tree(node, level, prefixes) }}
+                {% endfor %}
+            </ul>
         </div>
     </div>
 </div>
