@@ -84,6 +84,18 @@ monsieurbiz_menu_admin_menu_item_update:
                         name: 'monsieurbiz_menu_admin_menu_index'
                 templates: *sylius_vars_templates
 
+monsieurbiz_menu_admin_menu_item_delete:
+    path: /menus/delete-item/{id}
+    methods: [DELETE]
+    defaults:
+        _controller: monsieurbiz_menu.controller.menu_item::deleteAction
+        _sylius:
+            section: admin
+            permission: true
+            redirect: referer
+            vars:
+                index: *sylius_vars_index
+
 monsieurbiz_menu_admin_browser_list:
     path: /ajax/menus-browser/list
     methods: [GET]

@@ -1,0 +1,7 @@
+{% set tree = hookable_metadata.context.tree %}
+
+{% set path = path('monsieurbiz_menu_admin_menu_item_delete', {id: tree.id}) %}
+{% component 'sylius_admin:delete_modal' with {id: tree.id, path: path} %}
+    {% block trigger %}
+    {% endblock %}
+{% endcomponent %}

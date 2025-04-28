@@ -31,6 +31,8 @@ sylius_twig_hooks:
         'sylius_admin.menu.update.content.sections.tree.actions':
             dropdown:
                 template: '@MonsieurBizSyliusMenuPlugin/Admin/Tree/Dropdown/dropdown.html.twig'
+            delete_modal:
+                template: '@MonsieurBizSyliusMenuPlugin/Admin/Tree/delete_modal.html.twig'
 
         'sylius_admin.menu.update.content.sections.tree.actions.dropdown':
             create_parent:

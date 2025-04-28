@@ -91,21 +91,6 @@ class TreeComponent
         $this->resource = $menuItem->getMenu();
     }
 
-    #[LiveAction]
-    public function deleteItem(#[LiveArg] int $menuItemId): void
-    {
-        /** @var ?MenuItemInterface $menuItem */
-        $menuItem = $this->menuItemRepository->find($menuItemId);
-        if (null === $menuItem) {
-            return;
-        }
-
-        $this->menuItemRepository->remove($menuItem);
-        $this->entityManager->flush();
-
-        $this->resource = $menuItem->getMenu();
-    }
-
     private function buildTree(array $menuItems): array
     {
         $tree = [];
