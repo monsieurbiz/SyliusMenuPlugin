@@ -65,18 +65,16 @@ bin/console doctrine:migrations:migrate
 
 ## Customize your menu
 
-If you want to customize your menu, like adding an image, do so by overriding the MenuItem entity (more info about [overriding entities in the Sylius documentation](https://docs.sylius.com/en/1.9/customization/model.html)).
+If you want to customize your menu, like adding an image, do so by overriding the MenuItem entity (more info about [overriding entities in the Sylius documentation](https://docs.sylius.com/the-customization-guide/customizing-models)).
 
 ## Add URL Provider
 
 The URLs selector allows you to select a URL from a list of URLs.
-It provides URLs for :
+It provides URLs for:
 - Taxons
 - Products
 
 You can add your own custom Provider by creating a class which implements the `MonsieurBiz\SyliusMenuPlugin\Provider\UrlProviderInterface` interface.
-
-https://github.com/monsieurbiz/SyliusMenuPlugin/assets/11380627/98edde9e-8a25-46be-bc1c-7a2b06d15ead
 
 ## Menu example
 
@@ -90,10 +88,18 @@ The front view is exactly the same as the default one.
 
 ## Customize front view
 
-A menu can look very differently depending on where it should be displayed so most of the time you will need to create your own macro for the menu items.
-A good place to start is the template of the main menu here: ```src/Resources/views/Layout/Header/_menu.html.twig``` where we define a macro for the menu items, and we use them directly in the template.
+A menu can look very differently depending on where it should be displayed so most of the time you will need to create your own template to display it.
 
-To get the first items of a menu you can call our custom twig function ```menu_first_level('main')``` where `main` is the code of the menu we want to retrieve.
+A good starting point is to create a `monsieur_biz:shared:menu` component associated with your display template. You can find examples in the configuration file [twig_hooks.yaml of the plugin](src/Resources/config/sylius/twig_hooks.yaml).
+
+To get the first items of a menu, you can call the `getMenuItems` method of the component:
+
+```twig
+{% set items = this.getMenuItems('menu_code') %}
+```
+
+Replace `menu_code` with the code of the menu you want to display.  
+Then you can loop through the items and display them as you want.
 
 ## Contributing
 
