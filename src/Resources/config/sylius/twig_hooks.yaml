@@ -25,6 +25,8 @@ sylius_twig_hooks:
                     render_rest: true
 
         'sylius_admin.menu.update.content.sections.tree':
+            menu_item:
+                template: '@MonsieurBizSyliusMenuPlugin/Admin/Tree/menu_item.html.twig'
             actions:
                 template: '@SyliusAdmin/taxon/sections/tree/actions.html.twig'
 
@@ -75,6 +77,8 @@ sylius_twig_hooks:
                     render_rest: true
 
         'sylius_admin.menu_item.create.content.sections.tree':
+            menu_item:
+                template: '@MonsieurBizSyliusMenuPlugin/Admin/Tree/menu_item.html.twig'
             actions:
                 template: '@SyliusAdmin/taxon/sections/tree/actions.html.twig'
 
@@ -123,6 +127,8 @@ sylius_twig_hooks:
                 enabled: false
 
         'sylius_admin.menu_item.update.content.sections.tree':
+            menu_item:
+                template: '@MonsieurBizSyliusMenuPlugin/Admin/Tree/menu_item.html.twig'
             actions:
                 template: '@SyliusAdmin/taxon/sections/tree/actions.html.twig'
 

@@ -2,7 +2,6 @@
     {% import _self as self %}
     <li>
         <div class="d-flex justify-content-between">
-            <div>{{ tree.name }}</div>
             {% hook 'tree' with {'_prefixes': prefixes} %}
         </div>
         {% if tree.children is not empty %}
