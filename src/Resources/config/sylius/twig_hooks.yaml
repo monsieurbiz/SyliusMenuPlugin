@@ -73,8 +73,6 @@ sylius_twig_hooks:
         'sylius_admin.menu_item.create.content.sections#right':
             form:
                 template: '@MonsieurBizSyliusMenuPlugin/Admin/MenuItem/_form.html.twig'
-                configuration:
-                    render_rest: true
 
         'sylius_admin.menu_item.create.content.sections.tree':
             menu_item:
@@ -119,8 +117,17 @@ sylius_twig_hooks:
         'sylius_admin.menu_item.update.content.sections#right':
             form:
                 template: '@MonsieurBizSyliusMenuPlugin/Admin/MenuItem/_form.html.twig'
-                configuration:
-                    render_rest: true
+
+        'sylius_admin.menu_item.update.content.sections.form':
+            parent:
+                template: '@MonsieurBizSyliusMenuPlugin/Admin/MenuItem/form/parent.html.twig'
+                priority: 300
+            translations:
+                template: '@MonsieurBizSyliusMenuPlugin/Admin/MenuItem/form/translations.html.twig'
+                priority: 200
+            attributes:
+                template: '@MonsieurBizSyliusMenuPlugin/Admin/MenuItem/form/attributes.html.twig'
+                priority: 100
 
         'sylius_admin.menu_item.update.content.header.title_block.actions':
             show:

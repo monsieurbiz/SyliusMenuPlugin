@@ -1,0 +1,21 @@
+{% set form = hookable_metadata.context.form %}
+<div class="card mb-3">
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                {{ form_row(form.targetBlank) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.noreferrer) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{ form_row(form.noopener, {row_class: 'mb-0'}) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.nofollow, {row_class: 'mb-0'}) }}
+            </div>
+        </div>
+    </div>
+</div>
