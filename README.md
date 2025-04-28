@@ -88,6 +88,8 @@ The front view is exactly the same as the default one.
 
 ## Customize front view
 
+**Simple example**
+
 A menu can look very differently depending on where it should be displayed so most of the time you will need to create your own template to display it.
 
 A good starting point is to create a `monsieur_biz:shared:menu` component associated with your display template. You can find examples in the configuration file [twig_hooks.yaml of the plugin](src/Resources/config/sylius/twig_hooks.yaml).
@@ -100,6 +102,35 @@ To get the first items of a menu, you can call the `getMenuItems` method of the 
 
 Replace `menu_code` with the code of the menu you want to display.  
 Then you can loop through the items and display them as you want.
+
+**Advanced example**
+
+If you wish to define a menu code by channel and/or locale, we recommend you use the [plugin Settings](https://github.com/monsieurbiz/SyliusSettingsPlugin).
+
+In this case, create a menu template containing, for example :
+
+```twig
+{% set configuration = hookableMetadata.configuration %}
+{% set menu_code = setting(configuration.alias, configuration.path) %}
+
+{# ... #}
+```
+
+And use it in a configuration file which must be loaded after the `config/packages/monsieurbiz_sylius_menu_plugin.yaml` file:
+
+```yaml
+sylius_twig_hooks:
+    hooks:
+        'sylius_shop.base.header.navbar':
+            menu:
+                component: 'monsieur_biz:shared:menu'
+                props:
+                    template: 'shop/shared/menu.html.twig'
+                configuration:
+                    alias: 'app.mysetting'
+                    path: 'main_menu_code'
+                priority: 0
+```
 
 ## Contributing
 
