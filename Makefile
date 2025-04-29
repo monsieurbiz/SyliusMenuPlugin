@@ -8,7 +8,7 @@ CONSOLE=${SYMFONY} console
 export COMPOSE_PROJECT_NAME=menu
 PLUGIN_NAME=sylius-${COMPOSE_PROJECT_NAME}-plugin
 COMPOSE=docker compose
-YARN=$$(command -v n >/dev/null 2>&1 && echo "n exec auto yarn" || echo "yarn")
+YARN=$$(command -v n >/dev/null 2>&1 && echo "n --download exec auto yarn" || echo "yarn")
 
 ###
 ### DEVELOPMENT
