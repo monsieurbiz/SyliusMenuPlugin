@@ -8,3 +8,6 @@ imports:
 sylius_labs_doctrine_migrations_extra:
     migrations:
         MonsieurBiz\SyliusMenuPlugin\Migrations: ~
+
+twig:
+    form_themes: ['@MonsieurBizSyliusMenuPlugin/admin/browser/form/theme.html.twig']
