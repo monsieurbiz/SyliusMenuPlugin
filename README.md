@@ -47,7 +47,7 @@ imports:
     - { resource: "@MonsieurBizSyliusMenuPlugin/Resources/config/config.yaml" }
 
 twig:
-    form_themes: ['@MonsieurBizSyliusMenuPlugin/Admin/Browser/Form/_theme.html.twig']
+    form_themes: ['@MonsieurBizSyliusMenuPlugin/admin/browser/form/theme.html.twig']
 ```
 Finally import the routes in `config/routes/monsieurbiz_sylius_menu_plugin.yaml`:
 

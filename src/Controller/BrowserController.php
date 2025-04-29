@@ -33,7 +33,7 @@ final class BrowserController extends AbstractController
         $inputValue = (string) $request->query->get('inputValue', '');
         $locale = (string) $request->query->get('locale', '');
 
-        return $this->render('@MonsieurBizSyliusMenuPlugin/Admin/Browser/_modal.html.twig', [
+        return $this->render('@MonsieurBizSyliusMenuPlugin/admin/browser/modal.html.twig', [
             'urlProviders' => $this->browsableObjectProvider->getUrlProviders(),
             'inputName' => $inputName,
             'inputValue' => $inputValue,
@@ -55,7 +55,7 @@ final class BrowserController extends AbstractController
             return new JsonResponse(['error' => 'URL Provider not found'], 404);
         }
 
-        return $this->render('@MonsieurBizSyliusMenuPlugin/Admin/Browser/_modal.html.twig', [
+        return $this->render('@MonsieurBizSyliusMenuPlugin/admin/browser/modal.html.twig', [
             'urlProvider' => $urlProvider,
             'inputName' => $inputName,
             'inputValue' => $inputValue,

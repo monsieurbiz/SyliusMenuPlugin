@@ -38,8 +38,6 @@ monsieurbiz_menu_admin_menu_item_create_for_menu:
                         name: 'monsieurbiz_menu_admin_menu_update'
                         parameters:
                             id: 'expr:$menuId'
-                templates: &sylius_vars_templates
-                    form: '@MonsieurBizSyliusMenuPlugin/Admin/MenuItem/_form.html.twig'
 
 monsieurbiz_menu_admin_menu_item_create_for_parent:
     path: /menus/{menuId}/item/{parentId}/new-item
@@ -61,7 +59,6 @@ monsieurbiz_menu_admin_menu_item_create_for_parent:
                         menuId: 'expr:$menuId'
                         parentId: 'expr:$parentId'
                 index: *sylius_vars_index
-                templates: *sylius_vars_templates
 
 monsieurbiz_menu_admin_menu_item_update:
     path: /menus/{menuId}/update-item/{id}
@@ -82,7 +79,6 @@ monsieurbiz_menu_admin_menu_item_update:
                 index: &sylius_vars_index
                     route:
                         name: 'monsieurbiz_menu_admin_menu_index'
-                templates: *sylius_vars_templates
 
 monsieurbiz_menu_admin_menu_item_delete:
     path: /menus/delete-item/{id}

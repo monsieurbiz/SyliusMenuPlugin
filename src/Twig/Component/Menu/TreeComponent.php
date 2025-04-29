@@ -27,7 +27,7 @@ use Symfony\UX\LiveComponent\Attribute\LiveArg;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 use Symfony\UX\LiveComponent\DefaultActionTrait;
 
-#[AsLiveComponent(name: 'monsieur_biz:menu:tree', template: '@MonsieurBizSyliusMenuPlugin/Admin/Tree/tree.html.twig')]
+#[AsLiveComponent(name: 'monsieur_biz:menu:tree', template: '@MonsieurBizSyliusMenuPlugin/admin/menu/tree.html.twig')]
 class TreeComponent
 {
     use DefaultActionTrait;

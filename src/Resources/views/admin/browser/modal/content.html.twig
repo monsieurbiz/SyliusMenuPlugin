@@ -1,0 +1,7 @@
+<div class="list-group list-group-flush">
+    {% if urlProviders is defined %}
+        {% include '@MonsieurBizSyliusMenuPlugin/admin/browser/modal/content/providers.html.twig' %}
+    {% elseif urlProvider is defined %}
+        {% include '@MonsieurBizSyliusMenuPlugin/admin/browser/modal/content/items.html.twig' %}
+    {% endif %}
+</div>

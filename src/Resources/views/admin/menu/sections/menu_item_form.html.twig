@@ -2,7 +2,7 @@
     {% set form = hookable_metadata.context.form %}
 {% endif %}
 
-{% form_theme form '@MonsieurBizSyliusMenuPlugin/Admin/Browser/Form/_theme.html.twig' %}
+{% form_theme form '@MonsieurBizSyliusMenuPlugin/admin/browser/form/theme.html.twig' %}
 
 <div class="container-xl" {% if attributes is defined %} {{ attributes }} {% endif %}>
     {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'id': form.vars.id}}) }}
