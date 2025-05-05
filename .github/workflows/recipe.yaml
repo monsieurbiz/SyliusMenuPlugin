@@ -2,7 +2,7 @@ name: Flex Recipe
 
 on:
   push:
-    branches: [ master ]
+    branches: [ $default-branch ]
   pull_request:
 
 jobs:
