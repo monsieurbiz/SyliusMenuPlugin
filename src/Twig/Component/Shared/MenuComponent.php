@@ -18,7 +18,7 @@ use MonsieurBiz\SyliusMenuPlugin\Repository\MenuRepositoryInterface;
 use Sylius\Component\Locale\Context\LocaleContextInterface;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
-#[AsTwigComponent(name: 'monsieur_biz:shared:menu', template: '@SyliusUi/components/default.html.twig')]
+#[AsTwigComponent(name: 'monsieurbiz:shared:menu', template: '@SyliusUi/components/default.html.twig')]
 final class MenuComponent
 {
     /**

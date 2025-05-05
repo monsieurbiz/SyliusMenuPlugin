@@ -14,7 +14,7 @@ sylius_twig_hooks:
             create:
                 template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/create_from_menu.html.twig'
             tree:
-                component: 'monsieur_biz:menu:tree'
+                component: 'monsieurbiz:menu:tree'
                 props:
                     resource: '@=_context.resource'
 
@@ -66,7 +66,7 @@ sylius_twig_hooks:
             create:
                 template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/create_from_menu_item.html.twig'
             tree:
-                component: 'monsieur_biz:menu:tree'
+                component: 'monsieurbiz:menu:tree'
                 props:
                     resource: '@=_context.resource.getMenu()'
 
@@ -121,7 +121,7 @@ sylius_twig_hooks:
             create:
                 template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/create_from_menu_item.html.twig'
             tree:
-                component: 'monsieur_biz:menu:tree'
+                component: 'monsieurbiz:menu:tree'
                 props:
                     resource: '@=_context.resource.getMenu()'
 
@@ -169,7 +169,7 @@ sylius_twig_hooks:
         # Replace the default menu in navbar
         'sylius_shop.base.header.navbar':
             menu:
-                component: 'monsieur_biz:shared:menu'
+                component: 'monsieurbiz:shared:menu'
                 props:
                     template: '@MonsieurBizSyliusMenuPlugin/shared/layout/base/header/navbar/menu.html.twig'
                 configuration:
@@ -202,14 +202,14 @@ sylius_twig_hooks:
 
         'sylius_shop.base.footer.content.menu':
             column1:
-                component: 'monsieur_biz:shared:menu'
+                component: 'monsieurbiz:shared:menu'
                 props:
                     template: '@MonsieurBizSyliusMenuPlugin/shared/layout/base/footer/content/menu/item.html.twig'
                 configuration:
                     menu_code: '%monsieurbiz_menu.menu.footer_column1_code%'
 
             column2:
-                component: 'monsieur_biz:shared:menu'
+                component: 'monsieurbiz:shared:menu'
                 props:
                     template: '@MonsieurBizSyliusMenuPlugin/shared/layout/base/footer/content/menu/item.html.twig'
                 configuration:

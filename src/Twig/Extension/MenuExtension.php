@@ -57,7 +57,7 @@ final class MenuExtension extends AbstractExtension implements ExtensionInterfac
     }
 
     /**
-     * @deprecated since 2.0.0, use the twig component `monsieur_biz:shared:menu` instead.
+     * @deprecated since 2.0.0, use the twig component `monsieurbiz:shared:menu` instead.
      */
     public function getMenuFirstLevelItems(string $menuCode): ?array
     {
