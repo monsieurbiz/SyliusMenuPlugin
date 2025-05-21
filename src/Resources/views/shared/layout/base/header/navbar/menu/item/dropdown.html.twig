@@ -1,0 +1,10 @@
+{% set menu_item = hookable_metadata.context.menu_item %}
+
+<div class="dropdown-menu">
+    {% for menu_subitem in menu_item.items %}
+        {% hook 'item#link' with {
+            'menu_item': menu_subitem,
+            '_prefixes': ['sylius_shop.base.header.navbar.menu']
+        } %}
+    {% endfor %}
+</div>

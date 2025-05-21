@@ -1,0 +1,15 @@
+{% set tree = hookable_metadata.context.tree %}
+{% if not tree.is_first %}
+    <li>
+        <button
+            class="dropdown-item move-up"
+            data-action="live#action:prevent"
+            data-live-action-param="moveUp"
+            data-live-menu-item-id-param="{{ tree.id }}"
+            {{ sylius_test_html_attribute('move-up') }}
+        >
+            {{ ux_icon('tabler:arrow-up', { class: 'icon dropdown-item-icon' }) }}
+            {{ 'sylius.ui.move_up'|trans }}
+        </button>
+    </li>
+{% endif %}

@@ -1,0 +1,222 @@
+sylius_twig_hooks:
+    hooks:
+        'sylius_admin.menu.update#javascripts':
+            browser_scripts:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/browser/app.html.twig'
+
+        'sylius_admin.menu.update.content':
+            form:
+                enabled: false
+            sections:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections.html.twig'
+
+        'sylius_admin.menu.update.content.sections#left':
+            create:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/create_from_menu.html.twig'
+            tree:
+                component: 'monsieurbiz:menu:tree'
+                props:
+                    resource: '@=_context.resource'
+
+        'sylius_admin.menu.update.content.sections#right':
+            form:
+                template: '@SyliusAdmin/shared/crud/common/content/form.html.twig'
+                configuration:
+                    render_rest: true
+
+        'sylius_admin.menu.update.content.sections.tree':
+            menu_item:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/menu_item.html.twig'
+            actions:
+                template: '@SyliusAdmin/taxon/sections/tree/actions.html.twig'
+
+        'sylius_admin.menu.update.content.sections.tree.actions':
+            dropdown:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/actions/dropdown.html.twig'
+            delete_modal:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/actions/delete_modal.html.twig'
+
+        'sylius_admin.menu.update.content.sections.tree.actions.dropdown':
+            create_parent:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/actions/dropdown/create_parent.html.twig'
+            update_child:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/actions/dropdown/update_child.html.twig'
+            move_up:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/actions/dropdown/move_up.html.twig'
+            move_down:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/actions/dropdown/move_down.html.twig'
+            delete_item:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/actions/dropdown/delete_child.html.twig'
+
+        'sylius_admin.menu.update.content.sections.form':
+            form:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/form.html.twig'
+
+        'sylius_admin.menu_item.create#javascripts':
+            browser_scripts:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/browser/app.html.twig'
+
+        'sylius_admin.menu_item.create.content':
+            form:
+                enabled: false
+            sections:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections.html.twig'
+
+        'sylius_admin.menu_item.create.content.sections#left':
+            create:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/create_from_menu_item.html.twig'
+            tree:
+                component: 'monsieurbiz:menu:tree'
+                props:
+                    resource: '@=_context.resource.getMenu()'
+
+        'sylius_admin.menu_item.create.content.sections#right':
+            menu_item_form:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/menu_item_form.html.twig'
+
+        'sylius_admin.menu_item.create.content.sections.tree':
+            menu_item:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/menu_item.html.twig'
+            actions:
+                template: '@SyliusAdmin/taxon/sections/tree/actions.html.twig'
+
+        'sylius_admin.menu_item.create.content.sections.tree.actions':
+            dropdown:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/actions/dropdown.html.twig'
+
+        'sylius_admin.menu_item.create.content.sections.tree.actions.dropdown':
+            create_parent:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/actions/dropdown/create_parent.html.twig'
+            update_child:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/actions/dropdown/update_child.html.twig'
+            move_up:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/actions/dropdown/move_up.html.twig'
+            move_down:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/actions/dropdown/move_down.html.twig'
+            delete_item:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/actions/dropdown/delete_child.html.twig'
+
+        'sylius_admin.menu_item.create.content.sections.form':
+            parent:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/menu_item_form/parent.html.twig'
+                priority: 300
+            translations:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/menu_item_form/translations.html.twig'
+                priority: 200
+            attributes:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/menu_item_form/attributes.html.twig'
+                priority: 100
+
+        'sylius_admin.menu_item.update#javascripts':
+            browser_scripts:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/browser/app.html.twig'
+
+        'sylius_admin.menu_item.update.content':
+            form:
+                enabled: false
+            sections:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections.html.twig'
+
+        'sylius_admin.menu_item.update.content.sections#left':
+            create:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/create_from_menu_item.html.twig'
+            tree:
+                component: 'monsieurbiz:menu:tree'
+                props:
+                    resource: '@=_context.resource.getMenu()'
+
+        'sylius_admin.menu_item.update.content.sections#right':
+            menu_item_form:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/menu_item_form.html.twig'
+
+        'sylius_admin.menu_item.update.content.sections.form':
+            parent:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/menu_item_form/parent.html.twig'
+                priority: 300
+            translations:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/menu_item_form/translations.html.twig'
+                priority: 200
+            attributes:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/menu_item_form/attributes.html.twig'
+                priority: 100
+
+        'sylius_admin.menu_item.update.content.header.title_block.actions':
+            show:
+                enabled: false
+
+        'sylius_admin.menu_item.update.content.sections.tree':
+            menu_item:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/menu_item.html.twig'
+            actions:
+                template: '@SyliusAdmin/taxon/sections/tree/actions.html.twig'
+
+        'sylius_admin.menu_item.update.content.sections.tree.actions':
+            dropdown:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/actions/dropdown.html.twig'
+
+        'sylius_admin.menu_item.update.content.sections.tree.actions.dropdown':
+            create_parent:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/actions/dropdown/create_parent.html.twig'
+            update_child:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/actions/dropdown/update_child.html.twig'
+            move_up:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/actions/dropdown/move_up.html.twig'
+            move_down:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/actions/dropdown/move_down.html.twig'
+            delete_item:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/actions/dropdown/delete_child.html.twig'
+
+        # Replace the default menu in navbar
+        'sylius_shop.base.header.navbar':
+            menu:
+                component: 'monsieurbiz:shared:menu'
+                props:
+                    template: '@MonsieurBizSyliusMenuPlugin/shared/layout/base/header/navbar/menu.html.twig'
+                configuration:
+                    menu_code: '%monsieurbiz_menu.menu.navbar_code%'
+                priority: 0
+
+        'sylius_shop.base.header.navbar.menu':
+            item:
+                template: '@MonsieurBizSyliusMenuPlugin/shared/layout/base/header/navbar/menu/item.html.twig'
+                priority: 0
+
+        'sylius_shop.base.header.navbar.menu.item#dropdown':
+            toggle:
+                template: '@MonsieurBizSyliusMenuPlugin/shared/layout/base/header/navbar/menu/item/toggle.html.twig'
+                priority: 100
+            dropdown:
+                template: '@MonsieurBizSyliusMenuPlugin/shared/layout/base/header/navbar/menu/item/dropdown.html.twig'
+                priority: 0
+
+        'sylius_shop.base.header.navbar.menu.item#link':
+            link:
+                template: '@MonsieurBizSyliusMenuPlugin/shared/menu/item/link.html.twig'
+                priority: 0
+
+        # Replace the menu in footer
+        'sylius_shop.base.footer.content':
+            menu:
+                template: '@MonsieurBizSyliusMenuPlugin/shared/layout/base/footer/content/menu.html.twig'
+                priority: 200
+
+        'sylius_shop.base.footer.content.menu':
+            column1:
+                component: 'monsieurbiz:shared:menu'
+                props:
+                    template: '@MonsieurBizSyliusMenuPlugin/shared/layout/base/footer/content/menu/item.html.twig'
+                configuration:
+                    menu_code: '%monsieurbiz_menu.menu.footer_column1_code%'
+
+            column2:
+                component: 'monsieurbiz:shared:menu'
+                props:
+                    template: '@MonsieurBizSyliusMenuPlugin/shared/layout/base/footer/content/menu/item.html.twig'
+                configuration:
+                    menu_code: '%monsieurbiz_menu.menu.footer_column2_code%'
+                    additional_classes: 'mb-5'
+
+        'sylius_shop.base.footer.content.menu.item#link':
+            link:
+                template: '@MonsieurBizSyliusMenuPlugin/shared/menu/item/link.html.twig'
+                priority: 0

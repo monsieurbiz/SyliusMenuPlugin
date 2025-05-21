@@ -1,0 +1,13 @@
+<div class="monsieurbiz-sylius-menu-browser__item monsieurbiz-sylius-menu-browser__item-search list-group-item">
+    <div class="description monsieurbiz-sylius-menu-browser__search input-group">
+        <input type="text" name="search" class="form-control" value="{{ search | escape('html_attr') }}"/>
+        <div class="input-group-append">
+            <button
+                class="btn" type="button"
+                onclick="monsieurbizSyliusMenuBrowseListItems('{{ inputName | escape('js') }}', '{{ inputValue | escape('js') }}', '{{ locale | escape('js') }}', '{{ urlProvider.code | escape('js')}}', this.parentNode.parentNode.querySelector('input').value);"
+            >
+                {{ 'monsieurbiz_menu.ui.search' | trans }}
+            </button>
+        </div>
+    </div>
+</div>

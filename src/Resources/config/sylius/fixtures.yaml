@@ -108,31 +108,24 @@ sylius_fixtures:
                                     -   translations:
                                             en_US:
                                                 label: 'Contact us'
-                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/#'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/en_US/contact/'
                                             fr_FR:
                                                 label: 'Nous contacter'
-                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/#'
+                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/contact/'
                             -   isSystem: true
                                 code: 'customer_care'
                                 items:
                                     -   translations:
                                             en_US:
-                                                label: 'Contact us'
+                                                label: 'FAQs'
                                                 url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/#'
                                             fr_FR:
-                                                label: 'Nous contacter'
+                                                label: 'FAQs'
                                                 url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/#'
                                         targetBlank: true
                                         noreferrer: true
                                         noopener: true
                                         nofollow: true
-                                    -   translations:
-                                            en_US:
-                                                label: 'FAQs'
-                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/#'
-                                            fr_FR:
-                                                label: 'FAQs'
-                                                url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/#'
                                     -   translations:
                                             en_US:
                                                 label: 'Delivery & Shipping'

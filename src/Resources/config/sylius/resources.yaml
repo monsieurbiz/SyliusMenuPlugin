@@ -10,7 +10,6 @@ sylius_resource:
                 model: MonsieurBiz\SyliusMenuPlugin\Entity\MenuItem
                 form: MonsieurBiz\SyliusMenuPlugin\Form\Type\MenuItemType
                 repository: MonsieurBiz\SyliusMenuPlugin\Repository\MenuItemRepository
-                controller: MonsieurBiz\SyliusMenuPlugin\Controller\MenuItemResourceController
             translation:
                 classes:
                     model: MonsieurBiz\SyliusMenuPlugin\Entity\MenuItemTranslation

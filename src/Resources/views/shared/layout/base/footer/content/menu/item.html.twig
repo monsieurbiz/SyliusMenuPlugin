@@ -1,0 +1,11 @@
+{% set menu_items = this.getMenuItems(hookableMetadata.configuration.menu_code) %}
+{% if menu_items|length > 0 %}
+    {% set additional_classes = hookableMetadata.configuration.additional_classes ?? '' %}
+    <div class="col-12 col-sm-6">
+        <nav class="nav flex-column {{ additional_classes }}">
+            {% for menu_item in menu_items %}
+                {% hook 'sylius_shop.base.footer.content.menu.item#link' with { menu_item } %}
+            {% endfor %}
+        </nav>
+    </div>
+{% endif %}

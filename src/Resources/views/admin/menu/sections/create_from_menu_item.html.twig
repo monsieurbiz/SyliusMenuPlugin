@@ -1,0 +1,11 @@
+{% if resource is not defined %}
+    {% set resource = hookable_metadata.context.resource %}
+{% endif %}
+
+{% import '@SyliusAdmin/shared/helper/button.html.twig' as button %}
+
+{% set url = path('monsieurbiz_menu_admin_menu_item_create_for_menu', {'menuId': resource.menu.id}) %}
+
+<div class="col-12">
+    {{ button.primary({ text: 'sylius.ui.create'|trans, url: url, class: 'col-12', icon: 'tabler:plus' }) }}
+</div>

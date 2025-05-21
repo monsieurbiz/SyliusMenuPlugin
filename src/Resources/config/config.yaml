@@ -2,9 +2,12 @@ imports:
     - { resource: "services.yaml" }
     - { resource: "sylius/resources.yaml" }
     - { resource: "sylius/grids.yaml" }
-    - { resource: "sylius/ui.yaml" }
     - { resource: "sylius/fixtures.yaml"}
+    - { resource: "sylius/twig_hooks.yaml"}
 
 sylius_labs_doctrine_migrations_extra:
     migrations:
         MonsieurBiz\SyliusMenuPlugin\Migrations: ~
+
+twig:
+    form_themes: ['@MonsieurBizSyliusMenuPlugin/admin/browser/form/theme.html.twig']

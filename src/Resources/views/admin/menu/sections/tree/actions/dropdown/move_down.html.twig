@@ -1,0 +1,15 @@
+{% set tree = hookable_metadata.context.tree %}
+{% if not tree.is_last %}
+    <li>
+        <button
+            class="dropdown-item move-down"
+            data-action="live#action"
+            data-live-action-param="moveDown"
+            data-live-menu-item-id-param="{{ tree.id }}"
+            {{ sylius_test_html_attribute('move-down') }}
+        >
+            {{ ux_icon('tabler:arrow-down', { class: 'icon dropdown-item-icon' }) }}
+            {{ 'sylius.ui.move_down'|trans }}
+        </button>
+    </li>
+{% endif %}

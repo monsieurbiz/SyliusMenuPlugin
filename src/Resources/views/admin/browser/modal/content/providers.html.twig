@@ -1,0 +1,7 @@
+{% for urlProvider in urlProviders %}
+    <div class="list-group-item monsieurbiz-sylius-menu-browser__item" role="button"
+        onclick="monsieurbizSyliusMenuBrowseListItems('{{ inputName | escape('js') }}', '{{ inputValue | escape('js') }}', '{{ locale | escape('js') }}', '{{ urlProvider.code | escape('js')}}', '');"
+    >
+        {{ ux_icon(urlProvider.icon, { 'class': 'icon' }) }} {{ ('monsieurbiz_menu.provider.' ~ urlProvider.code)|trans }}
+    </div>
+{% endfor %}

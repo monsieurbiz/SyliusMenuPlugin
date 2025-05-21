@@ -24,7 +24,7 @@ class TaxonUrlProvider extends AbstractUrlProvider
 
     protected string $code = self::PROVIDER_CODE;
 
-    protected string $icon = 'folder';
+    protected string $icon = 'tabler:folder';
 
     protected int $priority = 100;
 

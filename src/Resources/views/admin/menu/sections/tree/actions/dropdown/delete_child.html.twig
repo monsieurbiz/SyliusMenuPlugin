@@ -1,0 +1,12 @@
+{% set tree = hookable_metadata.context.tree %}
+<li>
+    <button
+        class="dropdown-item text-danger"
+        data-bs-toggle="modal"
+        data-bs-target="#delete-modal-{{ tree.id }}"
+        {{ sylius_test_html_attribute('delete') }}
+    >
+        {{ ux_icon('tabler:trash-x', {'class': 'icon text-danger dropdown-item-icon'}) }}
+        {{ 'sylius.ui.delete'|trans }}
+    </button>
+</li>

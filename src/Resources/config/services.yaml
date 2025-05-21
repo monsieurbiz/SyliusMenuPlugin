@@ -2,6 +2,9 @@ parameters:
     monsieurbiz_menu.form.type.menu.validation_groups: ['monsieurbiz_menu']
     monsieurbiz_menu.form.type.menu_item.validation_groups: ['monsieurbiz_menu']
     monsieurbiz_menu.form.type.menu_item_translation.validation_groups: ['monsieurbiz_menu']
+    monsieurbiz_menu.menu.navbar_code: 'main'
+    monsieurbiz_menu.menu.footer_column1_code: 'your_store'
+    monsieurbiz_menu.menu.footer_column2_code: 'customer_care'
 
 services:
     _defaults:
@@ -61,3 +64,9 @@ services:
     MonsieurBiz\SyliusMenuPlugin\Provider\BrowsableObjectProvider:
         arguments:
             - !tagged_iterator { tag: 'monsieurbiz_menu.url_provider' }
+
+    MonsieurBiz\SyliusMenuPlugin\DataProvider\Tree\MenuItemTreeProvider:
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@sylius_admin.context.locale.admin_based'
+            - '@sylius.translation_locale_provider'

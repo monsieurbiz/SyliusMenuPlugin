@@ -1,0 +1,40 @@
+monsieurbiz_menu:
+    ui:
+        menu: 'Meniu'
+        menus: 'Meniu'
+        menu_item: 'Meniu elementas'
+        new_menu: 'Naujas meniu'
+        items: 'Elementai'
+        is_system: 'Sistema?'
+        edit_menu: 'Redaguoti meniu'
+        code: 'Kodas'
+        create: 'Sukurti'
+        new_menu_item: 'Naujas meniu elementas'
+        edit_menu_item: 'Redaguokite meniu elementą'
+        menu_items: 'Meniu elementai'
+        label: 'Etiketė'
+        url: 'URL'
+        target_blank: 'Target _blank'
+        help_target_blank: 'Atidarykite nuorodą naujame skirtuke'
+        noreferrer: 'noreferer'
+        help_noreferrer: 'Prie rel atributo pridėkite „noreferrer“'
+        noopener: 'noopener'
+        help_noopener: 'Prie rel atributo pridėkite „noopener“'
+        nofollow: 'nofollow'
+        help_nofollow: 'Pridėkite „nofollow“ prie rel atributo'
+        choose_target: 'Pasirinkite tikslą'
+        cancel: 'Atšaukti'
+        go_back: 'Grįžk atgal'
+        search: 'Ieškoti'
+        too_many_results: 'Šis rodinys apribotas iki %maxResults% rezultatų. Norėdami filtruoti elementus, naudokite paiešką.'
+    provider:
+        product: 'Produktas'
+        taxon: 'Taksonas'
+sylius_plus:
+    rbac:
+        parent:
+            menus: 'Meniu'
+        action:
+            create_for_menu: 'Sukurti meniu'
+            move_up: 'Judėti aukštyn'
+            move_down: 'Judėti žemyn'
