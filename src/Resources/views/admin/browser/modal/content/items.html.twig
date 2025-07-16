@@ -7,8 +7,8 @@
     </div>
 {% endif %}
 
-{% include '@MonsieurBizSyliusMenuPlugin/Admin/Browser/Modal/Content/_back.html.twig' %}
-{% include '@MonsieurBizSyliusMenuPlugin/Admin/Browser/Modal/Content/_search.html.twig' %}
+{% include '@MonsieurBizSyliusMenuPlugin/admin/browser/modal/content/_back.html.twig' %}
+{% include '@MonsieurBizSyliusMenuPlugin/admin/browser/modal/content/_search.html.twig' %}
 {% for item in items %}
     <div class="position-relative">
         <div class="list-group-item monsieurbiz-sylius-menu-browser__item" role="button"
@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="position-absolute end-0 top-50 translate-middle-y pe-2">
-            {% include '@MonsieurBizSyliusMenuPlugin/Admin/Browser/Modal/Content/Item/_showLink.html.twig' %}
+            {% include '@MonsieurBizSyliusMenuPlugin/admin/browser/modal/content/Item/_showLink.html.twig' %}
         </div>
     </div>
 {% endfor %}
