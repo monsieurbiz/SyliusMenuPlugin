@@ -83,6 +83,7 @@ final class MenuFixtureFactory extends AbstractExampleFactory implements MenuFix
         $menuItem->setPosition($position);
         $menuItem->setMenu($menu);
 
+        $menuItem->setEnabled($item['enabled'] ?? true);
         $menuItem->setTargetBlank($item['targetBlank'] ?? false);
         $menuItem->setNoreferrer($item['noreferrer'] ?? false);
         $menuItem->setNoopener($item['noopener'] ?? false);

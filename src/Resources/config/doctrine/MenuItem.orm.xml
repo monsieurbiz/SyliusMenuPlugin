@@ -40,5 +40,8 @@
         <field name="nofollow" column="nofollow" type="boolean" nullable="false">
             <options name="default">false</options>
         </field>
+        <field name="enabled" column="enabled" type="boolean" nullable="false">
+            <options name="default">true</options>
+        </field>
     </mapped-superclass>
 </doctrine-mapping>

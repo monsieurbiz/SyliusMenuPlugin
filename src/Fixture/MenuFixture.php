@@ -44,6 +44,7 @@ final class MenuFixture extends AbstractResourceFixture
                                         ->end()
                                     ->end()
                                 ->end()
+                                ->booleanNode('enabled')->defaultTrue()->end()
                                 ->booleanNode('targetBlank')->defaultFalse()->end()
                                 ->booleanNode('noreferrer')->defaultFalse()->end()
                                 ->booleanNode('noopener')->defaultFalse()->end()

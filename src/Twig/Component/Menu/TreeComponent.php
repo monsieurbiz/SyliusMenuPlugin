@@ -104,6 +104,7 @@ class TreeComponent
                 'name' => $menuItem['name'],
                 'menu_id' => $menuItem['menu_id'],
                 'children' => $children[$menuItem['id']] ?? [],
+                'enabled' => (bool) $menuItem['enabled'],
             ];
 
             if (null !== $menuItem['parent_id']) {

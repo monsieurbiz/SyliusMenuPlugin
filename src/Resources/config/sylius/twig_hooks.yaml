@@ -97,14 +97,22 @@ sylius_twig_hooks:
                 template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/actions/dropdown/delete_child.html.twig'
 
         'sylius_admin.menu_item.create.content.sections.form':
-            parent:
-                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/menu_item_form/parent.html.twig'
+            general:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/menu_item_form/general.html.twig'
                 priority: 300
             translations:
                 template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/menu_item_form/translations.html.twig'
                 priority: 200
             attributes:
                 template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/menu_item_form/attributes.html.twig'
+                priority: 100
+
+        'sylius_admin.menu_item.create.content.sections.form.general':
+            enabled:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/menu_item_form/general/enabled.html.twig'
+                priority: 200
+            parent:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/menu_item_form/general/parent.html.twig'
                 priority: 100
 
         'sylius_admin.menu_item.update#javascripts':
@@ -130,14 +138,22 @@ sylius_twig_hooks:
                 template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/menu_item_form.html.twig'
 
         'sylius_admin.menu_item.update.content.sections.form':
-            parent:
-                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/menu_item_form/parent.html.twig'
+            general:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/menu_item_form/general.html.twig'
                 priority: 300
             translations:
                 template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/menu_item_form/translations.html.twig'
                 priority: 200
             attributes:
                 template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/menu_item_form/attributes.html.twig'
+                priority: 100
+
+        'sylius_admin.menu_item.update.content.sections.form.general':
+            enabled:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/menu_item_form/general/enabled.html.twig'
+                priority: 200
+            parent:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/menu_item_form/general/parent.html.twig'
                 priority: 100
 
         'sylius_admin.menu_item.update.content.header.title_block.actions':
