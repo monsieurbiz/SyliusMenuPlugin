@@ -39,6 +39,10 @@ final class MenuItemType extends AbstractResourceType
                 /** @var MenuItemInterface $item */
                 Assert::isInstanceOf($item, MenuItemInterface::class);
                 $event->getForm()
+                    ->add('enabled', CheckboxType::class, [
+                        'label' => 'monsieurbiz_menu.ui.enabled',
+                        'required' => false,
+                    ])
                     ->add('parent', EntityType::class, [
                         'class' => $this->dataClass,
                         'required' => false,
