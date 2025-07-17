@@ -16,3 +16,4 @@
 /.phpunit.result.cache
 /node_modules
 /yarn.lock
+/.php-cs-fixer.cache
