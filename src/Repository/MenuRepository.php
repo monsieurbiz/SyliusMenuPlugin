@@ -28,8 +28,10 @@ class MenuRepository extends EntityRepository implements MenuRepositoryInterface
             ->innerJoin('o.items', 'item')
             ->innerJoin('item.translations', 'item_translation', 'WITH', 'item_translation.locale = :locale')
             ->where('o.code = :code')
+            ->andWhere('item.enabled = :enabled')
             ->setParameter('locale', $localeCode)
             ->setParameter('code', $code)
+            ->setParameter('enabled', true)
         ;
 
         /** @phpstan-ignore-next-line */

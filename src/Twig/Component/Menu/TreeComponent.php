@@ -27,7 +27,7 @@ use Symfony\UX\LiveComponent\Attribute\LiveArg;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 use Symfony\UX\LiveComponent\DefaultActionTrait;
 
-#[AsLiveComponent(name: 'monsieurbiz:menu:tree', template: '@MonsieurBizSyliusMenuPlugin/admin/menu/tree.html.twig')]
+#[AsLiveComponent(name: 'monsieurbiz:menu:tree', template: '@MonsieurBizSyliusMenuPlugin/admin/menu/tree.html.twig', route: 'sylius_admin_live_component')]
 class TreeComponent
 {
     use DefaultActionTrait;
@@ -104,6 +104,7 @@ class TreeComponent
                 'name' => $menuItem['name'],
                 'menu_id' => $menuItem['menu_id'],
                 'children' => $children[$menuItem['id']] ?? [],
+                'enabled' => (bool) $menuItem['enabled'],
             ];
 
             if (null !== $menuItem['parent_id']) {

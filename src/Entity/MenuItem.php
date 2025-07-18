@@ -49,6 +49,8 @@ class MenuItem implements MenuItemInterface
 
     protected bool $nofollow = false;
 
+    protected bool $enabled = true;
+
     /**
      * MenuItem constructor.
      */
@@ -227,5 +229,21 @@ class MenuItem implements MenuItemInterface
     protected function createTranslation(): MenuItemTranslationInterface
     {
         return new MenuItemTranslation();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function isEnabled(): bool
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setEnabled(bool $enabled): void
+    {
+        $this->enabled = $enabled;
     }
 }
