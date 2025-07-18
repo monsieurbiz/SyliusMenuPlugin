@@ -72,6 +72,9 @@ setup_application:
 	(cd ${APP_DIR} && ${COMPOSER} config --no-plugins allow-plugins true)
 	(cd ${APP_DIR} && ${COMPOSER} config --no-plugins --json extra.symfony.endpoint '["https://api.github.com/repos/monsieurbiz/symfony-recipes/contents/index.json?ref=flex/master","flex://defaults"]')
 	(cd ${APP_DIR} && ${COMPOSER} require --no-install --no-scripts --no-progress sylius/sylius="~${SYLIUS_VERSION}") # Make sure to install the required version of sylius because the sylius-standard has a soft constraint
+	# Temporary fix for Sylius 1.x
+	(cd ${APP_DIR} && ${COMPOSER} require --no-install --no-scripts --no-progress symfony/serializer "<6.4.23")
+	# End Temporary fix for Sylius 1.x
 	$(MAKE) ${APP_DIR}/.php-version
 	$(MAKE) ${APP_DIR}/php.ini
 	(cd ${APP_DIR} && ${COMPOSER} install --no-interaction)

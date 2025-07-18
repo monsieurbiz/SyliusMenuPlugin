@@ -62,6 +62,7 @@ jobs:
         working-directory: ./sylius
         run: |
             composer require --no-install --no-scripts --no-progress sylius/sylius="${{ matrix.sylius }}"
+            composer require --no-install --no-scripts --no-progress symfony/serializer "<6.4.23" # Temporary fix for Sylius 1.x
 
       - name: Setup some requirements
         working-directory: ./sylius
