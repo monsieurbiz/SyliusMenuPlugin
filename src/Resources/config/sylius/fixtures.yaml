@@ -52,6 +52,14 @@ sylius_fixtures:
                                                   fr_FR:
                                                       label: 'Avec pompons'
                                                       url: 'https://%env(SYLIUS_FIXTURES_HOSTNAME)%/fr_FR/taxons/caps/with-pompons'
+                                            - enabled: false
+                                              translations:
+                                                  en_US:
+                                                      label: 'Disabled category'
+                                                      url: ~
+                                                  fr_FR:
+                                                      label: 'Catégorie désactivée'
+                                                      url: ~
                                     -   translations:
                                             en_US:
                                                 label: 'Dresses'

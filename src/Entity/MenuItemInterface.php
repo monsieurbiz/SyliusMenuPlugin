@@ -66,4 +66,8 @@ interface MenuItemInterface extends ResourceInterface, TranslatableInterface
     public function getLabel(): ?string;
 
     public function getUrl(): ?string;
+
+    public function isEnabled(): bool;
+
+    public function setEnabled(bool $enabled): void;
 }
