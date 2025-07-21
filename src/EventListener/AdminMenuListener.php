@@ -21,7 +21,13 @@ final class AdminMenuListener
     {
         $menu = $event->getMenu();
         if (null !== $content = $menu->getChild('configuration')) {
-            $content->addChild('monsieurbiz_menu_admin_menu', ['route' => 'monsieurbiz_menu_admin_menu_index'])
+            $content->addChild('monsieurbiz_menu_admin_menu', ['route' => 'monsieurbiz_menu_admin_menu_index', 'extras' => ['routes' => [
+                'monsieurbiz_menu_admin_menu_create',
+                'monsieurbiz_menu_admin_menu_update',
+                'monsieurbiz_menu_admin_menu_item_create_for_menu',
+                'monsieurbiz_menu_admin_menu_item_create_for_parent',
+                'monsieurbiz_menu_admin_menu_item_update',
+            ]]])
                 ->setLabel('monsieurbiz_menu.ui.menus')
                 ->setLabelAttribute('icon', 'sitemap')
             ;
