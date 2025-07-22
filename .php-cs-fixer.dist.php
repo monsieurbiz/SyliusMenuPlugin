@@ -11,6 +11,8 @@
 
 declare(strict_types=1);
 
+use PhpCsFixer\UnsupportedPhpVersionAllowedConfigInterface;
+
 $header = <<<'HEADER'
 This file is part of Monsieur Biz' Menu plugin for Sylius.
 
@@ -266,5 +268,9 @@ $config
     ])
     ->setFinder($finder)
 ;
+
+if ($config instanceof UnsupportedPhpVersionAllowedConfigInterface) {
+    $config->setUnsupportedPhpVersionAllowed(true);
+}
 
 return $config;
