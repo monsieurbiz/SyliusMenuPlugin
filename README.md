@@ -13,7 +13,6 @@ This plugins allows you to manage your menus.
 
 | Sylius Version | PHP Version     |
 |----------------|-----------------|
-| 1.12           | 8.1 - 8.2 - 8.3 |
 | 1.13           | 8.1 - 8.2 - 8.3 |
 | 1.14           | 8.1 - 8.2 - 8.3 |
 
