@@ -61,6 +61,15 @@
     function monsieurbizSyliusMenuBrowseChooseItem(inputName, inputValue, locale, providerCode, value)
     {
         document.querySelector('input[name="' + inputName + '"]').value = value;
+        const event = new CustomEvent('mbiz:menu-item:choose', {
+            detail: {
+                inputName: inputName,
+                inputValue: value,
+                locale: locale,
+                providerCode: providerCode,
+            }
+        });
+        document.dispatchEvent(event);
         monsieurbizSyliusMenuBrowserCloseModal(locale);
     }
 
