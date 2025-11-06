@@ -103,6 +103,9 @@ To get the first items of a menu, you can call the `getMenuItems` method of the 
 Replace `menu_code` with the code of the menu you want to display.  
 Then you can loop through the items and display them as you want.
 
+**Note:**
+For the default Sylius menus the following menu codes are available: `menu`, `customer_care`, or `your_store`. If you want to use one of those menus, make sure you create a menu with one of those codes.
+
 **Advanced example**
 
 If you wish to define a menu code by channel and/or locale, we recommend you use the [plugin Settings](https://github.com/monsieurbiz/SyliusSettingsPlugin).
