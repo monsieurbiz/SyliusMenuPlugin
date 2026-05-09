@@ -1,0 +1,41 @@
+monsieurbiz_menu:
+    ui:
+        menu: 'Menü'
+        menus: 'Menüs'
+        menu_item: 'Menüpunkt'
+        new_menu: 'Neues Menü'
+        items: 'Elemente'
+        is_system: 'Systemintern?'
+        edit_menu: 'Menü bearbeiten'
+        code: 'Code'
+        create: 'Erstellen'
+        new_menu_item: 'Neues Menüelement'
+        edit_menu_item: 'Menüelement bearbeiten'
+        menu_items: 'Menüelemente'
+        label: 'Bezeichnung'
+        url: 'URL'
+        target_blank: 'Ziel _blank'
+        help_target_blank: 'Öffnet den Link in einem neuen Tab'
+        noreferrer: 'noreferrer'
+        help_noreferrer: 'Fügt dem Attribut „rel“ den Wert „noreferrer“ hinzu'
+        noopener: 'noopener'
+        help_noopener: 'Fügt dem Attribut „rel“ den Wert „noopener“ hinzu'
+        nofollow: 'nofollow'
+        help_nofollow: 'Fügt dem Attribut „rel“ den Wert „nofollow“ hinzu'
+        choose_target: 'Ziel auswählen'
+        cancel: 'Abbrechen'
+        go_back: 'Zurück'
+        search: 'Suchen'
+        too_many_results: 'Diese Ansicht ist auf %maxResults% Ergebnisse begrenzt. Verwenden Sie die Suche, um die Elemente zu filtern.'
+        enabled: 'Aktiviert'
+    provider:
+        product: 'Produkt'
+        taxon: 'Kategorie'
+sylius_plus:
+    rbac:
+        parent:
+            menus: 'Menüs'
+        action:
+            create_for_menu: 'Für Menü erstellen'
+            move_up: 'Nach oben verschieben'
+            move_down: 'Nach unten verschieben'
