@@ -1,4 +1,23 @@
 <script type="text/javascript">
+    function monsieurbizSyliusMenuBrowserDestroyModal(locale)
+    {
+        document.querySelectorAll('#modal-' + locale).forEach(function (el) {
+            var instance = bootstrap.Modal.getInstance(el);
+            if (instance) {
+                instance.dispose();
+            }
+            el.remove();
+        });
+
+        // Sweep any backdrops left behind by portaled/disposed modals and restore body scroll.
+        document.querySelectorAll('.modal-backdrop').forEach(function (backdrop) {
+            backdrop.remove();
+        });
+        document.body.classList.remove('modal-open');
+        document.body.style.removeProperty('overflow');
+        document.body.style.removeProperty('padding-right');
+    }
+
     /**
      * Choose type of provider (Product, Taxon etc.)
      */
@@ -31,23 +50,23 @@
     {
         let req = new XMLHttpRequest();
         req.onload = function(progress) {
-            if (this.status === 200) {
-                monsieurbizSyliusMenuBrowserRemoveLoaderModal();
-                const locale = params.get('locale');
-                var myModal = bootstrap.Modal.getInstance(document.getElementById('modal-' + locale));
-                if (myModal) {
-                    myModal.hide();
-                    myModal.dispose()
-                }
-                const modalWrapper = document.getElementById('modal-' + locale + '-wrapper');
-                modalWrapper.innerHTML = this.responseText;
-                const myModalElement = document.getElementById('modal-' + locale);
-                var myModal = bootstrap.Modal.getOrCreateInstance(myModalElement);
-                myModal.show();
-                monsieurbizSyliusMenuBrowserSearchEnter();
-            } else {
-                monsieurbizSyliusMenuBrowserRemoveLoaderModal();
+            monsieurbizSyliusMenuBrowserRemoveLoaderModal();
+            if (this.status !== 200) {
+                return;
             }
+
+            const locale = params.get('locale');
+
+            // Remove any previous modal (possibly moved to <body> by the admin modal portal) + its backdrop.
+            monsieurbizSyliusMenuBrowserDestroyModal(locale);
+
+            const modalWrapper = document.getElementById('modal-' + locale + '-wrapper');
+            modalWrapper.innerHTML = this.responseText;
+
+            const myModalElement = document.getElementById('modal-' + locale);
+            const myModal = bootstrap.Modal.getOrCreateInstance(myModalElement);
+            myModal.show();
+            monsieurbizSyliusMenuBrowserSearchEnter();
         };
         req.open("get", route + "?" + params.toString(), true);
         req.setRequestHeader("X-Requested-With", "XMLHttpRequest");
@@ -56,7 +75,7 @@
     }
 
     /**
-     * Choose route for given prodiver (Select a product in a list, select a taxon in a list etc.)
+     * Choose an item for the given provider (Select a product in a list, select a taxon in a list etc.)
      */
     function monsieurbizSyliusMenuBrowseChooseItem(inputName, inputValue, locale, providerCode, value)
     {
@@ -75,13 +94,7 @@
 
     function monsieurbizSyliusMenuBrowserCloseModal(locale)
     {
-        var modal = bootstrap.Modal.getInstance(document.getElementById('modal-' + locale));
-        if (!modal) {
-            return;
-        }
-
-        modal.hide();
-        modal.dispose();
+        monsieurbizSyliusMenuBrowserDestroyModal(locale);
     }
 
     function monsieurbizSyliusMenuBrowserAddLoaderModal()
