@@ -9,13 +9,16 @@
             el.remove();
         });
 
-        // Sweep any backdrops left behind by portaled/disposed modals and restore body scroll.
-        document.querySelectorAll('.modal-backdrop').forEach(function (backdrop) {
-            backdrop.remove();
-        });
-        document.body.classList.remove('modal-open');
-        document.body.style.removeProperty('overflow');
-        document.body.style.removeProperty('padding-right');
+        // Sweep any backdrops left behind by portaled/disposed modals.
+        // Only reset global body/backdrop state when no other modals are currently shown.
+        if (document.querySelectorAll('.modal.show').length === 0) {
+            document.querySelectorAll('.modal-backdrop').forEach(function (backdrop) {
+                backdrop.remove();
+            });
+            document.body.classList.remove('modal-open');
+            document.body.style.removeProperty('overflow');
+            document.body.style.removeProperty('padding-right');
+        }
     }
 
     /**
