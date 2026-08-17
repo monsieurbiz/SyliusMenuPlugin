@@ -83,6 +83,8 @@ sylius_twig_hooks:
         'sylius_admin.menu_item.create.content.sections.tree.actions':
             dropdown:
                 template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/actions/dropdown.html.twig'
+            delete_modal:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/actions/delete_modal.html.twig'
 
         'sylius_admin.menu_item.create.content.sections.tree.actions.dropdown':
             create_parent:
@@ -169,6 +171,8 @@ sylius_twig_hooks:
         'sylius_admin.menu_item.update.content.sections.tree.actions':
             dropdown:
                 template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/actions/dropdown.html.twig'
+            delete_modal:
+                template: '@MonsieurBizSyliusMenuPlugin/admin/menu/sections/tree/actions/delete_modal.html.twig'
 
         'sylius_admin.menu_item.update.content.sections.tree.actions.dropdown':
             create_parent:
