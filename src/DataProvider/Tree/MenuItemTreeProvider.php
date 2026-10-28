@@ -43,13 +43,13 @@ final class MenuItemTreeProvider implements MenuItemTreeProviderInterface
         $queryBuilder = $this->entityManager->getConnection()->createQueryBuilder();
 
         $queryBuilder
-            ->select([
+            ->select(
                 'mni.id as id',
                 'mni.parent_id as parent_id',
                 'mm.id as menu_id',
                 'COALESCE(current_translation.label, fallback_translation.label) as name',
                 'mni.enabled as enabled',
-            ])
+            )
             ->from('monsieurbiz_menu_item', 'mni')
             ->join(
                 'mni',

@@ -11,9 +11,10 @@ This plugins allows you to manage your menus.
 
 ## Compatibility
 
-| Sylius Version | PHP Version |
-|----------------|-------------|
-| 2.0, 2.1       | 8.2 - 8.3   |
+| Sylius Version | Symfony Version | PHP Version |
+|----------------|-----------------|-------------|
+| 2.0, 2.1       | 6.4, 7.x        | 8.2 - 8.3   |
+| 2.3            | 8.x             | 8.4         |
 
 ℹ️ For Sylius 1.x, see our [1.x branch](https://github.com/monsieurbiz/SyliusMenuPlugin/tree/1.x) and all 1.x releases.
 
